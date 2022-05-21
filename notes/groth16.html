@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Algebraic Intermediate Representation &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>Groth16 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Groth16" href="groth16.html" />
-    <link rel="prev" title="My Translation List" href="../translations.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Algebraic Intermediate Representation" href="air.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -123,13 +123,13 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="air.html">
    Algebraic Intermediate Representation
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="groth16.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Groth16
   </a>
  </li>
@@ -186,7 +186,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/air.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/groth16.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -206,7 +206,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/air.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/groth16.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -233,13 +233,13 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execution-trace">
-   Execution Trace
+  <a class="reference internal nav-link" href="#groth16-scheme">
+   Groth16 Scheme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constraints">
-   Constraints
+  <a class="reference internal nav-link" href="#proofs-for-groth16">
+   Proofs for Groth16
   </a>
  </li>
 </ul>
@@ -252,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Algebraic Intermediate Representation</h1>
+                <h1>Groth16</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -263,13 +263,13 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execution-trace">
-   Execution Trace
+  <a class="reference internal nav-link" href="#groth16-scheme">
+   Groth16 Scheme
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constraints">
-   Constraints
+  <a class="reference internal nav-link" href="#proofs-for-groth16">
+   Proofs for Groth16
   </a>
  </li>
 </ul>
@@ -281,85 +281,71 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="algebraic-intermediate-representation">
-<h1>Algebraic Intermediate Representation<a class="headerlink" href="#algebraic-intermediate-representation" title="Permalink to this headline">¶</a></h1>
-<p><strong>Arithmetization</strong> is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials.</p>
-<p>In the <strong>STARK</strong> protocol, the output of arithmetization is an <strong>Algebraic Intermediate Representation</strong> of a computation.</p>
-<p>Informally, AIR consists of the following three elements:</p>
-<ol class="simple">
-<li><p><strong>execution trace</strong> which is a two-dimensional matrix, in which each row represents the <strong>state</strong> of the computation at a single point in time and each column corresponds to an <strong>algebraic register</strong> tracked over all steps of the computation. Let <span class="math notranslate nohighlight">\(T\)</span> denote the execution trace matrix.</p></li>
-<li><p><strong>transition constraints</strong> which define <strong>algebraic relationships</strong> between two (or more) rows of the execution trace.</p></li>
-<li><p><strong>boundary constraints</strong> which enforce equality between certain cells of the execution trace and a set of constant values. Boundary constraints can be thought of as defining a set of <strong>input and output values</strong> for the computation.</p></li>
-</ol>
-<div class="section" id="execution-trace">
-<h2>Execution Trace<a class="headerlink" href="#execution-trace" title="Permalink to this headline">¶</a></h2>
-<p>Denote <span class="math notranslate nohighlight">\(m\)</span> as the width of the execution trace and <span class="math notranslate nohighlight">\(n\)</span> as the number of steps in the execution trace, i.e. <span class="math notranslate nohighlight">\(T\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix.</p>
-<p>We define the <strong>register trace</strong> of a register <span class="math notranslate nohighlight">\(k\)</span> as the polynomial interpolation <span class="math notranslate nohighlight">\(f_{k}\)</span> of the set <span class="math notranslate nohighlight">\(\left\{\left(\omega^{i}, T[i][k]\right) \mid i \in[0, n)\right\}\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is a generator of a multiplicative subgroup of size <span class="math notranslate nohighlight">\(n\)</span> in the base field specified for an instantiation of a STARK protocol.</p>
-<p>The set <span class="math notranslate nohighlight">\(\left\{f_{k} \mid k \in[0, m)\right\}\)</span> is called the set of <strong>trace polynomials</strong>.</p>
-<p>Notice that if <span class="math notranslate nohighlight">\(f_{k}(x)\)</span> is the value in the execution trace matrix in column <span class="math notranslate nohighlight">\(k\)</span> and row <span class="math notranslate nohighlight">\(i\)</span>, then <span class="math notranslate nohighlight">\(f_{k}(x \cdot \omega)\)</span> is the value in <span class="math notranslate nohighlight">\(k\)</span> at step <span class="math notranslate nohighlight">\(i+1\)</span>.</p>
-<p>For efficient execution of the STARK protocol, <span class="math notranslate nohighlight">\(n\)</span> must be a power of two. This allows us to use <strong>FFT-based polynomial evaluation and interpolation</strong>, which have the complexity of <span class="math notranslate nohighlight">\(O(n \log n)\)</span></p>
-<p>Thus, the base field for the STARK protocol must be <strong>2 -smooth</strong> , which indeed is the case for out selected field with modulus <span class="math notranslate nohighlight">\(q=2^{128}-45 \cdot 2^{40}+1\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A field is <strong>k-smooth</strong> if it contains a subgroup (multiplicative or additive) all of whose prime divisors are at most <span class="math notranslate nohighlight">\(k\)</span>. For example, a prime field of size <span class="math notranslate nohighlight">\(q\)</span> such that <span class="math notranslate nohighlight">\(q-1\)</span> is divisible by a large power of 2 , is 2 -smooth.</p>
-</div>
-<p>In addition to registers of the execution trace, we also use <strong>periodic registers</strong> (also called <strong>periodic columns</strong>), which are not included in the execution trace but can be referenced in transition constraints.</p>
-<p>Periodic columns are typically used in STARKs to encode a small set of values which can be represented by succinct polynomials of size much smaller than <span class="math notranslate nohighlight">\(n\)</span>. One example is a register where values repeats in a cycle and the length of the cycle is a power of two.</p>
-</div>
-<div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
-<p>Both boundary and transition constraints are defined by rational functions of the form:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{p(x)}{z(x)}
-\]</div>
-<p>where, <span class="math notranslate nohighlight">\(p(x)\)</span> defines the <strong>constraint relationship</strong> , and <span class="math notranslate nohighlight">\(z(x)\)</span> defines the <strong>constraint domain</strong> (a set of steps at which the constraint should hold). This constraint is said to hold if the polynomial <span class="math notranslate nohighlight">\(z\)</span> divides the polynomial <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>For <strong>boundary constraints</strong>, <span class="math notranslate nohighlight">\(p(x)\)</span> has the following form:</p>
-<div class="math notranslate nohighlight">
-\[
-p(x)=c\left(f_{k}(x)\right)
-\]</div>
-<p>where, <span class="math notranslate nohighlight">\(f_{k}(x)\)</span> is the trace polynomial for register <span class="math notranslate nohighlight">\(k\)</span> against which the constraint is enforced.</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>For example, to specify that the value in the first column of the first row in the execution trace must be 1 , we could use the following constraint:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{0}(x)-1}{x-1}
-\]</div>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>Similarly, to specify that the value in the 7 th row of the second column must be 987 , we could use the following constraint:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{1}(x)-987}{x-\omega^{7}}
-\]</div>
-</div>
-<p>For <strong>transition constraints</strong> , <span class="math notranslate nohighlight">\(p(x)\)</span> has the following form:</p>
-<div class="math notranslate nohighlight">
-\[
-p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \omega), \ldots, f_{m-1}(x \cdot \omega)\right\}\right)
-\]</div>
-<p>that is, <span class="math notranslate nohighlight">\(p(x)\)</span> is a function of all register values in two consecutive steps of a computation.</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>For example, the following constraint enforces that a value in the first register of the execution trace must be incremented by 1 at every step:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{0}(x \cdot \omega)-\left(f_{0}(x)+1\right)}{\prod_{i=0}^{n-1}\left(x-\omega^{i}\right)}
-\]</div>
-</div>
-<p>Additionally, since trace polynomials are evaluated over a multiplicative subgroup of a field, the denominator of the constraint above can be expressed succinctly, and the constraint can be rewritten as:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{0}(x \cdot \omega)-\left(f_{0}(x)+1\right)}{x^{n}-1}
-\]</div>
-<blockquote>
-<div><ul class="simple">
-<li><p><span id="id1">[<a class="reference internal" href="../references.html#id2" title="Irakliy Khaburzaniya, Konstantinos Chalkias, Kevin Lewi, and Harjasleen Malvai. Aggregating hash-based signatures using starks. IACR Cryptol. ePrint Arch., 2021:1048, 2021.">KCLM21</a>]</span> Section 2.2</p></li>
+  <div class="tex2jax_ignore mathjax_ignore section" id="groth16">
+<h1>Groth16<a class="headerlink" href="#groth16" title="Permalink to this headline">¶</a></h1>
+<p>We briefly describe the trusted-setup zkSNARK scheme defined in [Gro16].</p>
+<ul class="simple">
+<li><p>[Gro16]: Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sebastien Coron, editors, ´ EUROCRYPT 2016, Part II, volume 9666 of LNCS, pages 305–326. Springer, Heidelberg, May 2016.</p></li>
 </ul>
-</div></blockquote>
+<p>At a high level, given a description of an arithmetic circuit (over the scalar field of a pairing-friendly elliptic curve), a Groth16 proof proves that a circuit is satisfied by a set of public wires (values known to the verifier) and private wires (values which are not known to the verifier, also called <em>witness elements</em>).</p>
+<div class="section" id="groth16-scheme">
+<h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">¶</a></h2>
+<p>The Groth16 scheme defines four procedures:</p>
+<ul>
+<li><p>Setup(desc) <span class="math notranslate nohighlight">\(\rightarrow\)</span> crs</p>
+<ul class="simple">
+<li><p>Generates a common reference string for the given arithmetic circuit description. crs contains the group elements necessary to compute the expressions in <span class="math notranslate nohighlight">\(\mathrm{Groth16.Prove}\)</span> below.</p></li>
+</ul>
+</li>
+<li><p>Prove <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i}\right\}_{i=0}^{\ell},\left\{a_{i}\right\}_{i=\ell+1}^{m}\right) \rightarrow \pi\)</span></p>
+<ul class="simple">
+<li><p>Proves the circuit described by crs is satisfied, where <span class="math notranslate nohighlight">\(a_{0}, \ldots, a_{\ell} \in \mathbb{F}\)</span> represent the circuit’s public input wires and <span class="math notranslate nohighlight">\(a_{\ell+1}, \ldots, a_{m} \in \mathbb{F}\)</span> represent the private wires. <span class="math notranslate nohighlight">\(\pi\)</span> is of the form <span class="math notranslate nohighlight">\(\left([\eta]_{1},[\theta]_{2},[\iota]_{1}\right)\)</span>, where
+$<span class="math notranslate nohighlight">\(
+\begin{gathered}
+\boldsymbol{\eta}=\alpha+\sum_{i=0}^{m} a_{i} u_{i}(X)+r\boldsymbol{\delta} \quad \boldsymbol{\theta}=\beta+\sum_{i=0}^{m} a_{i} v_{i}(X)+s \boldsymbol{\delta} \\
+\iota=\sum_{i=\ell+1}^{m} \frac{a_{i}\left(\beta u_{i}(X)+\alpha v_{i}(X)+w_{i}(X)\right)+h(X) t(X)}{\boldsymbol{\delta}}+\eta s+\theta r-r s \boldsymbol{\delta}
+\end{gathered}
+\)</span>$
+and all otherwise unspecified constants and polynomials come from crs.</p></li>
+</ul>
+</li>
+<li><p>Prepare <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i_{j}}\right\}_{j=1}^{t}\right) \rightarrow \hat{S}\)</span></p>
+<ul class="simple">
+<li><p>Aggregates any subset of public inputs into a single group element called a <em>prepared input</em>: <span class="math notranslate nohighlight">\(\hat{S}=\sum_{j=1}^{t} a_{i_{j}} W_{i_{j}}\)</span>, where <span class="math notranslate nohighlight">\(W_{i}\)</span> are the CRS values whose coefficient represents the value of the <span class="math notranslate nohighlight">\(i\)</span>-th wire of the circuit.</p></li>
+</ul>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\mathrm{Vfy} \left(\mathrm{crs}, \pi,\left\{a_{0}\right\}_{i=0}^{\ell}\right) \rightarrow\{0,1\}\)</span></p>
+<ul class="simple">
+<li><p>Verifies the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by checking the relation,
+$<span class="math notranslate nohighlight">\(
+e(A, B) \stackrel{?}{=} e\left([\alpha]_{1},[\beta]_{2}\right) \cdot e\left(C,[\delta]_{2}\right) \cdot \prod_{i=0}^{\ell} e\left(a_{i} W_{i},[\gamma]_{2}\right)
+\)</span><span class="math notranslate nohighlight">\(
+  where \)</span>[\alpha]<em>{1},[\beta]</em>{2},[\gamma]<em>{2}<span class="math notranslate nohighlight">\(, and \)</span>[\delta]</em>{2}$ come from crs.</p></li>
+</ul>
+<p>Vfy permits any subset of the public inputs to be prepared as above. The common case will be where all but the first input is prepared, i.e., calls of the form <span class="math notranslate nohighlight">\(\mathrm{Vfy}\left(\mathrm{crs}, \pi,\left(a_{0}, \hat{S}\right)\right)\)</span>.</p>
+</li>
+<li><p><span class="math notranslate nohighlight">\(\operatorname{Rerand}(\pi) \rightarrow \pi^{\prime}\)</span></p>
+<ul class="simple">
+<li><p>Rerandomizes the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by sampling <span class="math notranslate nohighlight">\(\zeta, \omega \leftarrow \mathbb{F}\)</span> and computing
+$<span class="math notranslate nohighlight">\(
+\pi^{\prime}:=\left(\zeta^{-1} A, \zeta B+\zeta \omega[\delta]_{2}, C+\omega A\right) .
+\)</span>$
+By Theorem 3 in [BKSV20], the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p></li>
+</ul>
+</li>
+<li><p>[BKSV20]: Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth’s zk-SNARK. Cryptology ePrint Archive, Report 2020/811, 2020. <a class="reference external" href="https://eprint.iacr.org/2020/8">https://eprint.iacr.org/2020/8</a> 11.</p></li>
+</ul>
+</div>
+<div class="section" id="proofs-for-groth16">
+<h2>Proofs for Groth16<a class="headerlink" href="#proofs-for-groth16" title="Permalink to this headline">¶</a></h2>
+<p>We now have four different proofs for Groth16.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eprint.iacr.org/2016/260.pdf">https://eprint.iacr.org/2016/260.pdf</a></p></li>
+<li><p><a class="reference external" href="https://eprint.iacr.org/2017/620.pdf">https://eprint.iacr.org/2017/620.pdf</a></p></li>
+<li><p><a class="reference external" href="https://eprint.iacr.org/2020/811.pdf">https://eprint.iacr.org/2020/811.pdf</a></p></li>
+<li><p><a class="reference external" href="https://eprint.iacr.org/2021/219.pdf">https://eprint.iacr.org/2021/219.pdf</a></p></li>
+</ul>
+<p>(According to Mary Maller’s talk at <a class="reference external" href="https://twitter.com/hashtag/zksummit?src=hashtag_click">#zksummit</a> )</p>
 </div>
 </div>
 
@@ -388,17 +374,17 @@ p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \om
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../translations.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="air.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">My Translation List</p>
+            <p class="prev-next-title">Algebraic Intermediate Representation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="groth16.html" title="next page">
+    <a class='right-next' id="next-link" href="../references.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Groth16</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
