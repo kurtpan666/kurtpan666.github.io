@@ -4,6 +4,7 @@
 title: Kurt Pan's Crypto Notes
 author: Kurt Pan
 logo: nftpfp.jpg
+copyright : "愛新覺羅·潤之"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

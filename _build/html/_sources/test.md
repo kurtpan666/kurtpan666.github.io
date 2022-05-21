@@ -16,5 +16,9 @@ this is note
     [try this](https://jupyterbook.org/en/stable/content/myst.html)
 ```
 
+```{example}
+   example
+```
+
 {doc}`intro`
 

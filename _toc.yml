@@ -3,9 +3,17 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: Kurt Pan's Awesome Zero-Knowledge Proofs (2022)
-- file: translations
+
+parts:
+  - caption: List
+    chapters:
+    - file: Kurt Pan's Awesome Zero-Knowledge Proofs (2022)
+    - file: translations
+  - caption: Notes
+    chapters:
+    - file: notes/air
+    - file: references
+
 
 
 
