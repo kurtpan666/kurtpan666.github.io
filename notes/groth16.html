@@ -283,58 +283,61 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="groth16">
 <h1>Groth16<a class="headerlink" href="#groth16" title="Permalink to this headline">¶</a></h1>
-<p>We briefly describe the trusted-setup zkSNARK scheme defined in [Gro16].</p>
-<ul class="simple">
-<li><p>[Gro16]: Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sebastien Coron, editors, ´ EUROCRYPT 2016, Part II, volume 9666 of LNCS, pages 305–326. Springer, Heidelberg, May 2016.</p></li>
-</ul>
+<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id3" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
 <p>At a high level, given a description of an arithmetic circuit (over the scalar field of a pairing-friendly elliptic curve), a Groth16 proof proves that a circuit is satisfied by a set of public wires (values known to the verifier) and private wires (values which are not known to the verifier, also called <em>witness elements</em>).</p>
 <div class="section" id="groth16-scheme">
 <h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">¶</a></h2>
 <p>The Groth16 scheme defines four procedures:</p>
-<ul>
-<li><p>Setup(desc) <span class="math notranslate nohighlight">\(\rightarrow\)</span> crs</p>
 <ul class="simple">
+<li><p>Setup(desc) <span class="math notranslate nohighlight">\(\rightarrow\)</span> crs</p>
+<ul>
 <li><p>Generates a common reference string for the given arithmetic circuit description. crs contains the group elements necessary to compute the expressions in <span class="math notranslate nohighlight">\(\mathrm{Groth16.Prove}\)</span> below.</p></li>
 </ul>
 </li>
 <li><p>Prove <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i}\right\}_{i=0}^{\ell},\left\{a_{i}\right\}_{i=\ell+1}^{m}\right) \rightarrow \pi\)</span></p>
-<ul class="simple">
-<li><p>Proves the circuit described by crs is satisfied, where <span class="math notranslate nohighlight">\(a_{0}, \ldots, a_{\ell} \in \mathbb{F}\)</span> represent the circuit’s public input wires and <span class="math notranslate nohighlight">\(a_{\ell+1}, \ldots, a_{m} \in \mathbb{F}\)</span> represent the private wires. <span class="math notranslate nohighlight">\(\pi\)</span> is of the form <span class="math notranslate nohighlight">\(\left([\eta]_{1},[\theta]_{2},[\iota]_{1}\right)\)</span>, where
-$<span class="math notranslate nohighlight">\(
+<ul>
+<li><p>Proves the circuit described by crs is satisfied, where <span class="math notranslate nohighlight">\(a_{0}, \ldots, a_{\ell} \in \mathbb{F}\)</span> represent the circuit’s public input wires and <span class="math notranslate nohighlight">\(a_{\ell+1}, \ldots, a_{m} \in \mathbb{F}\)</span> represent the private wires. <span class="math notranslate nohighlight">\(\pi\)</span> is of the form <span class="math notranslate nohighlight">\(\left([\eta]_{1},[\theta]_{2},[\iota]_{1}\right)\)</span>, where</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{gathered}
 \boldsymbol{\eta}=\alpha+\sum_{i=0}^{m} a_{i} u_{i}(X)+r\boldsymbol{\delta} \quad \boldsymbol{\theta}=\beta+\sum_{i=0}^{m} a_{i} v_{i}(X)+s \boldsymbol{\delta} \\
 \iota=\sum_{i=\ell+1}^{m} \frac{a_{i}\left(\beta u_{i}(X)+\alpha v_{i}(X)+w_{i}(X)\right)+h(X) t(X)}{\boldsymbol{\delta}}+\eta s+\theta r-r s \boldsymbol{\delta}
 \end{gathered}
-\)</span>$
-and all otherwise unspecified constants and polynomials come from crs.</p></li>
-</ul>
-</li>
-<li><p>Prepare <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i_{j}}\right\}_{j=1}^{t}\right) \rightarrow \hat{S}\)</span></p>
+\end{split}\]</div>
+<p>and all otherwise unspecified constants and polynomials come from crs.</p>
 <ul class="simple">
+<li><p>Prepare <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i_{j}}\right\}_{j=1}^{t}\right) \rightarrow \hat{S}\)</span></p>
+<ul>
 <li><p>Aggregates any subset of public inputs into a single group element called a <em>prepared input</em>: <span class="math notranslate nohighlight">\(\hat{S}=\sum_{j=1}^{t} a_{i_{j}} W_{i_{j}}\)</span>, where <span class="math notranslate nohighlight">\(W_{i}\)</span> are the CRS values whose coefficient represents the value of the <span class="math notranslate nohighlight">\(i\)</span>-th wire of the circuit.</p></li>
 </ul>
 </li>
 <li><p><span class="math notranslate nohighlight">\(\mathrm{Vfy} \left(\mathrm{crs}, \pi,\left\{a_{0}\right\}_{i=0}^{\ell}\right) \rightarrow\{0,1\}\)</span></p>
-<ul class="simple">
-<li><p>Verifies the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by checking the relation,
-$<span class="math notranslate nohighlight">\(
+<ul>
+<li><p>Verifies the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by checking the relation,</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
 e(A, B) \stackrel{?}{=} e\left([\alpha]_{1},[\beta]_{2}\right) \cdot e\left(C,[\delta]_{2}\right) \cdot \prod_{i=0}^{\ell} e\left(a_{i} W_{i},[\gamma]_{2}\right)
-\)</span><span class="math notranslate nohighlight">\(
-  where \)</span>[\alpha]<em>{1},[\beta]</em>{2},[\gamma]<em>{2}<span class="math notranslate nohighlight">\(, and \)</span>[\delta]</em>{2}$ come from crs.</p></li>
-</ul>
+\]</div>
+<p>where <span class="math notranslate nohighlight">\([\alpha]_{1},[\beta]_{2},[\gamma]_{2}\)</span>, and <span class="math notranslate nohighlight">\([\delta]_{2}\)</span> come from crs.</p>
 <p>Vfy permits any subset of the public inputs to be prepared as above. The common case will be where all but the first input is prepared, i.e., calls of the form <span class="math notranslate nohighlight">\(\mathrm{Vfy}\left(\mathrm{crs}, \pi,\left(a_{0}, \hat{S}\right)\right)\)</span>.</p>
-</li>
-<li><p><span class="math notranslate nohighlight">\(\operatorname{Rerand}(\pi) \rightarrow \pi^{\prime}\)</span></p>
 <ul class="simple">
-<li><p>Rerandomizes the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by sampling <span class="math notranslate nohighlight">\(\zeta, \omega \leftarrow \mathbb{F}\)</span> and computing
-$<span class="math notranslate nohighlight">\(
-\pi^{\prime}:=\left(\zeta^{-1} A, \zeta B+\zeta \omega[\delta]_{2}, C+\omega A\right) .
-\)</span>$
-By Theorem 3 in [BKSV20], the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\operatorname{Rerand}(\pi) \rightarrow \pi^{\prime}\)</span></p>
+<ul>
+<li><p>Rerandomizes the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by sampling <span class="math notranslate nohighlight">\(\zeta, \omega \leftarrow \mathbb{F}\)</span> and computing</p></li>
 </ul>
 </li>
-<li><p>[BKSV20]: Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth’s zk-SNARK. Cryptology ePrint Archive, Report 2020/811, 2020. <a class="reference external" href="https://eprint.iacr.org/2020/8">https://eprint.iacr.org/2020/8</a> 11.</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[
+\pi^{\prime}:=\left(\zeta^{-1} A, \zeta B+\zeta \omega[\delta]_{2}, C+\omega A\right) .
+\]</div>
+<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id4" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
 </div>
 <div class="section" id="proofs-for-groth16">
 <h2>Proofs for Groth16<a class="headerlink" href="#proofs-for-groth16" title="Permalink to this headline">¶</a></h2>
@@ -345,7 +348,7 @@ By Theorem 3 in [BKSV20], the output of Rerand is statistically indistinguishabl
 <li><p><a class="reference external" href="https://eprint.iacr.org/2020/811.pdf">https://eprint.iacr.org/2020/811.pdf</a></p></li>
 <li><p><a class="reference external" href="https://eprint.iacr.org/2021/219.pdf">https://eprint.iacr.org/2021/219.pdf</a></p></li>
 </ul>
-<p>(According to Mary Maller’s talk at <a class="reference external" href="https://twitter.com/hashtag/zksummit?src=hashtag_click">#zksummit</a> )</p>
+<p>(According to Mary Maller’s talk at zkSummit )</p>
 </div>
 </div>
 
