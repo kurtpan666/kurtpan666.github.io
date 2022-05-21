@@ -12,6 +12,9 @@ parts:
   - caption: Notes
     chapters:
     - file: notes/air
+    - file: notes/groth16
+  - caption: Others
+    chapters:
     - file: references
 
 
