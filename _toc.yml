@@ -13,6 +13,7 @@ parts:
     chapters:
     - file: notes/air
     - file: notes/groth16
+    - file: notes/Quadratic Residues Modulo a Prime
   - caption: Others
     chapters:
     - file: references

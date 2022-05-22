@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Algebraic Intermediate Representation &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>Quadratic Residues Modulo a Prime &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Groth16" href="groth16.html" />
-    <link rel="prev" title="My Translation List" href="../translations.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Groth16" href="groth16.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -123,8 +123,8 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="air.html">
    Algebraic Intermediate Representation
   </a>
  </li>
@@ -133,8 +133,8 @@ const thebe_selector_output = ".output, .cell_output"
    Groth16
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Quadratic%20Residues%20Modulo%20a%20Prime.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Quadratic Residues Modulo a Prime
   </a>
  </li>
@@ -191,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/air.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/Quadratic Residues Modulo a Prime.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -211,7 +211,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/air.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/Quadratic Residues Modulo a Prime.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -232,24 +232,6 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execution-trace">
-   Execution Trace
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constraints">
-   Constraints
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -257,114 +239,78 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Algebraic Intermediate Representation</h1>
+                <h1>Quadratic Residues Modulo a Prime</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#execution-trace">
-   Execution Trace
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constraints">
-   Constraints
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="algebraic-intermediate-representation">
-<h1>Algebraic Intermediate Representation<a class="headerlink" href="#algebraic-intermediate-representation" title="Permalink to this headline">¶</a></h1>
-<p><strong>Arithmetization</strong> is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials.</p>
-<p>In the <strong>STARK</strong> protocol, the output of arithmetization is an <strong>Algebraic Intermediate Representation</strong> of a computation.</p>
-<p>Informally, AIR consists of the following three elements:</p>
-<ol class="simple">
-<li><p><strong>execution trace</strong> which is a two-dimensional matrix, in which each row represents the <strong>state</strong> of the computation at a single point in time and each column corresponds to an <strong>algebraic register</strong> tracked over all steps of the computation. Let <span class="math notranslate nohighlight">\(T\)</span> denote the execution trace matrix.</p></li>
-<li><p><strong>transition constraints</strong> which define <strong>algebraic relationships</strong> between two (or more) rows of the execution trace.</p></li>
-<li><p><strong>boundary constraints</strong> which enforce equality between certain cells of the execution trace and a set of constant values. Boundary constraints can be thought of as defining a set of <strong>input and output values</strong> for the computation.</p></li>
-</ol>
-<div class="section" id="execution-trace">
-<h2>Execution Trace<a class="headerlink" href="#execution-trace" title="Permalink to this headline">¶</a></h2>
-<p>Denote <span class="math notranslate nohighlight">\(m\)</span> as the width of the execution trace and <span class="math notranslate nohighlight">\(n\)</span> as the number of steps in the execution trace, i.e. <span class="math notranslate nohighlight">\(T\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix.</p>
-<p>We define the <strong>register trace</strong> of a register <span class="math notranslate nohighlight">\(k\)</span> as the polynomial interpolation <span class="math notranslate nohighlight">\(f_{k}\)</span> of the set <span class="math notranslate nohighlight">\(\left\{\left(\omega^{i}, T[i][k]\right) \mid i \in[0, n)\right\}\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is a generator of a multiplicative subgroup of size <span class="math notranslate nohighlight">\(n\)</span> in the base field specified for an instantiation of a STARK protocol.</p>
-<p>The set <span class="math notranslate nohighlight">\(\left\{f_{k} \mid k \in[0, m)\right\}\)</span> is called the set of <strong>trace polynomials</strong>.</p>
-<p>Notice that if <span class="math notranslate nohighlight">\(f_{k}(x)\)</span> is the value in the execution trace matrix in column <span class="math notranslate nohighlight">\(k\)</span> and row <span class="math notranslate nohighlight">\(i\)</span>, then <span class="math notranslate nohighlight">\(f_{k}(x \cdot \omega)\)</span> is the value in <span class="math notranslate nohighlight">\(k\)</span> at step <span class="math notranslate nohighlight">\(i+1\)</span>.</p>
-<p>For efficient execution of the STARK protocol, <span class="math notranslate nohighlight">\(n\)</span> must be a power of two. This allows us to use <strong>FFT-based polynomial evaluation and interpolation</strong>, which have the complexity of <span class="math notranslate nohighlight">\(O(n \log n)\)</span></p>
-<p>Thus, the base field for the STARK protocol must be <strong>2 -smooth</strong> , which indeed is the case for out selected field with modulus <span class="math notranslate nohighlight">\(q=2^{128}-45 \cdot 2^{40}+1\)</span>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>A field is <strong>k-smooth</strong> if it contains a subgroup (multiplicative or additive) all of whose prime divisors are at most <span class="math notranslate nohighlight">\(k\)</span>. For example, a prime field of size <span class="math notranslate nohighlight">\(q\)</span> such that <span class="math notranslate nohighlight">\(q-1\)</span> is divisible by a large power of 2 , is 2 -smooth.</p>
-</div>
-<p>In addition to registers of the execution trace, we also use <strong>periodic registers</strong> (also called <strong>periodic columns</strong>), which are not included in the execution trace but can be referenced in transition constraints.</p>
-<p>Periodic columns are typically used in STARKs to encode a small set of values which can be represented by succinct polynomials of size much smaller than <span class="math notranslate nohighlight">\(n\)</span>. One example is a register where values repeats in a cycle and the length of the cycle is a power of two.</p>
-</div>
-<div class="section" id="constraints">
-<h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h2>
-<p>Both boundary and transition constraints are defined by rational functions of the form:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{p(x)}{z(x)}
-\]</div>
-<p>where, <span class="math notranslate nohighlight">\(p(x)\)</span> defines the <strong>constraint relationship</strong> , and <span class="math notranslate nohighlight">\(z(x)\)</span> defines the <strong>constraint domain</strong> (a set of steps at which the constraint should hold). This constraint is said to hold if the polynomial <span class="math notranslate nohighlight">\(z\)</span> divides the polynomial <span class="math notranslate nohighlight">\(p\)</span>.</p>
-<p>For <strong>boundary constraints</strong>, <span class="math notranslate nohighlight">\(p(x)\)</span> has the following form:</p>
-<div class="math notranslate nohighlight">
-\[
-p(x)=c\left(f_{k}(x)\right)
-\]</div>
-<p>where, <span class="math notranslate nohighlight">\(f_{k}(x)\)</span> is the trace polynomial for register <span class="math notranslate nohighlight">\(k\)</span> against which the constraint is enforced.</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>For example, to specify that the value in the first column of the first row in the execution trace must be 1 , we could use the following constraint:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{0}(x)-1}{x-1}
-\]</div>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>Similarly, to specify that the value in the 7 th row of the second column must be 987 , we could use the following constraint:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{1}(x)-987}{x-\omega^{7}}
-\]</div>
-</div>
-<p>For <strong>transition constraints</strong> , <span class="math notranslate nohighlight">\(p(x)\)</span> has the following form:</p>
-<div class="math notranslate nohighlight">
-\[
-p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \omega), \ldots, f_{m-1}(x \cdot \omega)\right\}\right)
-\]</div>
-<p>that is, <span class="math notranslate nohighlight">\(p(x)\)</span> is a function of all register values in two consecutive steps of a computation.</p>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<p>For example, the following constraint enforces that a value in the first register of the execution trace must be incremented by 1 at every step:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{0}(x \cdot \omega)-\left(f_{0}(x)+1\right)}{\prod_{i=0}^{n-1}\left(x-\omega^{i}\right)}
-\]</div>
-</div>
-<p>Additionally, since trace polynomials are evaluated over a multiplicative subgroup of a field, the denominator of the constraint above can be expressed succinctly, and the constraint can be rewritten as:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{f_{0}(x \cdot \omega)-\left(f_{0}(x)+1\right)}{x^{n}-1}
-\]</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="quadratic-residues-modulo-a-prime">
+<h1>Quadratic Residues Modulo a Prime<a class="headerlink" href="#quadratic-residues-modulo-a-prime" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div><ul class="simple">
-<li><p><span id="id1">[<a class="reference internal" href="../references.html#id2" title="Irakliy Khaburzaniya, Konstantinos Chalkias, Kevin Lewi, and Harjasleen Malvai. Aggregating hash-based signatures using starks. IACR Cryptol. ePrint Arch., 2021:1048, 2021.">KCLM21</a>]</span> Section 2.2</p></li>
-</ul>
+<div><p>Katz-Lindell 15.4.1</p>
 </div></blockquote>
+<p>In a group <span class="math notranslate nohighlight">\(\mathbb{G}\)</span>, an element <span class="math notranslate nohighlight">\(y \in \mathbb{G}\)</span> is a <strong>quadratic residue</strong> if there exists an <span class="math notranslate nohighlight">\(x \in \mathbb{G}\)</span> with <span class="math notranslate nohighlight">\(x^{2}=y\)</span>.</p>
+<p>In this case, we call <span class="math notranslate nohighlight">\(x\)</span> a <strong>square root</strong> of <span class="math notranslate nohighlight">\(y\)</span>.</p>
+<p>An element that is not a quadratic residue is called a <strong>quadratic non-residue</strong>.</p>
+<p>In an abelian group, the set of quadratic residues forms a subgroup.</p>
+<p>In the specific case of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span>, we have that <span class="math notranslate nohighlight">\(y\)</span> is a quadratic residue if there exists an <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(x^{2}=y \bmod p\)</span>.</p>
+<div class="admonition-proposition admonition">
+<p class="admonition-title">Proposition</p>
+<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be prime. Every quadratic residue in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> has exactly two square roots.</p>
+</div>
+<p>Let <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}: \mathbb{Z}_{p}^{*} \rightarrow \mathbb{Z}_{p}^{*}\)</span> be the function  <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}(x) \stackrel{\text { def }}{=}\left[x^{2} \bmod p\right]\)</span>.</p>
+<p>The above shows that <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}\)</span> is a two-to-one function when <span class="math notranslate nohighlight">\(p&gt;2\)</span> is prime.</p>
+<p>This immediately implies that <em>exactly half the elements of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> are quadratic residues</em>.</p>
+<p>We denote the set of quadratic residues modulo <span class="math notranslate nohighlight">\(p\)</span> by <span class="math notranslate nohighlight">\(\mathcal{Q} \mathcal{R}_{p}\)</span>, and the set of quadratic non-residues by <span class="math notranslate nohighlight">\(\mathcal{Q} \mathcal{N} \mathcal{R}_{p}\)</span>.</p>
+<p>We have just seen that for <span class="math notranslate nohighlight">\(p&gt;2\)</span> prime</p>
+<div class="math notranslate nohighlight">
+\[
+\left|\mathcal{Q} \mathcal{R}_{p}\right|=\left|\mathcal{Q N} \mathcal{R}_{p}\right|=\frac{\left|\mathbb{Z}_{p}^{*}\right|}{2}=\frac{p-1}{2} .
+\]</div>
+<p>Define <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span>, the <strong>Jacobi symbol</strong> of <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, as follows.</p>
+<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be prime, and <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{J}_{p}(x) \stackrel{\text { def }}{=}\left\{\begin{array}{l}
++1 \text { if } x \text { is a quadratic residue modulo } p \\
+-1 \text { if } x \text { is not a quadratic residue modulo } p .
+\end{array}\right.
+\end{split}\]</div>
+<p>The notation can be extended in the natural way for any <span class="math notranslate nohighlight">\(x\)</span> relatively prime to <span class="math notranslate nohighlight">\(p\)</span> by setting <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x) \stackrel{\text { def }}{=} \mathcal{J}_{p}([x \bmod p])\)</span>.</p>
+<hr class="docutils" />
+<p>Can we characterize the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> ?</p>
+<p>We begin with the fact that <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> is a cyclic group of order <span class="math notranslate nohighlight">\(p-1\)</span> .</p>
+<p>Let <span class="math notranslate nohighlight">\(g\)</span> be a generator of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span>.</p>
+<p>This means that</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{Z}_{p}^{*}=\left\{g^{0}, g^{1}, g^{2}, \ldots, g^{\frac{p-1}{2}-1}, g^{\frac{p-1}{2}}, g^{\frac{p-1}{2}+1}, \ldots, g^{p-2}\right\}
+\]</div>
+<p>(recall that <span class="math notranslate nohighlight">\(p\)</span> is odd, so <span class="math notranslate nohighlight">\(p-1\)</span> is even).</p>
+<p>Squaring each element in this list and reducing modulo <span class="math notranslate nohighlight">\(p-1\)</span> in the exponent  yields a list of all the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{Q} \mathcal{R}_{p}=\left\{g^{0}, g^{2}, g^{4}, \ldots, g^{p-3}, g^{0}, g^{2}, \ldots, g^{p-3}\right\}
+\]</div>
+<p>Each quadratic residue appears twice in this list. Therefore, the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> are exactly those elements that can be written as <span class="math notranslate nohighlight">\(g^{i}\)</span> with <span class="math notranslate nohighlight">\(i \in\{0, \ldots, p-2\}\)</span> an even integer.</p>
+<p>The above characterization leads to a simple way to compute the Jacobi symbol and thus tell whether an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span> is a quadratic residue or not.</p>
+<div class="admonition-proposition admonition">
+<p class="admonition-title">Proposition</p>
+<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be a prime. Then <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)=x ^ {\frac{p-1}{2}} \bmod p\)</span>.</p>
+</div>
+<div class="admonition-deciding-quadratic-residuosity-modulo-a-prime admonition">
+<p class="admonition-title">Deciding quadratic residuosity modulo a prime</p>
+<p><strong>Input</strong>: A prime <span class="math notranslate nohighlight">\(p\)</span>; an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span></p>
+<p><strong>Output</strong>: <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span> (or, equivalently, whether <span class="math notranslate nohighlight">\(x\)</span> is a quadratic residue or quadratic non-residue)</p>
+<p><span class="math notranslate nohighlight">\(b:=\left[x^{\frac{p-1}{2}} \bmod p\right]\)</span></p>
+<p><strong>if</strong> <span class="math notranslate nohighlight">\(b=1\)</span> <strong>return</strong> “quadratic residue”</p>
+<p><strong>else return</strong> “quadratic non-residue”</p>
 </div>
 </div>
 
@@ -393,17 +339,17 @@ p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \om
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../translations.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="groth16.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">My Translation List</p>
+            <p class="prev-next-title">Groth16</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="groth16.html" title="next page">
+    <a class='right-next' id="next-link" href="../references.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Groth16</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
