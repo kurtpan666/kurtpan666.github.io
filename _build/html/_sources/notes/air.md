@@ -1,8 +1,8 @@
 
 
-# Algebraic Intermediate Representation
+# Algebraic Intermediate Representation (AIR)
 
-**Arithmetization** is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials. 
+**[Arithmetization](https://nmohnblatt.github.io/zk-jargon-decoder/definitions/arithmetization.html)** is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials. 
 
 In the **STARK** protocol, the output of arithmetization is an **Algebraic Intermediate Representation** of a computation. 
 
@@ -89,3 +89,4 @@ $$
 $$
 
 > - {cite}`KCL+21` Section 2.2
+> - [Anatomy of a STARK, Part 4](https://aszepieniec.github.io/stark-anatomy/stark#arithmetic-intermediate-representation-air)

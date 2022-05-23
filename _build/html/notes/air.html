@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Algebraic Intermediate Representation &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>Algebraic Intermediate Representation (AIR) &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Algebraic Intermediate Representation
+   Algebraic Intermediate Representation (AIR)
   </a>
  </li>
  <li class="toctree-l1">
@@ -136,6 +136,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="Quadratic%20Residues%20Modulo%20a%20Prime.html">
    Quadratic Residues Modulo a Prime
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Schwartz-Zippel-lemma.html">
+   Schwartz-Zippel 引理
   </a>
  </li>
 </ul>
@@ -257,7 +262,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Algebraic Intermediate Representation</h1>
+                <h1>Algebraic Intermediate Representation (AIR)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -286,9 +291,9 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="algebraic-intermediate-representation">
-<h1>Algebraic Intermediate Representation<a class="headerlink" href="#algebraic-intermediate-representation" title="Permalink to this headline">¶</a></h1>
-<p><strong>Arithmetization</strong> is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="algebraic-intermediate-representation-air">
+<h1>Algebraic Intermediate Representation (AIR)<a class="headerlink" href="#algebraic-intermediate-representation-air" title="Permalink to this headline">¶</a></h1>
+<p><strong><a class="reference external" href="https://nmohnblatt.github.io/zk-jargon-decoder/definitions/arithmetization.html">Arithmetization</a></strong> is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials.</p>
 <p>In the <strong>STARK</strong> protocol, the output of arithmetization is an <strong>Algebraic Intermediate Representation</strong> of a computation.</p>
 <p>Informally, AIR consists of the following three elements:</p>
 <ol class="simple">
@@ -363,6 +368,7 @@ p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \om
 <blockquote>
 <div><ul class="simple">
 <li><p><span id="id1">[<a class="reference internal" href="../references.html#id2" title="Irakliy Khaburzaniya, Konstantinos Chalkias, Kevin Lewi, and Harjasleen Malvai. Aggregating hash-based signatures using starks. IACR Cryptol. ePrint Arch., 2021:1048, 2021.">KCLM21</a>]</span> Section 2.2</p></li>
+<li><p><a class="reference external" href="https://aszepieniec.github.io/stark-anatomy/stark#arithmetic-intermediate-representation-air">Anatomy of a STARK, Part 4</a></p></li>
 </ul>
 </div></blockquote>
 </div>
