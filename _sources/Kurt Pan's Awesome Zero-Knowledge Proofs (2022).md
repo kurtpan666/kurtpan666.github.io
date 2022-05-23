@@ -1,4 +1,4 @@
-0517 backup
+0523 update
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022)
 
 ## Textbooks & Courses
@@ -15,6 +15,7 @@
 - [zk-SNARKs: A Gentle Introduction](https://www.di.ens.fr/~nitulesc/files/Survey-SNARKs.pdf) Anca Nitulescu
 - [A Review of zk-SNARKs](https://arxiv.org/pdf/2202.06877.pdf) CLKL
 - [Why and How zk-SNARK Works: Definitive Explanation](http://petkus.info/papers/WhyAndHowZkSnarkWorks.pdf) Maksym Petkus
+- [zkSNARKs in a Nutshell](http://chriseth.github.io/notes/articles/zksnarks/zksnarks.pdf) Christian Reitwießner
 - [On Σ-protocols](https://cs.au.dk/~ivan/Sigma.pdf) Ivan Damgard
 - [How To Simulate It – A Tutorial on the Simulation Proof Technique](https://eprint.iacr.org/2016/046.pdf) , Section 5 , Yehuda Lindell
 
