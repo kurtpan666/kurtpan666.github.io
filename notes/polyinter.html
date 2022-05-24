@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quadratic Residues Modulo a Prime &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>Polynomial Interpolation &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -56,8 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Schwartz-Zippel 引理" href="Schwartz-Zippel-lemma.html" />
-    <link rel="prev" title="Groth16" href="groth16.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Schwartz-Zippel 引理" href="Schwartz-Zippel-lemma.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -134,8 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
    Groth16
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quadratic%20Residues%20Modulo%20a%20Prime.html">
    Quadratic Residues Modulo a Prime
   </a>
  </li>
@@ -144,8 +144,8 @@ const thebe_selector_output = ".output, .cell_output"
    Schwartz-Zippel 引理
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="polyinter.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Polynomial Interpolation
   </a>
  </li>
@@ -202,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/notes/Quadratic Residues Modulo a Prime.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/polyinter.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -227,6 +227,26 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lagrange-interpolation-polynomial">
+   Lagrange interpolation polynomial
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lagrange-basis-polynomials">
+     Lagrange basis polynomials:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -234,81 +254,70 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quadratic Residues Modulo a Prime</h1>
+                <h1>Polynomial Interpolation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lagrange-interpolation-polynomial">
+   Lagrange interpolation polynomial
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lagrange-basis-polynomials">
+     Lagrange basis polynomials:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="quadratic-residues-modulo-a-prime">
-<h1>Quadratic Residues Modulo a Prime<a class="headerlink" href="#quadratic-residues-modulo-a-prime" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>Katz-Lindell 15.4.1</p>
-</div></blockquote>
-<p>In a group <span class="math notranslate nohighlight">\(\mathbb{G}\)</span>, an element <span class="math notranslate nohighlight">\(y \in \mathbb{G}\)</span> is a <strong>quadratic residue</strong> if there exists an <span class="math notranslate nohighlight">\(x \in \mathbb{G}\)</span> with <span class="math notranslate nohighlight">\(x^{2}=y\)</span>.</p>
-<p>In this case, we call <span class="math notranslate nohighlight">\(x\)</span> a <strong>square root</strong> of <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p>An element that is not a quadratic residue is called a <strong>quadratic non-residue</strong>.</p>
-<p>In an abelian group, the set of quadratic residues forms a subgroup.</p>
-<p>In the specific case of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span>, we have that <span class="math notranslate nohighlight">\(y\)</span> is a quadratic residue if there exists an <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(x^{2}=y \bmod p\)</span>.</p>
-<div class="admonition-proposition admonition">
-<p class="admonition-title">Proposition</p>
-<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be prime. Every quadratic residue in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> has exactly two square roots.</p>
-</div>
-<p>Let <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}: \mathbb{Z}_{p}^{*} \rightarrow \mathbb{Z}_{p}^{*}\)</span> be the function  <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}(x) \stackrel{\text { def }}{=}\left[x^{2} \bmod p\right]\)</span>.</p>
-<p>The above shows that <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}\)</span> is a two-to-one function when <span class="math notranslate nohighlight">\(p&gt;2\)</span> is prime.</p>
-<p>This immediately implies that <em>exactly half the elements of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> are quadratic residues</em>.</p>
-<p>We denote the set of quadratic residues modulo <span class="math notranslate nohighlight">\(p\)</span> by <span class="math notranslate nohighlight">\(\mathcal{Q} \mathcal{R}_{p}\)</span>, and the set of quadratic non-residues by <span class="math notranslate nohighlight">\(\mathcal{Q} \mathcal{N} \mathcal{R}_{p}\)</span>.</p>
-<p>We have just seen that for <span class="math notranslate nohighlight">\(p&gt;2\)</span> prime</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="polynomial-interpolation">
+<h1>Polynomial Interpolation<a class="headerlink" href="#polynomial-interpolation" title="Permalink to this headline">¶</a></h1>
+<p>For a given set of <span class="math notranslate nohighlight">\(k + 1\)</span> points <span class="math notranslate nohighlight">\(\left(x_{j}, y_{j}\right)\)</span> with no two <span class="math notranslate nohighlight">\(x_{j}\)</span> values equal, to find the polynomial of lowest degree that assumes at each value <span class="math notranslate nohighlight">\(x_{j}\)</span> the corresponding value <span class="math notranslate nohighlight">\(y_{j}\)</span>.</p>
+<div class="section" id="lagrange-interpolation-polynomial">
+<h2>Lagrange interpolation polynomial<a class="headerlink" href="#lagrange-interpolation-polynomial" title="Permalink to this headline">¶</a></h2>
 <div class="math notranslate nohighlight">
 \[
-\left|\mathcal{Q} \mathcal{R}_{p}\right|=\left|\mathcal{Q N} \mathcal{R}_{p}\right|=\frac{\left|\mathbb{Z}_{p}^{*}\right|}{2}=\frac{p-1}{2} .
+L(x):=\sum_{j=0}^{k} y_{j} \ell_{j}(x)
 \]</div>
-<p>Define <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span>, the <strong>Jacobi symbol</strong> of <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, as follows.</p>
-<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be prime, and <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span>. Then</p>
+<div class="section" id="lagrange-basis-polynomials">
+<h3>Lagrange basis polynomials:<a class="headerlink" href="#lagrange-basis-polynomials" title="Permalink to this headline">¶</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\mathcal{J}_{p}(x) \stackrel{\text { def }}{=}\left\{\begin{array}{l}
-+1 \text { if } x \text { is a quadratic residue modulo } p \\
--1 \text { if } x \text { is not a quadratic residue modulo } p .
-\end{array}\right.
+\ell_{j}(x):=\prod_{\substack{0 \leq m \leq k \\ m \neq j}} \frac{x-x_{m}}{x_{j}-x_{m}}  \quad ,j\in [0,k]
 \end{split}\]</div>
-<p>The notation can be extended in the natural way for any <span class="math notranslate nohighlight">\(x\)</span> relatively prime to <span class="math notranslate nohighlight">\(p\)</span> by setting <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x) \stackrel{\text { def }}{=} \mathcal{J}_{p}([x \bmod p])\)</span>.</p>
-<hr class="docutils" />
-<p>Can we characterize the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> ?</p>
-<p>We begin with the fact that <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> is a cyclic group of order <span class="math notranslate nohighlight">\(p-1\)</span> .</p>
-<p>Let <span class="math notranslate nohighlight">\(g\)</span> be a generator of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span>.</p>
-<p>This means that</p>
+<p>Note that:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{Z}_{p}^{*}=\left\{g^{0}, g^{1}, g^{2}, \ldots, g^{\frac{p-1}{2}-1}, g^{\frac{p-1}{2}}, g^{\frac{p-1}{2}+1}, \ldots, g^{p-2}\right\}
+\forall(i \neq j): \ell_{j}\left(x_{i}\right)=0
 \]</div>
-<p>(recall that <span class="math notranslate nohighlight">\(p\)</span> is odd, so <span class="math notranslate nohighlight">\(p-1\)</span> is even).</p>
-<p>Squaring each element in this list and reducing modulo <span class="math notranslate nohighlight">\(p-1\)</span> in the exponent  yields a list of all the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal{Q} \mathcal{R}_{p}=\left\{g^{0}, g^{2}, g^{4}, \ldots, g^{p-3}, g^{0}, g^{2}, \ldots, g^{p-3}\right\}
+\ell_{j}\left(x_{j}\right):=1
 \]</div>
-<p>Each quadratic residue appears twice in this list. Therefore, the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> are exactly those elements that can be written as <span class="math notranslate nohighlight">\(g^{i}\)</span> with <span class="math notranslate nohighlight">\(i \in\{0, \ldots, p-2\}\)</span> an even integer.</p>
-<p>The above characterization leads to a simple way to compute the Jacobi symbol and thus tell whether an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span> is a quadratic residue or not.</p>
-<div class="admonition-proposition admonition">
-<p class="admonition-title">Proposition</p>
-<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be a prime. Then <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)=x ^ {\frac{p-1}{2}} \bmod p\)</span>.</p>
+<p>It follows that <span class="math notranslate nohighlight">\(y_{j} \ell_{j}\left(x_{j}\right)=y_{j}\)</span>, <span class="math notranslate nohighlight">\(L\left(x_{j}\right)=y_{j}\)</span></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_polynomial">https://en.wikipedia.org/wiki/Lagrange_polynomial</a></p></li>
+</ul>
+</div></blockquote>
 </div>
-<div class="proof algorithm admonition" id="qrmodprime">
-<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Deciding quadratic residuosity modulo a prime)</p>
-<div class="algorithm-content section" id="proof-content">
-<p><strong>Input</strong>: A prime <span class="math notranslate nohighlight">\(p\)</span>; an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span></p>
-<p><strong>Output</strong>: <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span> (or, equivalently, whether <span class="math notranslate nohighlight">\(x\)</span> is a quadratic residue or quadratic non-residue)</p>
-<p><span class="math notranslate nohighlight">\(b:=\left[x^{\frac{p-1}{2}} \bmod p\right]\)</span></p>
-<p><strong>if</strong> <span class="math notranslate nohighlight">\(b=1\)</span> <strong>return</strong> “quadratic residue”</p>
-<p><strong>else return</strong> “quadratic non-residue”</p>
 </div>
-</div></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -335,17 +344,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="groth16.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Schwartz-Zippel-lemma.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Groth16</p>
+            <p class="prev-next-title">Schwartz-Zippel 引理</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Schwartz-Zippel-lemma.html" title="next page">
+    <a class='right-next' id="next-link" href="../references.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Schwartz-Zippel 引理</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

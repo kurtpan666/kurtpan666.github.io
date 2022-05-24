@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
@@ -55,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="References" href="../references.html" />
+    <link rel="next" title="Polynomial Interpolation" href="polyinter.html" />
     <link rel="prev" title="Quadratic Residues Modulo a Prime" href="Quadratic%20Residues%20Modulo%20a%20Prime.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -125,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="air.html">
-   Algebraic Intermediate Representation
+   Algebraic Intermediate Representation (AIR)
   </a>
  </li>
  <li class="toctree-l1">
@@ -141,6 +142,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Schwartz-Zippel 引理
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="polyinter.html">
+   Polynomial Interpolation
   </a>
  </li>
 </ul>
@@ -207,22 +213,6 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fnotes/Schwartz-Zippel-lemma.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -242,32 +232,27 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Schwartz-Zippel 引理
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    归纳证明
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
      起始步骤
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id3">
        代数基本定理的归纳证明
       </a>
       <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#id4">
          子起始步骤
         </a>
        </li>
-       <li class="toc-h4 nav-item toc-entry">
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#id5">
          子递推步骤
         </a>
@@ -276,14 +261,14 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
      递推步骤
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
    直接证明
   </a>
@@ -308,32 +293,27 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Schwartz-Zippel 引理
-  </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    归纳证明
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
      起始步骤
     </a>
     <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#id3">
        代数基本定理的归纳证明
       </a>
       <ul class="nav section-nav flex-column">
-       <li class="toc-h4 nav-item toc-entry">
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#id4">
          子起始步骤
         </a>
        </li>
-       <li class="toc-h4 nav-item toc-entry">
+       <li class="toc-h5 nav-item toc-entry">
         <a class="reference internal nav-link" href="#id5">
          子递推步骤
         </a>
@@ -342,14 +322,14 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
      递推步骤
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
    直接证明
   </a>
@@ -385,22 +365,21 @@ const thebe_selector_output = ".output, .cell_output"
 Then <span class="math notranslate nohighlight">\(\operatorname{Pr}\left[f\left(x_{1}, \ldots, x_{n}\right)=0\right] \leq d /|S|\)</span>, where the probability is taken over the choice of <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{n}\)</span> according to <span class="math notranslate nohighlight">\(x_{i} \stackrel{\$}{\leftarrow} d /(p-1)\)</span>.</p>
 <p>For a univariate polynomial <span class="math notranslate nohighlight">\(f \in \mathbb{Z}_{p}[X]\)</span> of degree <span class="math notranslate nohighlight">\(d\)</span>, where <span class="math notranslate nohighlight">\(p\)</span> is prime, let <span class="math notranslate nohighlight">\(x \leftarrow \mathbb{Z}_{p}^{*}\)</span>, then <span class="math notranslate nohighlight">\(\operatorname{Pr}[f(x)=0] \leq\)</span> <span class="math notranslate nohighlight">\(d /(p-1)\)</span>.</p>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>归纳证明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>归纳证明<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h2>起始步骤<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h3>起始步骤<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><p><strong>代数基本定理</strong>：n = 1时，上述多项式<span class="math notranslate nohighlight">\(f\)</span> 最多可以有<span class="math notranslate nohighlight">\(d\)</span>个根。</p>
 </div></blockquote>
 <div class="section" id="id3">
-<h3>代数基本定理的归纳证明<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<h4>代数基本定理的归纳证明<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="id4">
-<h4>子起始步骤<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<h5>子起始步骤<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h5>
 <p><span class="math notranslate nohighlight">\(d=0\)</span>, 则 <span class="math notranslate nohighlight">\(f(x)=c_{0}\)</span> ，<span class="math notranslate nohighlight">\(c_{0}\)</span>为非零常数。 <span class="math notranslate nohighlight">\(f(x)\)</span>永远非零，自然有0个根。根的个数不超过<span class="math notranslate nohighlight">\(d\)</span>。</p>
 </div>
 <div class="section" id="id5">
-<h4>子递推步骤<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+<h5>子递推步骤<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h5>
 <blockquote>
 <div><p>子归纳假设：对整数<span class="math notranslate nohighlight">\(k \geq 0\)</span>，任意<span class="math notranslate nohighlight">\(k\)</span>阶多项式至多有<span class="math notranslate nohighlight">\(k\)</span>个根。</p>
 </div></blockquote>
@@ -414,7 +393,7 @@ Then <span class="math notranslate nohighlight">\(\operatorname{Pr}\left[f\left(
 </div>
 </div>
 <div class="section" id="id6">
-<h2>递推步骤<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<h3>递推步骤<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>重写<span class="math notranslate nohighlight">\(f\)</span>如下：</p>
 <div class="math notranslate nohighlight">
 \[
@@ -450,8 +429,8 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
 </div>
 </div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id7">
-<h1>直接证明<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id7">
+<h2>直接证明<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>将<span class="math notranslate nohighlight">\(f\)</span>写为<span class="math notranslate nohighlight">\(f=g+h\)</span>，<span class="math notranslate nohighlight">\(g \not \equiv 0\)</span>是<span class="math notranslate nohighlight">\(d\)</span>阶齐次多项式，<span class="math notranslate nohighlight">\(h\)</span>包含所有阶严格小于<span class="math notranslate nohighlight">\(d\)</span>的项。</p>
 <blockquote>
 <div><p>引理： 如果<span class="math notranslate nohighlight">\(g\)</span>非零且阶 <span class="math notranslate nohighlight">\(1 \leq d&lt;|S|\)</span> ，则存在<span class="math notranslate nohighlight">\(y \in S^{n}\)</span>  使得 <span class="math notranslate nohighlight">\(g(y) \neq 0\)</span>.
@@ -466,6 +445,7 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
 <p>此外，因为<span class="math notranslate nohighlight">\(t^{d}\)</span>的系数是<span class="math notranslate nohighlight">\(g(y)\)</span>，则<span class="math notranslate nohighlight">\(f(x+t y)\)</span>非零！</p>
 <p>因此，由代数基本定理，每条线的零点最多<span class="math notranslate nohighlight">\(d\)</span>个，则<span class="math notranslate nohighlight">\(f\)</span>在<span class="math notranslate nohighlight">\(S^{n}\)</span>中的总零点至多<span class="math notranslate nohighlight">\(d|S|^{n-1}\)</span>个。</p>
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -500,10 +480,10 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
             <p class="prev-next-title">Quadratic Residues Modulo a Prime</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../references.html" title="next page">
+    <a class='right-next' id="next-link" href="polyinter.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">References</p>
+        <p class="prev-next-title">Polynomial Interpolation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
