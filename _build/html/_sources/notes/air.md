@@ -49,22 +49,22 @@ p(x)=c\left(f_{k}(x)\right)
 $$
 where, $f_{k}(x)$ is the trace polynomial for register $k$ against which the constraint is enforced. 
 
-```{admonition} Example
+````{prf:example}
 For example, to specify that the value in the first column of the first row in the execution trace must be 1 , we could use the following constraint:
 
 $$
 \frac{f_{0}(x)-1}{x-1}
 $$
-```
+````
 
-```{admonition} Example
+````{prf:example}
 
 Similarly, to specify that the value in the 7 th row of the second column must be 987 , we could use the following constraint:
 
 $$
 \frac{f_{1}(x)-987}{x-\omega^{7}}
 $$
-```
+````
 
 For **transition constraints** , $p(x)$ has the following form:
 
@@ -73,14 +73,14 @@ p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \om
 $$
 that is, $p(x)$ is a function of all register values in two consecutive steps of a computation. 
 
-```{admonition} Example
+````{prf:example}
 
 For example, the following constraint enforces that a value in the first register of the execution trace must be incremented by 1 at every step:
 
 $$
 \frac{f_{0}(x \cdot \omega)-\left(f_{0}(x)+1\right)}{\prod_{i=0}^{n-1}\left(x-\omega^{i}\right)}
 $$
-```
+````
 
 Additionally, since trace polynomials are evaluated over a multiplicative subgroup of a field, the denominator of the constraint above can be expressed succinctly, and the constraint can be rewritten as:
 

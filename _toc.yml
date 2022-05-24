@@ -15,6 +15,7 @@ parts:
     - file: notes/groth16
     - file: notes/Quadratic Residues Modulo a Prime
     - file: notes/Schwartz-Zippel-lemma
+    - file: notes/polyinter
   - caption: Others
     chapters:
     - file: references

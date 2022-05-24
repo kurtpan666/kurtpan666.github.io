@@ -68,8 +68,9 @@ The above characterization leads to a simple way to compute the Jacobi symbol an
  Let $p>2$ be a prime. Then $\mathcal{J}_{p}(x)=x ^ {\frac{p-1}{2}} \bmod p$.
 ```
 
-```{admonition} Deciding quadratic residuosity modulo a prime
 
+```{prf:algorithm} Deciding quadratic residuosity modulo a prime
+:label: qrmodprime
 
 **Input**: A prime $p$; an element $x \in \mathbb{Z}_{p}^{*}$
 

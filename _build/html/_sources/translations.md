@@ -1,6 +1,7 @@
 # My Translation List
 
 ## 2022
+- [泡菜证明初步之PLONK](https://hackmd.io/@Kurt-Pan/HJwx3TFPq)
 - [零知识前沿：关于SNARKs，STARKs和未来的应用](https://mirror.xyz/kurtpan.eth/3LGWyYvebFzuCtjL392VyXxJCdqWyaCv7iAdSeOY3fw)
 - [我们生活在哪个计算宇宙中？](https://mp.weixin.qq.com/s/r4du1iMPxg-8ihAdAOAbLA)
 - [一个关乎密码学存在性的主问题](https://mp.weixin.qq.com/s/oo2S4Z8K73ATNsV-yQ7odw)
