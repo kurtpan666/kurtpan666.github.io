@@ -9,9 +9,11 @@ parts:
     chapters:
     - file: Kurt Pan's Awesome Zero-Knowledge Proofs (2022)
     - file: translations
+    - file: links
   - caption: Notes
     chapters:
     - file: notes/air
+    - file: notes/RescuePrimeHash
     - file: notes/groth16
     - file: notes/Quadratic Residues Modulo a Prime
     - file: notes/Schwartz-Zippel-lemma
@@ -19,6 +21,9 @@ parts:
   - caption: Others
     chapters:
     - file: references
+    - file: np/newpapers
+      sections:
+      - file: np/2205
 
 
 
