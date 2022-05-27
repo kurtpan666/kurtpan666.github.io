@@ -97,3 +97,5 @@ a Python implementation
 ## References
 - [Anatomy of a STARK, Part 5: A Rescue-Prime STARK](https://aszepieniec.github.io/stark-anatomy/rescue-prime)
 - {cite}`SAD20` 
+- [zkSummit6: Rescue-Prime: a Standard Specification Alan Szepieniec – AS Discrete Mathematics & Nervos](https://www.youtube.com/watch?v=kyjNH3QorGA&list=PLj80z0cJm8QFnY6VLVa84nr-21DNvjWH7&index=26)
+- [Implementations of Rescue hash function used by the Miden VM](https://github.com/maticnetwork/miden/blob/c70995f92c223a0e29f4e891edb0b9a7ac68e31d/core/src/hasher/mod.rs)
