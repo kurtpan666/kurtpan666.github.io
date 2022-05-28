@@ -9,7 +9,7 @@ parts:
     chapters:
     - file: Kurt Pan's Awesome Zero-Knowledge Proofs (2022)
     - file: translations
-    - file: links
+    
   - caption: Notes
     chapters:
     - file: notes/air
@@ -18,12 +18,28 @@ parts:
     - file: notes/Quadratic Residues Modulo a Prime
     - file: notes/Schwartz-Zippel-lemma
     - file: notes/polyinter
+    - file: notes/rsa
+
   - caption: Others
     chapters:
     - file: references
     - file: np/newpapers
       sections:
       - file: np/2205
+
+  - caption: Links
+    chapters:
+    - url: https://mentor-crypto-2021.github.io/
+      title: Mentoring Workshop and Videos 
+    - url: https://eprint.iacr.org/
+      title: Cryptology ePrint Archive
+
+
+    
+    
+
+
+
 
 
 
