@@ -159,6 +159,11 @@ const thebe_selector_output = ".output, .cell_output"
    Polynomial Interpolation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rsa.html">
+   RSA-based Encryption
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -171,22 +176,10 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="../np/newpapers.html">
    New Papers
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../np/2205.html">
-     2205
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -421,7 +414,8 @@ Then <span class="math notranslate nohighlight">\(\operatorname{Pr}\left[f\left(
 </div>
 <div class="section" id="id6">
 <h3>递推步骤<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
-<p>重写<span class="math notranslate nohighlight">\(f\)</span>如下：</p>
+<div class="proof admonition" id="proof">
+<p>Proof. 重写<span class="math notranslate nohighlight">\(f\)</span>如下：</p>
 <div class="math notranslate nohighlight">
 \[
 f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \ldots, x_{n}\right)
@@ -456,9 +450,11 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
 </div>
 </div>
+</div>
 <div class="section" id="id7">
 <h2>直接证明<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<p>将<span class="math notranslate nohighlight">\(f\)</span>写为<span class="math notranslate nohighlight">\(f=g+h\)</span>，<span class="math notranslate nohighlight">\(g \not \equiv 0\)</span>是<span class="math notranslate nohighlight">\(d\)</span>阶齐次多项式，<span class="math notranslate nohighlight">\(h\)</span>包含所有阶严格小于<span class="math notranslate nohighlight">\(d\)</span>的项。</p>
+<div class="proof admonition" id="proof">
+<p>Proof. 将<span class="math notranslate nohighlight">\(f\)</span>写为<span class="math notranslate nohighlight">\(f=g+h\)</span>，<span class="math notranslate nohighlight">\(g \not \equiv 0\)</span>是<span class="math notranslate nohighlight">\(d\)</span>阶齐次多项式，<span class="math notranslate nohighlight">\(h\)</span>包含所有阶严格小于<span class="math notranslate nohighlight">\(d\)</span>的项。</p>
 <blockquote>
 <div><p>引理： 如果<span class="math notranslate nohighlight">\(g\)</span>非零且阶 <span class="math notranslate nohighlight">\(1 \leq d&lt;|S|\)</span> ，则存在<span class="math notranslate nohighlight">\(y \in S^{n}\)</span>  使得 <span class="math notranslate nohighlight">\(g(y) \neq 0\)</span>.
 此外，如果<span class="math notranslate nohighlight">\(g\)</span>是齐次的，则<span class="math notranslate nohighlight">\(y \neq \overrightarrow{0}\)</span>.</p>
@@ -472,6 +468,7 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
 <p>此外，因为<span class="math notranslate nohighlight">\(t^{d}\)</span>的系数是<span class="math notranslate nohighlight">\(g(y)\)</span>，则<span class="math notranslate nohighlight">\(f(x+t y)\)</span>非零！</p>
 <p>因此，由代数基本定理，每条线的零点最多<span class="math notranslate nohighlight">\(d\)</span>个，则<span class="math notranslate nohighlight">\(f\)</span>在<span class="math notranslate nohighlight">\(S^{n}\)</span>中的总零点至多<span class="math notranslate nohighlight">\(d|S|^{n-1}\)</span>个。</p>
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
+</div>
 </div>
 </div>
 
