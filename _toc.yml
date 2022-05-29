@@ -33,6 +33,12 @@ parts:
       title: Mentoring Workshop and Videos 
     - url: https://eprint.iacr.org/
       title: Cryptology ePrint Archive
+    - file: confs
+      sections:
+      - url: https://eurocrypt.iacr.org/2022/program.php
+        title: Eurocrypt 2022
+      - url: https://hackmd.io/@Kurt-Pan/H1a4fjxOq
+        title: 欧密2022之十篇零知识证明论文简介
 
 
     
