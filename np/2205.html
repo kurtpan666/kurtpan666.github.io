@@ -312,6 +312,16 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>2205<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <p><span id="id2">[<a class="reference internal" href="../references.html#id6" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
+<p><span id="id3">[<a class="reference internal" href="../references.html#id9" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing.">BCHO22</a>]</span></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/arkworks-rs/gemini">ark-gemini</a></p></li>
+</ul>
+<blockquote>
+<div><p>The code structure follows the modular design of the protocol, which involves combining an elastic polynomial commitment scheme and an elastic (holographic) PIOP.
+We deem each of the single components of the protocol (the streaming infrastructure, the commitment scheme,and the sub-protocols for sumcheck, tensor check, entry product, lookup protocol, etc.) to be independent interest for future space-efficient projects.</p>
+</div></blockquote>
+<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id4">[<a class="reference internal" href="../references.html#id10" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
+<p>However, these optimizations typically come at the expense of <strong>space complexity</strong>, which is typically <em>linear</em> in the computation size either due to the use of <em>FFTs</em> or <em>dynamic programming algorithms</em>.</p>
 </div>
 
     <script type="text/x-thebe-config">
