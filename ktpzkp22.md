@@ -25,7 +25,13 @@
 - [GGPR13](https://eprint.iacr.org/2012/215.pdf) (2013)
 - [Pinocchio](https://eprint.iacr.org/2013/279.pdf) (2013)
 - [Groth16](https://eprint.iacr.org/2016/260.pdf) (2016)
+- [Aurora](https://eprint.iacr.org/2018/828.pdf) (2018)
+- [STARK](https://eprint.iacr.org/2018/046.pdf) (2018)
+- [Sonic](https://eprint.iacr.org/2019/099.pdf) (2019)
+- [Marlin](https://eprint.iacr.org/2019/1047.pdf) (2019)
 - [PLONK](https://eprint.iacr.org/2019/953.pdf) (2019)
+- [REDSHIFT](https://eprint.iacr.org/2019/1400.pdf) (2019)
+- [FRACTAL](https://eprint.iacr.org/2019/1076.pdf) (2020)
 - [Spartan](https://eprint.iacr.org/2019/550.pdf) (2020)
 - [Quarks](https://eprint.iacr.org/2020/1275.pdf) (2020)
 - [Nova](https://eprint.iacr.org/2021/370.pdf) (2021)
@@ -67,7 +73,7 @@
 
 - [A Practical Guide To Building Zero Knowledge dApps](https://kndrck.co/posts/practical_guide_build_zk_dapps/)
 
-## Videos
+## Videos & Podcasts
 - [Computer Scientist Explains One Concept in 5 Levels of Difficulty | WIRED](https://www.youtube.com/watch?v=fOGdb1CTu5c)
 - [Introduction to Zero Knowledge Proofs](https://www.youtube.com/watch?v=BT88s7_VtC8&t=1s) Elena Nadolinski
 - [Dystopia Labs: Demystifying Zero Knowledge Proofs](https://www.youtube.com/watch?v=_6TqUNVLChc)
@@ -76,6 +82,7 @@
 - [zkStudyClub](https://www.youtube.com/playlist?list=PLj80z0cJm8QHm_9BdZ1BqcGbgE-BEn-3Y)
 - [zkSessions](https://www.youtube.com/playlist?list=PLj80z0cJm8QEz6BotG4SkGSCupwkPonCZ)
 - ZKProof Workshop : [4](https://www.youtube.com/playlist?list=PLOEty2U8Y69Xkgt7fdNl7FtlzUcu_Ho0c),[3](https://www.youtube.com/playlist?list=PLOEty2U8Y69XuIbGzSPzOR38lHUyf_v-y),[2](https://www.youtube.com/playlist?list=PLOEty2U8Y69VKX0THZvO_liqwV3Ngf1wt),[1](https://www.youtube.com/playlist?list=PLOEty2U8Y69XadRILKwdG5eADUdAJ96ou)
+- [ZK Podcasts](https://zeroknowledge.fm/episodes/)
 
 
 ## Docs
