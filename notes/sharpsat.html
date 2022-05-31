@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2205 &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>\(\# \mathrm{SAT} \in \mathrm{IP}\) &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -52,10 +52,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Conferences" href="../confs.html" />
-    <link rel="prev" title="New Papers" href="newpapers.html" />
+    <link rel="next" title="IP for Counting Triangles in Graphs" href="cttri.html" />
+    <link rel="prev" title="RSA-based Encryption" href="rsa.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,45 +123,69 @@ const thebe_selector_output = ".output, .cell_output"
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/air.html">
+  <a class="reference internal" href="air.html">
    Algebraic Intermediate Representation (AIR)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/RescuePrimeHash.html">
+  <a class="reference internal" href="RescuePrimeHash.html">
    Rescue-Prime Hash Function
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/groth16.html">
+  <a class="reference internal" href="groth16.html">
    Groth16
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/Quadratic%20Residues%20Modulo%20a%20Prime.html">
+  <a class="reference internal" href="Quadratic%20Residues%20Modulo%20a%20Prime.html">
    Quadratic Residues Modulo a Prime
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/Schwartz-Zippel-lemma.html">
+  <a class="reference internal" href="Schwartz-Zippel-lemma.html">
    Schwartz-Zippel 引理
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/polyinter.html">
+  <a class="reference internal" href="polyinter.html">
    Polynomial Interpolation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/rsa.html">
+  <a class="reference internal" href="rsa.html">
    RSA-based Encryption
   </a>
  </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <span class="math notranslate nohighlight">
+    \(\# \mathrm{SAT} \in \mathrm{IP}\)
+   </span>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cttri.html">
+   IP for Counting Triangles in Graphs
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Others
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notes/sumcheck/index.html">
-   Sum-check Protocol
+  <a class="reference internal" href="../np/newpapers.html">
+   New Papers
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -168,43 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/sumcheck/sharpsat.html">
-     <span class="math notranslate nohighlight">
-      \(\# \mathrm{SAT} \in \mathrm{IP}\)
-     </span>
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notes/sumcheck/cttri.html">
-     IP for Counting Triangles in Graphs
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Others
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../references.html">
-   References
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="newpapers.html">
-   New Papers
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+    <a class="reference internal" href="../np/2205.html">
      2205
     </a>
    </li>
@@ -231,8 +221,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../confs.html">
    Conferences
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -290,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/np/2205.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/notes/sharpsat.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -315,6 +305,24 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sat-problem">
+   #SAT problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-interactive-proof-for-sat">
+   The interactive proof for #SAT
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -322,35 +330,66 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2205</h1>
+                <h1>\# \mathrm{SAT} \in \mathrm{IP}</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sat-problem">
+   #SAT problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-interactive-proof-for-sat">
+   The interactive proof for #SAT
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>2205<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="mathrm-sat-in-mathrm-ip">
+<h1><span class="math notranslate nohighlight">\(\# \mathrm{SAT} \in \mathrm{IP}\)</span><a class="headerlink" href="#mathrm-sat-in-mathrm-ip" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sat-problem">
+<h2>#SAT problem<a class="headerlink" href="#sat-problem" title="Permalink to this headline">¶</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span>Definition </span> (#SAT)</p>
+<div class="definition-content section" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(\phi\)</span> be any <strong>Boolean formula</strong> on <span class="math notranslate nohighlight">\(n\)</span> variables of size <span class="math notranslate nohighlight">\(S=\operatorname{poly}(n)\)</span>
+The goal of #SAT is to compute the <em>number of satisfying assignments</em> of <span class="math notranslate nohighlight">\(\phi\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{x \in\{0,1\}^{n}} \phi(x)
+\]</div>
+</div>
+</div></div>
+<div class="section" id="the-interactive-proof-for-sat">
+<h2>The interactive proof for #SAT<a class="headerlink" href="#the-interactive-proof-for-sat" title="Permalink to this headline">¶</a></h2>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span>Definition </span> (arithmetization)</p>
+<div class="definition-content section" id="proof-content">
+<p>The process of replacing the <strong>Boolean formula</strong> <span class="math notranslate nohighlight">\(\phi\)</span> with an <strong>arithmetic circuit</strong> <span class="math notranslate nohighlight">\(\psi\)</span> computing an <strong>extension polynomial</strong>  <span class="math notranslate nohighlight">\(g\)</span> of <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+</div>
+</div><p>We can turn <span class="math notranslate nohighlight">\(\phi\)</span> into an <strong>arithmetic circuit</strong> <span class="math notranslate nohighlight">\(\psi\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> that computes the desired <strong>extension</strong> <span class="math notranslate nohighlight">\(g\)</span> of <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://eprint.iacr.org/2022/670.pdf">Practical UC-Secure Zero-Knowledge Smart Contracts</a></p></li>
-<li><p><a class="reference external" href="https://eprint.iacr.org/2022/680.pdf">Practical Delegatable Anonymous Credentials From Equivalence Class Signatures</a></p></li>
-<li><p><a class="reference external" href="https://eprint.iacr.org/2022/661.pdf">Protego: A Credential Scheme for Permissioned Blockchains</a></p></li>
+<li><p>For any gate in <span class="math notranslate nohighlight">\(\phi\)</span> computing the AND of two inputs <span class="math notranslate nohighlight">\(y, z, \psi\)</span> replaces <span class="math notranslate nohighlight">\(\operatorname{AND}(y, z)\)</span> with multiplication of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>.  It is easy to check that the bivariate polynomial <span class="math notranslate nohighlight">\(y \cdot z\)</span> extends the Boolean function <span class="math notranslate nohighlight">\(\operatorname{AND}(y, z)\)</span>, i.e., <span class="math notranslate nohighlight">\(\operatorname{AND}(y, z)=y \cdot z\)</span> for all <span class="math notranslate nohighlight">\(y, z \in\{0,1\}\)</span>.</p></li>
+<li><p>Likewise, <span class="math notranslate nohighlight">\(\psi\)</span> replaces any gate computing <span class="math notranslate nohighlight">\(\operatorname{OR}(y, z)\)</span> by <span class="math notranslate nohighlight">\(y+z-y \cdot z\)</span>.</p></li>
+<li><p>Any formula leaf of the form <span class="math notranslate nohighlight">\(\bar{y}\)</span> (i.e., the negation of variable <span class="math notranslate nohighlight">\(y\)</span> ) is replaced by <span class="math notranslate nohighlight">\(1-y\)</span></p></li>
 </ul>
-<p><span id="id2">[<a class="reference internal" href="../references.html#id6" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
-<p><span id="id3">[<a class="reference internal" href="../references.html#id9" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing.">BCHO22</a>]</span></p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/arkworks-rs/gemini">ark-gemini</a></p></li>
-</ul>
-<blockquote>
-<div><p>The code structure follows the modular design of the protocol, which involves combining an elastic polynomial commitment scheme and an elastic (holographic) PIOP.
-We deem each of the single components of the protocol (the streaming infrastructure, the commitment scheme,and the sub-protocols for sumcheck, tensor check, entry product, lookup protocol, etc.) to be independent interest for future space-efficient projects.</p>
-</div></blockquote>
-<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id4">[<a class="reference internal" href="../references.html#id10" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
-<p>However, these optimizations typically come at the expense of <strong>space complexity</strong>, which is typically <em>linear</em> in the computation size either due to the use of <em>FFTs</em> or <em>dynamic programming algorithms</em>.</p>
+<p>It is easy to check that <span class="math notranslate nohighlight">\(\psi(x)=\phi(x)\)</span> for all <span class="math notranslate nohighlight">\(x \in\{0,1\}^{n}\)</span>, and that the number of gates in the arithmetic circuit <span class="math notranslate nohighlight">\(\psi\)</span> is at most <span class="math notranslate nohighlight">\(3 S\)</span>.</p>
+<p>Then apply the sum-check protocol to compute <span class="math notranslate nohighlight">\(\sum_{x \in\{0,1\}^{n}} g(x)\)</span></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -366,7 +405,7 @@ We deem each of the single components of the protocol (the streaming infrastruct
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./np"
+            path: "./notes"
         },
         predefinedOutput: true
     }
@@ -378,17 +417,17 @@ We deem each of the single components of the protocol (the streaming infrastruct
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="newpapers.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="rsa.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">New Papers</p>
+            <p class="prev-next-title">RSA-based Encryption</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../confs.html" title="next page">
+    <a class='right-next' id="next-link" href="cttri.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Conferences</p>
+        <p class="prev-next-title">IP for Counting Triangles in Graphs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

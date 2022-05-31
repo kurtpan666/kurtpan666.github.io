@@ -5,57 +5,59 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Papers &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>IP for Counting Triangles in Graphs &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2205" href="2205.html" />
-    <link rel="prev" title="References" href="../references.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="References" href="../../references.html" />
+    <link rel="prev" title="\(\# \mathrm{SAT} \in \mathrm{IP}\)" href="sharpsat.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -75,26 +77,26 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../_static/nftpfp.jpg" class="logo" alt="logo">
+      <img src="../../_static/nftpfp.jpg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Kurt Pan's Crypto Notes</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
+  <a class="reference internal" href="../../intro.html">
    Table of Contents
   </a>
  </li>
@@ -106,12 +108,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ktpzkp22.html">
+  <a class="reference internal" href="../../ktpzkp22.html">
    Kurt Pan’s Awesome Zero-Knowledge Proofs (2022)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../translations.html">
+  <a class="reference internal" href="../../translations.html">
    My Translation List
   </a>
  </li>
@@ -121,61 +123,61 @@ const thebe_selector_output = ".output, .cell_output"
   Notes
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/air.html">
+  <a class="reference internal" href="../air.html">
    Algebraic Intermediate Representation (AIR)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/RescuePrimeHash.html">
+  <a class="reference internal" href="../RescuePrimeHash.html">
    Rescue-Prime Hash Function
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/groth16.html">
+  <a class="reference internal" href="../groth16.html">
    Groth16
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/Quadratic%20Residues%20Modulo%20a%20Prime.html">
+  <a class="reference internal" href="../Quadratic%20Residues%20Modulo%20a%20Prime.html">
    Quadratic Residues Modulo a Prime
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/Schwartz-Zippel-lemma.html">
+  <a class="reference internal" href="../Schwartz-Zippel-lemma.html">
    Schwartz-Zippel 引理
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/polyinter.html">
+  <a class="reference internal" href="../polyinter.html">
    Polynomial Interpolation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../notes/rsa.html">
+  <a class="reference internal" href="../rsa.html">
    RSA-based Encryption
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../notes/sumcheck/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    Sum-check Protocol
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../notes/sumcheck/sharpsat.html">
+    <a class="reference internal" href="sharpsat.html">
      <span class="math notranslate nohighlight">
       \(\# \mathrm{SAT} \in \mathrm{IP}\)
      </span>
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../notes/sumcheck/cttri.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      IP for Counting Triangles in Graphs
     </a>
    </li>
@@ -187,24 +189,24 @@ const thebe_selector_output = ".output, .cell_output"
   Others
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../references.html">
+  <a class="reference internal" href="../../references.html">
    References
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../np/newpapers.html">
    New Papers
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="2205.html">
+    <a class="reference internal" href="../../np/2205.html">
      2205
     </a>
    </li>
@@ -228,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../confs.html">
+  <a class="reference internal" href="../../confs.html">
    Conferences
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -290,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/np/newpapers.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/notes/sumcheck/cttri.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -322,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>New Papers</h1>
+                <h1>IP for Counting Triangles in Graphs</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -333,13 +335,38 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="new-papers">
-<h1>New Papers<a class="headerlink" href="#new-papers" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="ip-for-counting-triangles-in-graphs">
+<h1>IP for Counting Triangles in Graphs<a class="headerlink" href="#ip-for-counting-triangles-in-graphs" title="Permalink to this headline">¶</a></h1>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span>Definition </span> (Doubly-efficient IP)</p>
+<div class="definition-content section" id="proof-content">
 <ul class="simple">
-<li><p><a class="reference internal" href="2205.html"><span class="doc std std-doc">2022 05</span></a></p></li>
+<li><p>Provers run in <em>polynomial</em> time</p></li>
+<li><p>Verifiers run in <em>linear</em> time</p></li>
 </ul>
-<div class="toctree-wrapper compound">
 </div>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span>Definition </span> (The Counting Triangles Problem)</p>
+<div class="definition-content section" id="proof-content">
+<p>The input is the adjacency matrix <span class="math notranslate nohighlight">\(A\)</span>, and the goal is to determine the number of unordered node triples <span class="math notranslate nohighlight">\((i, j, k) \in V \times V \times V\)</span> such that <span class="math notranslate nohighlight">\(i, j\)</span>, and <span class="math notranslate nohighlight">\(k\)</span> are all connected to each other, i.e., <span class="math notranslate nohighlight">\((i, j),(j, k)\)</span> and <span class="math notranslate nohighlight">\((i, k)\)</span> are all edges in <span class="math notranslate nohighlight">\(E\)</span>.</p>
+</div>
+</div><p>A function <span class="math notranslate nohighlight">\(f_{A}\)</span> mapping <span class="math notranslate nohighlight">\(\{0,1\}^{\log n} \times\{0,1\}^{\log n}\)</span> to <span class="math notranslate nohighlight">\(\{0,1\}\)</span>:  Define <span class="math notranslate nohighlight">\(f_{A}(x, y)\)</span> so that it interprets <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> as the binary representations of some integers <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span> between 1 and <span class="math notranslate nohighlight">\(n\)</span>, and outputs <span class="math notranslate nohighlight">\(A_{i, j}\)</span>.</p>
+<p>Then the number of triangles, <span class="math notranslate nohighlight">\(\Delta\)</span>, in <span class="math notranslate nohighlight">\(G\)</span> can be written:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta=\frac{1}{6} \sum_{x, y, z \in\{0,1\}^{\log n}} f_{A}(x, y) \cdot f_{A}(y, z) \cdot f_{A}(x, z) .
+\]</div>
+<p><span class="math notranslate nohighlight">\(\widetilde{f}_{A}\)</span> is the multilinear extension of <span class="math notranslate nohighlight">\(f_{A}\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}\)</span></p>
+<p>To see that this equality is true, observe that the term for <span class="math notranslate nohighlight">\(x, y, z\)</span> in the above sum is 1 if edges <span class="math notranslate nohighlight">\((x, y),(y, z)\)</span>, and <span class="math notranslate nohighlight">\((x, z)\)</span> all appear in <span class="math notranslate nohighlight">\(G\)</span>, and is 0 otherwise. The factor <span class="math notranslate nohighlight">\(1 / 6\)</span> comes in because the sum over ordered node triples <span class="math notranslate nohighlight">\((i, j, k)\)</span> counts each triangle 6 times, once for each permutation of <span class="math notranslate nohighlight">\(i, j\)</span>, and <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+g(X, Y, Z)=\widetilde{f}_{A}(X, Y) \cdot \widetilde{f}_{A}(Y, Z) \cdot \widetilde{f}_{A}(X, Z)
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+6 \Delta=\sum_{x, y, z \in\{0,1\}\}^{\log n}} g(x, y, z)
+\]</div>
+<p>So applying the sum-check protocol to <span class="math notranslate nohighlight">\(g\)</span> yields an IP computing <span class="math notranslate nohighlight">\(6 \Delta\)</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -355,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./np"
+            path: "./notes/sumcheck"
         },
         predefinedOutput: true
     }
@@ -367,17 +394,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../references.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="sharpsat.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">References</p>
+            <p class="prev-next-title"><span class="math notranslate nohighlight">\(\# \mathrm{SAT} \in \mathrm{IP}\)</span></p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="2205.html" title="next page">
+    <a class='right-next' id="next-link" href="../../references.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2205</p>
+        <p class="prev-next-title">References</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -399,7 +426,7 @@ const thebe_selector_output = ".output, .cell_output"
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
