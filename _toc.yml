@@ -19,6 +19,12 @@ parts:
     - file: notes/Schwartz-Zippel-lemma
     - file: notes/polyinter
     - file: notes/rsa
+    - file: notes/sumcheck/index
+      sections:
+      - file: notes/sumcheck/sharpsat
+      - file: notes/sumcheck/cttri
+      
+
 
   - caption: Others
     chapters:
