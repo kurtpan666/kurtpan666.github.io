@@ -7,7 +7,7 @@ root: intro
 parts:
   - caption: List
     chapters:
-    - file: Kurt Pan's Awesome Zero-Knowledge Proofs (2022)
+    - file: ktpzkp22
     - file: translations
     
   - caption: Notes
