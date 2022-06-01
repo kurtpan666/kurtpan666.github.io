@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="New Papers" href="np/newpapers.html" />
-    <link rel="prev" title="IP for Counting Triangles in Graphs" href="notes/cttri.html" />
+    <link rel="prev" title="IP for Counting Triangles in Graphs" href="notes/sumcheck/cttri.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -157,17 +157,29 @@ const thebe_selector_output = ".output, .cell_output"
    RSA-based Encryption
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notes/sharpsat.html">
-   <span class="math notranslate nohighlight">
-    \(\# \mathrm{SAT} \in \mathrm{IP}\)
-   </span>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="notes/sumcheck/index.html">
+   Sum-check Protocol
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="notes/cttri.html">
-   IP for Counting Triangles in Graphs
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notes/sumcheck/sharpsat.html">
+     <span class="math notranslate nohighlight">
+      \(\# \mathrm{SAT} \in \mathrm{IP}\)
+     </span>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="notes/sumcheck/cttri.html">
+     IP for Counting Triangles in Graphs
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -185,8 +197,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="np/newpapers.html">
    New Papers
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -197,6 +209,16 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://nbviewer.org/github/kurtpan666/kurtpan666.github.io/blob/main/pdf/HowtoSimulateit.pdf">
+   How To Simulate It
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://nbviewer.org/github/kurtpan666/kurtpan666.github.io/blob/main/pdf/%E6%A0%BC%E5%9F%BA%E7%8E%AF%E7%AD%BE%E5%90%8D%E7%AE%80%E4%BB%8B.pdf">
+   格基环签名简介
+  </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -219,8 +241,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="confs.html">
    Conferences
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -233,6 +255,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference external" href="https://hackmd.io/@Kurt-Pan/H1a4fjxOq">
      欧密2022之十篇零知识证明论文简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://asiaccs2022.conferenceservice.jp/">
+     ASIACCS 2022
     </a>
    </li>
   </ul>
@@ -325,31 +352,43 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
 <div class="docutils container" id="id1">
 <dl class="citation">
-<dt class="label" id="id6"><span class="brackets">ANO+21</span></dt>
+<dt class="label" id="id10"><span class="brackets">ANO+21</span></dt>
 <dd><p>Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. <a class="reference external" href="https://eprint.iacr.org/2021/1587">https://eprint.iacr.org/2021/1587</a>. URL: <a class="reference external" href="https://eprint.iacr.org/2021/1587">https://eprint.iacr.org/2021/1587</a>.</p>
 </dd>
-<dt class="label" id="id7"><span class="brackets">AABS+19</span></dt>
+<dt class="label" id="id11"><span class="brackets">AABS+19</span></dt>
 <dd><p>Abdelrahaman Aly, Tomer Ashur, Eli Ben-Sasson, Siemen Dhooghe, and Alan Szepieniec. Design of symmetric-key primitives for advanced cryptographic protocols. Cryptology ePrint Archive, Paper 2019/426, 2019. <a class="reference external" href="https://eprint.iacr.org/2019/426">https://eprint.iacr.org/2019/426</a>. URL: <a class="reference external" href="https://eprint.iacr.org/2019/426">https://eprint.iacr.org/2019/426</a>, <a class="reference external" href="https://doi.org/10.13154/tosc.v2020.i3.1-45">doi:10.13154/tosc.v2020.i3.1-45</a>.</p>
 </dd>
-<dt class="label" id="id4"><span class="brackets">BKSV21</span></dt>
+<dt class="label" id="id8"><span class="brackets">BKSV21</span></dt>
 <dd><p>Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In <em>Financial Cryptography</em>. 2021.</p>
 </dd>
-<dt class="label" id="id8"><span class="brackets">BSGL20</span></dt>
+<dt class="label" id="id12"><span class="brackets">BSGL20</span></dt>
 <dd><p>Eli Ben-Sasson, Lior Goldberg, and David Levit. Stark friendly hash – survey and recommendation. Cryptology ePrint Archive, Paper 2020/948, 2020. <a class="reference external" href="https://eprint.iacr.org/2020/948">https://eprint.iacr.org/2020/948</a>. URL: <a class="reference external" href="https://eprint.iacr.org/2020/948">https://eprint.iacr.org/2020/948</a>.</p>
 </dd>
-<dt class="label" id="id9"><span class="brackets">BCHO22</span></dt>
+<dt class="label" id="id13"><span class="brackets">BCHO22</span></dt>
 <dd><p>Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, <em>Advances in Cryptology – EUROCRYPT 2022</em>, 427–457. Cham, 2022. Springer International Publishing.</p>
 </dd>
-<dt class="label" id="id10"><span class="brackets">GLS+21</span></dt>
+<dt class="label" id="id5"><span class="brackets">Can01</span></dt>
+<dd><p>Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. <em>Proceedings 2001 IEEE International Conference on Cluster Computing</em>, pages 136–145, 2001.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">Can04</span></dt>
+<dd><p>Ran Canetti. Universally composable signature, certification, and authentication. <em>Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004.</em>, pages 219–233, 2004.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">CF01</span></dt>
+<dd><p>Ran Canetti and Marc Fischlin. Universally composable commitments. <em>IACR Cryptol. ePrint Arch.</em>, 2001:55, 2001.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">DN02</span></dt>
+<dd><p>Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, <em>Advances in Cryptology — CRYPTO 2002</em>, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">GLS+21</span></dt>
 <dd><p>Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. <a class="reference external" href="https://eprint.iacr.org/2021/1043">https://eprint.iacr.org/2021/1043</a>. URL: <a class="reference external" href="https://eprint.iacr.org/2021/1043">https://eprint.iacr.org/2021/1043</a>.</p>
 </dd>
-<dt class="label" id="id3"><span class="brackets">Gro16</span></dt>
+<dt class="label" id="id7"><span class="brackets">Gro16</span></dt>
 <dd><p>Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, <em>Advances in Cryptology – EUROCRYPT 2016</em>, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.</p>
 </dd>
-<dt class="label" id="id2"><span class="brackets">KCLM21</span></dt>
+<dt class="label" id="id6"><span class="brackets">KCLM21</span></dt>
 <dd><p>Irakliy Khaburzaniya, Konstantinos Chalkias, Kevin Lewi, and Harjasleen Malvai. Aggregating hash-based signatures using starks. <em>IACR Cryptol. ePrint Arch.</em>, 2021:1048, 2021.</p>
 </dd>
-<dt class="label" id="id5"><span class="brackets">SAD20</span></dt>
+<dt class="label" id="id9"><span class="brackets">SAD20</span></dt>
 <dd><p>Alan Szepieniec, Tomer Ashur, and Siemen Dhooghe. Rescue-prime: a standard specification (sok). Cryptology ePrint Archive, Paper 2020/1143, 2020. <a class="reference external" href="https://eprint.iacr.org/2020/1143">https://eprint.iacr.org/2020/1143</a>. URL: <a class="reference external" href="https://eprint.iacr.org/2020/1143">https://eprint.iacr.org/2020/1143</a>.</p>
 </dd>
 </dl>
@@ -381,7 +420,7 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="notes/cttri.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="notes/sumcheck/cttri.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
