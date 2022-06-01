@@ -52,6 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Conferences" href="../confs.html" />
@@ -210,6 +212,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://nbviewer.org/github/kurtpan666/kurtpan666.github.io/blob/main/pdf/HowtoSimulateit.pdf">
+   How To Simulate It
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://nbviewer.org/github/kurtpan666/kurtpan666.github.io/blob/main/pdf/%E6%A0%BC%E5%9F%BA%E7%8E%AF%E7%AD%BE%E5%90%8D%E7%AE%80%E4%BB%8B.pdf">
+   格基环签名简介
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -245,6 +257,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference external" href="https://hackmd.io/@Kurt-Pan/H1a4fjxOq">
      欧密2022之十篇零知识证明论文简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://asiaccs2022.conferenceservice.jp/">
+     ASIACCS 2022
     </a>
    </li>
   </ul>
@@ -336,12 +353,25 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
 <h1>2205<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
+<li><p><a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-031-07085-3_21">On the Multi-User Security of Short Schnorr Signatures with Preprocessing</a> BL22</p></li>
+</ul>
+<p>a signature scheme <span class="math notranslate nohighlight">\(\Pi\)</span> yields <span class="math notranslate nohighlight">\(k\)</span> <strong>bits of (multi-user) security</strong> if any attacker running in time at most <span class="math notranslate nohighlight">\(t\)</span> can forge a signature with probability at most <span class="math notranslate nohighlight">\(\varepsilon_{t}=t / 2^{k}\)</span> in the (multi-user) signature forgery game, and this should hold for all time bounds <span class="math notranslate nohighlight">\(t \leq 2^{k}\)</span>.</p>
+<p>To achieve <span class="math notranslate nohighlight">\(k\)</span> bits of security, we select a hash function <span class="math notranslate nohighlight">\(\mathrm{H}\)</span> with <span class="math notranslate nohighlight">\(2 k\)</span>-bit outputs, and we select <span class="math notranslate nohighlight">\(p\)</span> to be a random <span class="math notranslate nohighlight">\(2 k\)</span>-bit prime so that the length of a signature is <span class="math notranslate nohighlight">\(4 k\)</span> bits.</p>
+<p>In Schnorr’s original paper [Sch90], the author proposed the possibility of
+achieving even shorter Schnorr signatures by selecting a hash function <span class="math notranslate nohighlight">\(\mathrm{H}\)</span> with <span class="math notranslate nohighlight">\(k\)</span>-bit outputs (or truncating to only use the first <span class="math notranslate nohighlight">\(k\)</span> bits) so that the final signature <span class="math notranslate nohighlight">\(\sigma=(s, e)\)</span> can be encoded with <span class="math notranslate nohighlight">\(3 k\)</span> bits. We refer to this signature scheme as the <em>short</em> Schnorr signature scheme.</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/670.pdf">Practical UC-Secure Zero-Knowledge Smart Contracts</a></p></li>
+</ul>
+<p>The Universal Composability (UC) model <span id="id2">[<a class="reference internal" href="../references.html#id5" title="Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. Proceedings 2001 IEEE International Conference on Cluster Computing, pages 136-145, 2001.">Can01</a>, <a class="reference internal" href="../references.html#id4" title="Ran Canetti. Universally composable signature, certification, and authentication. Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004., pages 219-233, 2004.">Can04</a>, <a class="reference internal" href="../references.html#id3" title="Ran Canetti and Marc Fischlin. Universally composable commitments. IACR Cryptol. ePrint Arch., 2001:55, 2001.">CF01</a>, <a class="reference internal" href="../references.html#id2" title="Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, Advances in Cryptology — CRYPTO 2002, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.">DN02</a>]</span> is a framework used to analyze the security of composed protocols that combine multiple protocols together.</p>
+<p>In the UC model, there are an ideal system, a real system, and an environment <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> (challengee). <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> ‘s task is to identify which system it is interacting with; ideal or real.</p>
+<p>We say the real system realizes the ideal system if <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> can not identify the correct system with more than <span class="math notranslate nohighlight">\(1 / 2+\epsilon(\lambda)\)</span> probability.</p>
+<p>In that case, informally, Universal Composability says that the real system provides the security properties of the ideal system.</p>
+<ul class="simple">
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/680.pdf">Practical Delegatable Anonymous Credentials From Equivalence Class Signatures</a></p></li>
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/661.pdf">Protego: A Credential Scheme for Permissioned Blockchains</a></p></li>
 </ul>
-<p><span id="id2">[<a class="reference internal" href="../references.html#id6" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
-<p><span id="id3">[<a class="reference internal" href="../references.html#id9" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing.">BCHO22</a>]</span></p>
+<p><span id="id3">[<a class="reference internal" href="../references.html#id10" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
+<p><span id="id4">[<a class="reference internal" href="../references.html#id13" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing.">BCHO22</a>]</span></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/arkworks-rs/gemini">ark-gemini</a></p></li>
 </ul>
@@ -349,7 +379,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div><p>The code structure follows the modular design of the protocol, which involves combining an elastic polynomial commitment scheme and an elastic (holographic) PIOP.
 We deem each of the single components of the protocol (the streaming infrastructure, the commitment scheme,and the sub-protocols for sumcheck, tensor check, entry product, lookup protocol, etc.) to be independent interest for future space-efficient projects.</p>
 </div></blockquote>
-<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id4">[<a class="reference internal" href="../references.html#id10" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
+<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id5">[<a class="reference internal" href="../references.html#id14" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
 <p>However, these optimizations typically come at the expense of <strong>space complexity</strong>, which is typically <em>linear</em> in the computation size either due to the use of <em>FFTs</em> or <em>dynamic programming algorithms</em>.</p>
 </div>
 
