@@ -1,6 +1,6 @@
 # IP for Counting Triangles in Graphs
 
-````{prf:definition} Doubly-efficient IP
+<!-- ````{prf:definition} Doubly-efficient IP
 :nonumber: true
 
 - Provers run in *polynomial* time
@@ -11,7 +11,7 @@
 :nonumber: true
 
 The input is the adjacency matrix $A$, and the goal is to determine the number of unordered node triples $(i, j, k) \in V \times V \times V$ such that $i, j$, and $k$ are all connected to each other, i.e., $(i, j),(j, k)$ and $(i, k)$ are all edges in $E$.
-````
+```` -->
 
 A function $f_{A}$ mapping $\{0,1\}^{\log n} \times\{0,1\}^{\log n}$ to $\{0,1\}$:  Define $f_{A}(x, y)$ so that it interprets $x$ and $y$ as the binary representations of some integers $i$ and $j$ between 1 and $n$, and outputs $A_{i, j}$. 
 
