@@ -9,6 +9,11 @@ parts:
     chapters:
     - file: ktpzkp22
     - file: translations
+    - file: Cryptography Glossary and Dictionary/index
+      sections:
+      - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/index
+      - file: Cryptography Glossary and Dictionary/Cryptographic Protocols/index
+
     
   - caption: Notes
     chapters:
@@ -45,12 +50,15 @@ parts:
       title: Cryptology ePrint Archive
     - file: confs
       sections:
+      - url: https://asiaccs2022.conferenceservice.jp/
+        title: ASIACCS 2022
       - url: https://eurocrypt.iacr.org/2022/program.php
         title: Eurocrypt 2022
       - url: https://hackmd.io/@Kurt-Pan/H1a4fjxOq
         title: 欧密2022之十篇零知识证明论文简介
-      - url: https://asiaccs2022.conferenceservice.jp/
-        title: ASIACCS 2022
+      - url: https://pkc.iacr.org/2022/program.php
+        title: PKC 2022
+
 
 
     
