@@ -1,4 +1,4 @@
-> v220531 
+> v220604
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -22,6 +22,18 @@
 
 ## Papers
 
+### 2022
+- [Gimini](https://eprint.iacr.org/2022/420.pdf) 
+- [Caulk](https://eprint.iacr.org/2022/621.pdf)
+- [ECLIPSE](https://eprint.iacr.org/2021/934.pdf)
+
+### 2021
+- [Brakedown](https://eprint.iacr.org/2021/1043.pdf) 
+- [Nova](https://eprint.iacr.org/2021/370.pdf) 
+
+
+
+### -2020
 - [GGPR13](https://eprint.iacr.org/2012/215.pdf) (2013)
 - [Pinocchio](https://eprint.iacr.org/2013/279.pdf) (2013)
 - [Groth16](https://eprint.iacr.org/2016/260.pdf) (2016)
@@ -34,10 +46,8 @@
 - [FRACTAL](https://eprint.iacr.org/2019/1076.pdf) (2020)
 - [Spartan](https://eprint.iacr.org/2019/550.pdf) (2020)
 - [Quarks](https://eprint.iacr.org/2020/1275.pdf) (2020)
-- [Nova](https://eprint.iacr.org/2021/370.pdf) (2021)
-- [Brakedown](https://eprint.iacr.org/2021/1043.pdf) (2021)
-- [Gimini](https://eprint.iacr.org/2022/420.pdf) (2022)
-- [Caulk](https://eprint.iacr.org/2022/621.pdf) (2022)
+
+
 
 ## Posts
 - [Interactive zero knowledge 3-colorability demonstration](http://web.mit.edu/~ezyang/Public/graph/svg.html)
