@@ -544,6 +544,12 @@ achieving even shorter Schnorr signatures by selecting a hash function <span cla
 <ul class="simple">
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/670.pdf">Practical UC-Secure Zero-Knowledge Smart Contracts</a></p></li>
 </ul>
+<p>The framework [15, 16] guarantees strong security for
+multi-party composed protocols like our CIPs since the interactions between the
+multiple parties and multiple protocols must be thoroughly modeled to realize
+the security. Informally, UC says that if there is an ideal function with the
+desired security properties, and a real protocol that acts the same as the ideal
+function, then the real protocol also has the ideal function’s security properties.</p>
 <p>The Universal Composability (UC) model <span id="id3">[<a class="reference internal" href="../references.html#id5" title="Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. Proceedings 2001 IEEE International Conference on Cluster Computing, pages 136-145, 2001.">Can01</a>, <a class="reference internal" href="../references.html#id4" title="Ran Canetti. Universally composable signature, certification, and authentication. Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004., pages 219-233, 2004.">Can04</a>, <a class="reference internal" href="../references.html#id3" title="Ran Canetti and Marc Fischlin. Universally composable commitments. IACR Cryptol. ePrint Arch., 2001:55, 2001.">CF01</a>, <a class="reference internal" href="../references.html#id2" title="Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, Advances in Cryptology — CRYPTO 2002, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.">DN02</a>]</span> is a framework used to analyze the security of composed protocols that combine multiple protocols together.</p>
 <p>In the UC model, there are an ideal system, a real system, and an environment <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> (challengee). <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> ‘s task is to identify which system it is interacting with: ideal or real.</p>
 <p>We say the real system realizes the ideal system if <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> can not identify the correct system with more than <span class="math notranslate nohighlight">\(1 / 2+\epsilon(\lambda)\)</span> probability.</p>

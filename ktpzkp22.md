@@ -1,4 +1,4 @@
-> v220604
+> v220609
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -33,9 +33,10 @@
 
 
 
-### -2020
+### 2020 and before
 - [GGPR13](https://eprint.iacr.org/2012/215.pdf) (2013)
 - [Pinocchio](https://eprint.iacr.org/2013/279.pdf) (2013)
+- [C∅C∅](https://eprint.iacr.org/2015/1093.pdf) (2015)
 - [Groth16](https://eprint.iacr.org/2016/260.pdf) (2016)
 - [Aurora](https://eprint.iacr.org/2018/828.pdf) (2018)
 - [STARK](https://eprint.iacr.org/2018/046.pdf) (2018)
@@ -43,6 +44,7 @@
 - [Marlin](https://eprint.iacr.org/2019/1047.pdf) (2019)
 - [PLONK](https://eprint.iacr.org/2019/953.pdf) (2019)
 - [REDSHIFT](https://eprint.iacr.org/2019/1400.pdf) (2019)
+- [Halo](https://eprint.iacr.org/2019/1021.pdf) (2019)
 - [FRACTAL](https://eprint.iacr.org/2019/1076.pdf) (2020)
 - [Spartan](https://eprint.iacr.org/2019/550.pdf) (2020)
 - [Quarks](https://eprint.iacr.org/2020/1275.pdf) (2020)
