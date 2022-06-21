@@ -5,57 +5,57 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Polynomial Interpolation &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>Boolean formulae and CNF form &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="RSA-based Encryption" href="rsa.html" />
-    <link rel="prev" title="Schwartz-Zippel 引理" href="Schwartz-Zippel-lemma.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The Merkle–Damgård Transform" href="mdtransform.html" />
+    <link rel="prev" title="Cryptographic Primitives" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -90,19 +90,19 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="bd-sidebar noprint" id="site-navigation">
     <div class="bd-sidebar__content">
         <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
       
       
-      <img src="../_static/nftpfp.jpg" class="logo" alt="logo">
+      <img src="../../_static/nftpfp.jpg" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">Kurt Pan's Crypto Notes</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -110,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
-                <a class="reference internal" href="../intro.html">
+                <a class="reference internal" href="../../intro.html">
                     Table of Contents
                 </a>
             </li>
@@ -120,51 +120,51 @@ const thebe_selector_output = ".output, .cell_output"
   List
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../ktpzkp22.html">
+  <a class="reference internal" href="../../ktpzkp22.html">
    Kurt Pan’s Awesome Zero-Knowledge Proofs (2022)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../translations.html">
+  <a class="reference internal" href="../../translations.html">
    My Translation List
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../index.html">
    Cryptography Glossary and Dictionary
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/index.html">
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
      Cryptographic Primitives
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/boolean.html">
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Boolean formulae and CNF form
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/mdtransform.html">
+      <a class="reference internal" href="mdtransform.html">
        The Merkle–Damgård Transform
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Protocols/index.html">
+    <a class="reference internal" href="../Cryptographic%20Protocols/index.html">
      Cryptographic Protocols
     </a>
    </li>
@@ -176,44 +176,44 @@ const thebe_selector_output = ".output, .cell_output"
   Notes
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="air.html">
+  <a class="reference internal" href="../../notes/air.html">
    Algebraic Intermediate Representation (AIR)
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="RescuePrimeHash.html">
+  <a class="reference internal" href="../../notes/RescuePrimeHash.html">
    Rescue-Prime Hash Function
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="groth16.html">
+  <a class="reference internal" href="../../notes/groth16.html">
    Groth16
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Quadratic%20Residues%20Modulo%20a%20Prime.html">
+  <a class="reference internal" href="../../notes/Quadratic%20Residues%20Modulo%20a%20Prime.html">
    Quadratic Residues Modulo a Prime
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="Schwartz-Zippel-lemma.html">
+  <a class="reference internal" href="../../notes/Schwartz-Zippel-lemma.html">
    Schwartz-Zippel 引理
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/polyinter.html">
    Polynomial Interpolation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="rsa.html">
+  <a class="reference internal" href="../../notes/rsa.html">
    RSA-based Encryption
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="sumcheck/index.html">
+  <a class="reference internal" href="../../notes/sumcheck/index.html">
    Sum-check Protocol
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -223,14 +223,14 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="sumcheck/sharpsat.html">
+    <a class="reference internal" href="../../notes/sumcheck/sharpsat.html">
      <span class="math notranslate nohighlight">
       \(\# \mathrm{SAT} \in \mathrm{IP}\)
      </span>
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="sumcheck/cttri.html">
+    <a class="reference internal" href="../../notes/sumcheck/cttri.html">
      IP for Counting Triangles in Graphs
     </a>
    </li>
@@ -244,12 +244,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../references.html">
+  <a class="reference internal" href="../../references.html">
    References
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../np/newpapers.html">
+  <a class="reference internal" href="../../np/newpapers.html">
    New Papers
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -259,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../np/2205.html">
+    <a class="reference internal" href="../../np/2205.html">
      2206
     </a>
    </li>
@@ -293,7 +293,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../confs.html">
+  <a class="reference internal" href="../../confs.html">
    Conferences
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
@@ -397,7 +397,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notes/polyinter.md"
+        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Primitives/boolean.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -434,74 +434,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lagrange-interpolation-polynomial">
-   Lagrange interpolation polynomial
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lagrange-basis-polynomials">
-     Lagrange basis polynomials:
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Polynomial Interpolation</h1>
+                <h1>Boolean formulae and CNF form</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#lagrange-interpolation-polynomial">
-   Lagrange interpolation polynomial
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#lagrange-basis-polynomials">
-     Lagrange basis polynomials:
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -509,39 +458,30 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="polynomial-interpolation">
-<h1>Polynomial Interpolation<a class="headerlink" href="#polynomial-interpolation" title="Permalink to this headline">#</a></h1>
-<p>For a given set of <span class="math notranslate nohighlight">\(k + 1\)</span> points <span class="math notranslate nohighlight">\(\left(x_{j}, y_{j}\right)\)</span> with no two <span class="math notranslate nohighlight">\(x_{j}\)</span> values equal, to find the polynomial of lowest degree that assumes at each value <span class="math notranslate nohighlight">\(x_{j}\)</span> the corresponding value <span class="math notranslate nohighlight">\(y_{j}\)</span>.</p>
-<div class="section" id="lagrange-interpolation-polynomial">
-<h2>Lagrange interpolation polynomial<a class="headerlink" href="#lagrange-interpolation-polynomial" title="Permalink to this headline">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="boolean-formulae-and-cnf-form">
+<h1>Boolean formulae and CNF form<a class="headerlink" href="#boolean-formulae-and-cnf-form" title="Permalink to this headline">#</a></h1>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>A <strong>Boolean formula</strong> over the variables <span class="math notranslate nohighlight">\(u_{1}, \ldots, u_{n}\)</span> consists of the variables and the logical operators AND <span class="math notranslate nohighlight">\((\wedge)\)</span>, NOT <span class="math notranslate nohighlight">\((\neg)\)</span> and OR <span class="math notranslate nohighlight">\((\vee)\)</span></p>
+<p><strong>Assignment</strong>: If <span class="math notranslate nohighlight">\(\varphi\)</span> is a Boolean formula over variables <span class="math notranslate nohighlight">\(u_{1}, \ldots, u_{n}\)</span>, and <span class="math notranslate nohighlight">\(z \in\{0,1\}^{n}\)</span>, then <span class="math notranslate nohighlight">\(\varphi(z)\)</span> denotes the value of <span class="math notranslate nohighlight">\(\varphi\)</span> when the variables of <span class="math notranslate nohighlight">\(\varphi\)</span> are assigned the values <span class="math notranslate nohighlight">\(z\)</span> (where we identify 1 with TRUE and 0 with FALSE).</p>
+<p>A formula <span class="math notranslate nohighlight">\(\varphi\)</span> is <em>satisfiable</em> if there there exists some assignment <span class="math notranslate nohighlight">\(z\)</span> such that <span class="math notranslate nohighlight">\(\varphi(z)\)</span> is TRUE. Otherwise, we say that <span class="math notranslate nohighlight">\(\varphi\)</span> is <em>unsatisfiable</em>.</p>
+</div>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>A Boolean formula over variables <span class="math notranslate nohighlight">\(u_{1}, \ldots, u_{n}\)</span> is in <strong>CNF form</strong> (Conjunctive Normal Form) if it is an AND of OR’s of variables or their negations.</p>
+<p>A CNF formula has the form</p>
 <div class="math notranslate nohighlight">
 \[
-L(x):=\sum_{j=0}^{k} y_{j} \ell_{j}(x)
+\bigwedge_{i}\left(\bigvee_{j} v_{i_{j}}\right)
 \]</div>
-<div class="section" id="lagrange-basis-polynomials">
-<h3>Lagrange basis polynomials:<a class="headerlink" href="#lagrange-basis-polynomials" title="Permalink to this headline">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\ell_{j}(x):=\prod_{\substack{0 \leq m \leq k \\ m \neq j}} \frac{x-x_{m}}{x_{j}-x_{m}}  \quad ,j\in [0,k]
-\end{split}\]</div>
-<p>Note that:</p>
-<div class="math notranslate nohighlight">
-\[
-\forall(i \neq j): \ell_{j}\left(x_{i}\right)=0
-\]</div>
-<div class="math notranslate nohighlight">
-\[
-\ell_{j}\left(x_{j}\right):=1
-\]</div>
-<p>It follows that <span class="math notranslate nohighlight">\(y_{j} \ell_{j}\left(x_{j}\right)=y_{j}\)</span>, <span class="math notranslate nohighlight">\(L\left(x_{j}\right)=y_{j}\)</span></p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_polynomial">https://en.wikipedia.org/wiki/Lagrange_polynomial</a></p></li>
-</ul>
-</div></blockquote>
+<p>where each <span class="math notranslate nohighlight">\(v_{i_{j}}\)</span> is either a variable <span class="math notranslate nohighlight">\(u_{k}\)</span> or to its negation <span class="math notranslate nohighlight">\(\neg u_{k}\)</span>.</p>
+<p>The terms <span class="math notranslate nohighlight">\(v_{i_{j}}\)</span> are called the <strong>literals</strong> of the formula and the terms <span class="math notranslate nohighlight">\(\left(\vee_{j} v_{i_{j}}\right)\)</span> are called its <strong>clauses</strong>.</p>
+<p>A <span class="math notranslate nohighlight">\(k \mathrm{CNF}\)</span> is a CNF formula in which all clauses contain at most <span class="math notranslate nohighlight">\(k\)</span> literals.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathrm{SAT}\)</span> be the language of all satisfiable CNF formulae and <span class="math notranslate nohighlight">\(\mathrm{3SAT}\)</span> be the language of all satisfiable 3CNF formulae.</p>
 </div>
-</div>
-</div>
+</div></div>
 
     <script type="text/x-thebe-config">
     {
@@ -556,7 +496,7 @@ L(x):=\sum_{j=0}^{k} y_{j} \ell_{j}(x)
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./notes"
+            path: "./Cryptography Glossary and Dictionary/Cryptographic Primitives"
         },
         predefinedOutput: true
     }
@@ -570,17 +510,17 @@ L(x):=\sum_{j=0}^{k} y_{j} \ell_{j}(x)
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Schwartz-Zippel-lemma.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Schwartz-Zippel 引理</p>
+            <p class="prev-next-title">Cryptographic Primitives</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="rsa.html" title="next page">
+    <a class='right-next' id="next-link" href="mdtransform.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">RSA-based Encryption</p>
+        <p class="prev-next-title">The Merkle–Damgård Transform</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -605,7 +545,7 @@ L(x):=\sum_{j=0}^{k} y_{j} \ell_{j}(x)
     </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
 
   </body>

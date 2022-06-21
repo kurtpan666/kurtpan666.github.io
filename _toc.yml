@@ -12,6 +12,9 @@ parts:
     - file: Cryptography Glossary and Dictionary/index
       sections:
       - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/index
+        sections:
+          - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/boolean
+          - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/mdtransform
       - file: Cryptography Glossary and Dictionary/Cryptographic Protocols/index
 
     
