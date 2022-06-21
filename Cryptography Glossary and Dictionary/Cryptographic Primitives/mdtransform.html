@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cryptographic Protocols &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>The Merkle–Damgård Transform &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,10 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Algebraic Intermediate Representation (AIR)" href="../../notes/air.html" />
-    <link rel="prev" title="The Merkle–Damgård Transform" href="../Cryptographic%20Primitives/mdtransform.html" />
+    <link rel="next" title="Cryptographic Protocols" href="../Cryptographic%20Protocols/index.html" />
+    <link rel="prev" title="Boolean formulae and CNF form" href="boolean.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,30 +141,30 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../Cryptographic%20Primitives/index.html">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="index.html">
      Cryptographic Primitives
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
-      <a class="reference internal" href="../Cryptographic%20Primitives/boolean.html">
+      <a class="reference internal" href="boolean.html">
        Boolean formulae and CNF form
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../Cryptographic%20Primitives/mdtransform.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        The Merkle–Damgård Transform
       </a>
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Cryptographic%20Protocols/index.html">
      Cryptographic Protocols
     </a>
    </li>
@@ -395,7 +397,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Protocols/index.md"
+        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Primitives/mdtransform.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -432,60 +434,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#products">
-   Products
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Cryptographic Protocols</h1>
+                <h1>The Merkle–Damgård Transform</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#products">
-   Products
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -493,20 +458,52 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cryptographic-protocols">
-<h1>Cryptographic Protocols<a class="headerlink" href="#cryptographic-protocols" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="the-merkledamgard-transform">
+<h1>The Merkle–Damgård Transform<a class="headerlink" href="#the-merkledamgard-transform" title="Permalink to this headline">#</a></h1>
+<p>Let (Gen, <span class="math notranslate nohighlight">\(h\)</span> ) be a compression function for inputs of length <span class="math notranslate nohighlight">\(n+n^{\prime} \geq 2 n\)</span> with output length <span class="math notranslate nohighlight">\(n\)</span>. Fix <span class="math notranslate nohighlight">\(\ell \leq n^{\prime}\)</span> and <span class="math notranslate nohighlight">\(I V \in\{0,1\}^{n}\)</span>.</p>
+<p>Construct hash function (Gen, <span class="math notranslate nohighlight">\(H\)</span> ) as follows:</p>
 <ul class="simple">
-<li><p>TLS1.3</p></li>
-<li><p><a class="reference external" href="https://www.openpgp.org/">OpenPGP</a>: Email encryption.</p></li>
+<li><p>Gen: remains unchanged.</p></li>
+<li><p><span class="math notranslate nohighlight">\(H\)</span> : on input a key <span class="math notranslate nohighlight">\(s\)</span> and a string <span class="math notranslate nohighlight">\(x \in\{0,1\}^{*}\)</span> of length <span class="math notranslate nohighlight">\(L&lt;2^{\ell}\)</span>, do:</p>
+<ol class="simple">
+<li><p>Append a 1 to <span class="math notranslate nohighlight">\(x\)</span>, followed by enough zeros so that the length of the resulting string is <span class="math notranslate nohighlight">\(\ell\)</span> less than a multiple of <span class="math notranslate nohighlight">\(n^{\prime}\)</span>. Then append <span class="math notranslate nohighlight">\(L\)</span>, encoded as an <span class="math notranslate nohighlight">\(\ell\)</span>-bit string. Parse the resulting string as the sequence of <span class="math notranslate nohighlight">\(n^{\prime}\)</span>-bit blocks <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{B}\)</span>.</p></li>
+<li><p>Set <span class="math notranslate nohighlight">\(z_{0}:=I V\)</span>.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(i=1, \ldots, B\)</span>, compute <span class="math notranslate nohighlight">\(z_{i}:=h^{s}\left(z_{i-1} \| x_{i}\right)\)</span>.</p></li>
+<li><p>Output <span class="math notranslate nohighlight">\(z_{B}\)</span>.</p></li>
+</ol>
+</li>
 </ul>
-<div class="section" id="products">
-<h2>Products<a class="headerlink" href="#products" title="Permalink to this headline">#</a></h2>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\((\mathrm{Gen}, h)\)</span> is collision resistant, then so is <span class="math notranslate nohighlight">\((\mathrm{Gen}, H)\)</span></p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> be a probabilistic polynomial-time adversary and <span class="math notranslate nohighlight">\(\varepsilon\)</span> a function such that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> succeeds in the <span class="math notranslate nohighlight">\(\mathrm{Hash}\)</span>-<span class="math notranslate nohighlight">\(\mathrm{coll}\)</span> experiment with (Gen, <span class="math notranslate nohighlight">\(H\)</span> ) with probability <span class="math notranslate nohighlight">\(\varepsilon\)</span>. We construct an adversary <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> that succeeds in the <span class="math notranslate nohighlight">\(\mathrm{Hash}\)</span>-<span class="math notranslate nohighlight">\(\mathrm{coll}\)</span> experiment with (Gen,<span class="math notranslate nohighlight">\(h)\)</span> with probability <span class="math notranslate nohighlight">\(\varepsilon\)</span>.</p>
+<p>Upon receiving <span class="math notranslate nohighlight">\(s\)</span>, <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> invokes <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> upon <span class="math notranslate nohighlight">\(s\)</span> and receives back a pair <span class="math notranslate nohighlight">\(x, x^{\prime} .\)</span></p>
+<hr class="docutils" />
+<p>We show that for any <span class="math notranslate nohighlight">\(s\)</span>, a collision in <span class="math notranslate nohighlight">\(H^{s}\)</span> yields a collision in <span class="math notranslate nohighlight">\(h^{s}\)</span>. Let <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(x^{\prime}\)</span> be two different strings of length <span class="math notranslate nohighlight">\(L\)</span> and <span class="math notranslate nohighlight">\(L^{\prime}\)</span>, respectively, such that <span class="math notranslate nohighlight">\(H^{s}(x)=H^{s}\left(x^{\prime}\right)\)</span>. Let <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{B}\)</span> be the <span class="math notranslate nohighlight">\(B\)</span> blocks of the padded <span class="math notranslate nohighlight">\(x\)</span>, and let <span class="math notranslate nohighlight">\(x_{1}^{\prime}, \ldots, x_{B^{\prime}}^{\prime}\)</span> be the <span class="math notranslate nohighlight">\(B^{\prime}\)</span> blocks of the padded <span class="math notranslate nohighlight">\(x^{\prime}\)</span>. Let <span class="math notranslate nohighlight">\(z_{0}, z_{1}, \ldots, z_{B}\)</span> (resp., <span class="math notranslate nohighlight">\(z_{0}^{\prime}, z_{1}^{\prime}, \ldots, z_{B^{\prime}}^{\prime}\)</span> ) be the intermediate results during computation of <span class="math notranslate nohighlight">\(H^{s}(x)\)</span> (resp., <span class="math notranslate nohighlight">\(\left.H^{s}\left(x^{\prime}\right)\right)\)</span>. There are two cases to consider:</p>
+<p>Case 1: <span class="math notranslate nohighlight">\(L \neq L^{\prime}\)</span>. In this case, the last step of the computation of <span class="math notranslate nohighlight">\(H^{s}(x)\)</span> is <span class="math notranslate nohighlight">\(z_{B}:=h^{s}\left(z_{B-1} \| x_{B}\right)\)</span>, and the last step of the computation of <span class="math notranslate nohighlight">\(H^{s}\left(x^{\prime}\right)\)</span> is <span class="math notranslate nohighlight">\(z_{B^{\prime}}^{\prime}:=h^{s}\left(z_{B^{\prime}-1}^{\prime} \| x_{B^{\prime}}^{\prime}\right)\)</span>. Since <span class="math notranslate nohighlight">\(H^{s}(x)=H^{s}\left(x^{\prime}\right)\)</span> we have <span class="math notranslate nohighlight">\(h^{s}\left(z_{B-1} \| x_{B}\right)=\)</span> <span class="math notranslate nohighlight">\(h^{s}\left(z_{B^{\prime}-1}^{\prime} \| x_{B^{\prime}}^{\prime}\right)\)</span>. However, <span class="math notranslate nohighlight">\(L \neq L^{\prime}\)</span> and so <span class="math notranslate nohighlight">\(x_{B} \neq x_{B^{\prime}}^{\prime}\)</span>. (Recall that the last <span class="math notranslate nohighlight">\(\ell\)</span> bits of <span class="math notranslate nohighlight">\(x_{B}\)</span> encode <span class="math notranslate nohighlight">\(L\)</span>, and the last <span class="math notranslate nohighlight">\(\ell\)</span> bits of <span class="math notranslate nohighlight">\(x_{B^{\prime}}^{\prime}\)</span> encode <span class="math notranslate nohighlight">\(L^{\prime}\)</span>.) Thus, <span class="math notranslate nohighlight">\(z_{B-1} \| x_{B}\)</span> and <span class="math notranslate nohighlight">\(z_{B^{\prime}-1}^{\prime} \| x_{B^{\prime}}^{\prime}\)</span> are a collision with respect to <span class="math notranslate nohighlight">\(h^{s}\)</span>.</p>
+<p>Case 2: <span class="math notranslate nohighlight">\(L=L^{\prime}\)</span>. This means that <span class="math notranslate nohighlight">\(B=B^{\prime}\)</span>. Let <span class="math notranslate nohighlight">\(I_{i} \stackrel{\text { def }}{=} z_{i-1} \| x_{i}\)</span> denote the <span class="math notranslate nohighlight">\(i\)</span> th input to <span class="math notranslate nohighlight">\(h^{s}\)</span> during computation of <span class="math notranslate nohighlight">\(H^{s}(x)\)</span>, and define <span class="math notranslate nohighlight">\(I_{B+1} \stackrel{\text { def }}{=} z_{B}\)</span>. Define <span class="math notranslate nohighlight">\(I_{1}^{\prime}, \ldots, I_{B+1}^{\prime}\)</span> analogously with respect to <span class="math notranslate nohighlight">\(x^{\prime}\)</span>. Let <span class="math notranslate nohighlight">\(N\)</span> be the largest index for which <span class="math notranslate nohighlight">\(I_{N} \neq I_{N}^{\prime}\)</span>. Since <span class="math notranslate nohighlight">\(|x|=\left|x^{\prime}\right|\)</span> but <span class="math notranslate nohighlight">\(x \neq x^{\prime}\)</span>, there is an <span class="math notranslate nohighlight">\(i\)</span> with <span class="math notranslate nohighlight">\(x_{i} \neq x_{i}^{\prime}\)</span> and so such an <span class="math notranslate nohighlight">\(N\)</span> certainly exists. Because</p>
+<div class="math notranslate nohighlight">
+\[
+I_{B+1}=z_{B}=H^{s}(x)=H^{s}\left(x^{\prime}\right)=z_{B}^{\prime}=I_{B+1}^{\prime},
+\]</div>
+<p>we have <span class="math notranslate nohighlight">\(N \leq B\)</span>. By maximality of <span class="math notranslate nohighlight">\(N\)</span>, we have <span class="math notranslate nohighlight">\(I_{N+1}=I_{N+1}^{\prime}\)</span> and in particular <span class="math notranslate nohighlight">\(z_{N}=z_{N}^{\prime}\)</span>. But this means that <span class="math notranslate nohighlight">\(I_{N}, I_{N}^{\prime}\)</span> collide under <span class="math notranslate nohighlight">\(h^{s}\)</span>.</p>
+<hr class="docutils" />
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.torproject.org/">Tor</a></p></li>
-<li><p><a class="reference external" href="https://signal.org/">Signal</a></p></li>
-<li><p><a class="reference external" href="https://telegram.org/">Telegram</a></p></li>
-<li><p><a class="reference external" href="https://proton.me/">Proton</a></p></li>
+<li><p>If <span class="math notranslate nohighlight">\(H^{s}(x) \neq H^{s}\left(x^{\prime}\right)\)</span> then <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> just halts.</p></li>
 </ul>
+<p>Otherwise,</p>
+<ul class="simple">
+<li><p>IF <span class="math notranslate nohighlight">\(L \neq L^{\prime}\)</span> then <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> outputs <span class="math notranslate nohighlight">\(z_{B} \| L\)</span> and <span class="math notranslate nohighlight">\(z_{B^{\prime}}^{\prime} \| L^{\prime}\)</span> and halts.</p></li>
+<li><p>IF <span class="math notranslate nohighlight">\(L=L^{\prime}\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> works backwards from the last block to the first to find the maximal <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<ul>
+<li><p>Then, <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> outputs <span class="math notranslate nohighlight">\(I_N\)</span> and <span class="math notranslate nohighlight">\(I^{\prime}_N\)</span> and halts.</p></li>
+</ul>
+</li>
+</ul>
+<p>Note that <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> can compute all the <span class="math notranslate nohighlight">\(z\)</span>-values by computing <span class="math notranslate nohighlight">\(H\)</span> and storing all the intermediate values. So whenever <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> finds a collision, <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> also finds a collision.  Thus, <span class="math notranslate nohighlight">\(\mathcal{A}^{\prime}\)</span> succeeds in <span class="math notranslate nohighlight">\(\mathrm{Hash}\)</span>-<span class="math notranslate nohighlight">\(\mathrm{coll}\)</span> for (Gen, <span class="math notranslate nohighlight">\(\left.h\right)\)</span> with probability <span class="math notranslate nohighlight">\(\varepsilon\)</span>, implying that <span class="math notranslate nohighlight">\(\varepsilon(n)\)</span> is negligible. Thus, (Gen, <span class="math notranslate nohighlight">\(H)\)</span> is collision-resistant as required.</p>
 </div>
 </div>
 
@@ -523,7 +520,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Cryptography Glossary and Dictionary/Cryptographic Protocols"
+            path: "./Cryptography Glossary and Dictionary/Cryptographic Primitives"
         },
         predefinedOutput: true
     }
@@ -537,17 +534,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../Cryptographic%20Primitives/mdtransform.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="boolean.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Merkle–Damgård Transform</p>
+            <p class="prev-next-title">Boolean formulae and CNF form</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../notes/air.html" title="next page">
+    <a class='right-next' id="next-link" href="../Cryptographic%20Protocols/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Algebraic Intermediate Representation (AIR)</p>
+        <p class="prev-next-title">Cryptographic Protocols</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
