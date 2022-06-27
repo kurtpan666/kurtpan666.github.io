@@ -1,4 +1,4 @@
-> v220609
+> v220627
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -23,14 +23,13 @@
 ## Papers
 
 ### 2022
-- [Gimini](https://eprint.iacr.org/2022/420.pdf) 
+- [Nova](https://eprint.iacr.org/2021/370.pdf) (Crypto 2022)
+- [Gimini](https://eprint.iacr.org/2022/420.pdf) (Eurocrypt 2022)
 - [Caulk](https://eprint.iacr.org/2022/621.pdf)
 - [ECLIPSE](https://eprint.iacr.org/2021/934.pdf)
 
 ### 2021
 - [Brakedown](https://eprint.iacr.org/2021/1043.pdf) 
-- [Nova](https://eprint.iacr.org/2021/370.pdf) 
-
 
 
 ### 2020 and before
@@ -144,4 +143,5 @@
 - [matter-labs: Awesome zero knowledge proofs (zkp)](https://github.com/matter-labs/awesome-zero-knowledge-proofs)
 - [awesome-zkevm](https://github.com/LuozhuZhang/awesome-zkevm)
 - [Awesome PLONK](https://github.com/fluidex/awesome-plonk)
+- [Awesome HALO2](https://github.com/adria0/awesome-halo2)
 - [Zero-Knowledge Proofs Starter Pack](https://ethresear.ch/t/zero-knowledge-proofs-starter-pack/4519)

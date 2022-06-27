@@ -15,6 +15,7 @@ parts:
         sections:
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/boolean
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/mdtransform
+          - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/fstransform
       - file: Cryptography Glossary and Dictionary/Cryptographic Protocols/index
 
     
@@ -47,12 +48,18 @@ parts:
 
   - caption: Links
     chapters:
+    - url: https://mp.weixin.qq.com/s/FT_U-PbM59FrEFrBpGtOaQ
+      title: 推导三次方程求根公式
+    - url: https://mp.weixin.qq.com/s/50CA6I6LDVeRm2NoInUeHQ
+      title: 一个比较大文件是否相等的最差也最好的确定性算法
     - url: https://mentor-crypto-2021.github.io/
       title: Mentoring Workshop and Videos 
     - url: https://eprint.iacr.org/
       title: Cryptology ePrint Archive
     - file: confs
       sections:
+      - url: https://crypto.iacr.org/2022/acceptedpapers.php
+        title: Crypto 2022
       - url: https://asiaccs2022.conferenceservice.jp/
         title: ASIACCS 2022
       - url: https://eurocrypt.iacr.org/2022/program.php
