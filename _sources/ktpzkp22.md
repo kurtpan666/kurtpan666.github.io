@@ -30,6 +30,9 @@
 
 ### 2021
 - [Brakedown](https://eprint.iacr.org/2021/1043.pdf) 
+- [Limbo](https://eprint.iacr.org/2021/215.pdf) (CCS 2021)
+- [QuickSilver](https://eprint.iacr.org/2021/076.pdf) (CCS 2021)
+- [Mystique](https://eprint.iacr.org/2021/730.pdf) (USENIX Security 2021)
 
 
 ### 2020 and before
