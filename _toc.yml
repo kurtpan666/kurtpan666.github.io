@@ -9,6 +9,7 @@ parts:
     chapters:
     - file: ktpzkp22
     - file: translations
+    - file: posts
     - file: Cryptography Glossary and Dictionary/index
       sections:
       - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/index
@@ -16,6 +17,7 @@ parts:
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/boolean
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/mdtransform
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/fstransform
+          - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/groth10
       - file: Cryptography Glossary and Dictionary/Cryptographic Protocols/index
 
     
@@ -48,10 +50,6 @@ parts:
 
   - caption: Links
     chapters:
-    - url: https://mp.weixin.qq.com/s/FT_U-PbM59FrEFrBpGtOaQ
-      title: 推导三次方程求根公式
-    - url: https://mp.weixin.qq.com/s/50CA6I6LDVeRm2NoInUeHQ
-      title: 一个比较大文件是否相等的最差也最好的确定性算法
     - url: https://mentor-crypto-2021.github.io/
       title: Mentoring Workshop and Videos 
     - url: https://eprint.iacr.org/
