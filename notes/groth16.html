@@ -131,6 +131,11 @@ const thebe_selector_output = ".output, .cell_output"
    My Translation List
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../posts.html">
+   My Posts
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/index.html">
    Cryptography Glossary and Dictionary
@@ -164,6 +169,11 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/fstransform.html">
        The Fiat-Shamir Transformation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/groth10.html">
+       Groth10
       </a>
      </li>
     </ul>
@@ -287,16 +297,6 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference external" href="https://mp.weixin.qq.com/s/FT_U-PbM59FrEFrBpGtOaQ">
-   推导三次方程求根公式
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference external" href="https://mp.weixin.qq.com/s/50CA6I6LDVeRm2NoInUeHQ">
-   一个比较大文件是否相等的最差也最好的确定性算法
-  </a>
- </li>
  <li class="toctree-l1">
   <a class="reference external" href="https://mentor-crypto-2021.github.io/">
    Mentoring Workshop and Videos
@@ -527,7 +527,7 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="groth16">
 <h1>Groth16<a class="headerlink" href="#groth16" title="Permalink to this headline">#</a></h1>
-<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id7" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
+<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id9" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
 <p>At a high level, given a description of an arithmetic circuit (over the scalar field of a pairing-friendly elliptic curve), a Groth16 proof proves that a circuit is satisfied by a set of public wires (values known to the verifier) and private wires (values which are not known to the verifier, also called <em>witness elements</em>).</p>
 <div class="section" id="groth16-scheme">
 <h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">#</a></h2>
@@ -581,7 +581,7 @@ e(A, B) \stackrel{?}{=} e\left([\alpha]_{1},[\beta]_{2}\right) \cdot e\left(C,[\
 \[
 \pi^{\prime}:=\left(\zeta^{-1} A, \zeta B+\zeta \omega[\delta]_{2}, C+\omega A\right) .
 \]</div>
-<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id8" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
+<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id10" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
 </div>
 <div class="section" id="proofs-for-groth16">
 <h2>Proofs for Groth16<a class="headerlink" href="#proofs-for-groth16" title="Permalink to this headline">#</a></h2>
