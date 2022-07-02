@@ -15,3 +15,11 @@ $$
 CNARG
 
 NAND-gate circuit $C$
+
+## GM17
+{cite}`GM17`
+
+
+```{bibliography}
+:filter: docname in docnames
+```

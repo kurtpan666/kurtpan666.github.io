@@ -1,4 +1,4 @@
-> v220627
+> v220628
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -23,6 +23,7 @@
 ## Papers
 
 ### 2022
+- [VERI-ZEXE](https://eprint.iacr.org/2022/802.pdf)
 - [Nova](https://eprint.iacr.org/2021/370.pdf) (Crypto 2022)
 - [Gimini](https://eprint.iacr.org/2022/420.pdf) (Eurocrypt 2022)
 - [Caulk](https://eprint.iacr.org/2022/621.pdf)
@@ -50,6 +51,7 @@
 - [FRACTAL](https://eprint.iacr.org/2019/1076.pdf) (2020)
 - [Spartan](https://eprint.iacr.org/2019/550.pdf) (2020)
 - [Quarks](https://eprint.iacr.org/2020/1275.pdf) (2020)
+- [ZEXE](https://eprint.iacr.org/2018/962.pdf) (S&P 2020)
 
 
 
