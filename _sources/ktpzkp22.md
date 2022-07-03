@@ -1,4 +1,4 @@
-> v220628
+> v220703
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -19,6 +19,7 @@
 - [On Σ-protocols](https://cs.au.dk/~ivan/Sigma.pdf) Ivan Damgard
 - [How To Simulate It – A Tutorial on the Simulation Proof Technique](https://eprint.iacr.org/2016/046.pdf) , Section 5 , Yehuda Lindell
 - [A survey of elliptic curves for proof systems](https://eprint.iacr.org/2022/586) AHG22
+- [简洁非交互零知识证明综述](http://www.jcr.cacrnet.org.cn/CN/Y2022/V9/I3/379) 李威翰,张宗洋,周子博,邓燚22
 
 ## Papers
 
