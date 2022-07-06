@@ -1,4 +1,4 @@
-> v220703
+> v220706
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -124,6 +124,20 @@
 - [snarkjs](https://github.com/iden3/snarkjs) JS
 - [zkREPL](https://zkrepl.dev/)
 
+```{list-table}
+:header-rows: 1
+
+* - Name
+  - Language
+  - Features
+* - [arkworks](http://arkworks.rs)
+  - Rust
+  - full
+* - [libsnark](https://github.com/scipr-lab/libsnark)
+  - C++
+  - gadget
+```
+
 
 ## Projects
 - [zkRollup Directory](https://www.zkrollups.xyz/)
@@ -144,6 +158,7 @@
 - [ZPrize](https://www.zprize.io/)
 
 ## Other Aggregators
+- [Awesome Zero Knowledge](https://github.com/ventali/awesome-zk)
 - [ZK Research](https://0xst.notion.site/ZK-Research-94ba836c3b2a4e2491a871364ee5b13b)
 - [zkp.science](https://zkp.science/)
 - [matter-labs: Awesome zero knowledge proofs (zkp)](https://github.com/matter-labs/awesome-zero-knowledge-proofs)
