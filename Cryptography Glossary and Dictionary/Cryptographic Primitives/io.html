@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cryptographic Primitives &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>Indistinguishability Obfuscation (\(\mathcal{iO}\)) &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,10 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Boolean formulae and CNF form" href="boolean.html" />
-    <link rel="prev" title="Cryptography Glossary and Dictionary" href="../index.html" />
+    <link rel="next" title="Cryptographic Protocols" href="../Cryptographic%20Protocols/index.html" />
+    <link rel="prev" title="Groth10" href="groth10.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -145,7 +147,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2 current active has-children">
-    <a class="current reference internal" href="#">
+    <a class="reference internal" href="index.html">
      Cryptographic Primitives
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -153,7 +155,7 @@ const thebe_selector_output = ".output, .cell_output"
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
+    <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="boolean.html">
        Boolean formulae and CNF form
@@ -174,8 +176,8 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="io.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Indistinguishability Obfuscation (
        <span class="math notranslate nohighlight">
         \(\mathcal{iO}\)
@@ -424,7 +426,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Primitives/index.md"
+        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Primitives/io.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -473,7 +475,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Cryptographic Primitives</h1>
+                <h1>Indistinguishability Obfuscation (\mathcal{iO})</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -485,23 +487,33 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="cryptographic-primitives">
-<h1>Cryptographic Primitives<a class="headerlink" href="#cryptographic-primitives" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="indistinguishability-obfuscation-mathcal-io">
+<h1>Indistinguishability Obfuscation (<span class="math notranslate nohighlight">\(\mathcal{iO}\)</span>)<a class="headerlink" href="#indistinguishability-obfuscation-mathcal-io" title="Permalink to this headline">#</a></h1>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>A uniform <span class="math notranslate nohighlight">\(P P T\)</span> machine <span class="math notranslate nohighlight">\(i \mathcal{O}\)</span> is an indistinguishability obfuscator <span id="id1">[<a class="reference internal" href="#id3" title="Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. J. ACM, 59:6:1-6:48, 2012.">BGI+12</a>]</span> for a circuit class <span class="math notranslate nohighlight">\(\left\{\mathcal{C}_{\lambda}\right\}\)</span> if the following conditions are satisfied:</p>
 <ul class="simple">
-<li><p>Hash Functions</p></li>
-<li><p>Commitment</p></li>
+<li><p>(Strong Functionality Preservation) For all security parameters <span class="math notranslate nohighlight">\(\lambda \in \mathbb{N}^{+}\)</span>, for all <span class="math notranslate nohighlight">\(C \in \mathcal{C}_{\lambda}\)</span></p></li>
 </ul>
-<p>trapdoor commitment scheme: allows a trapdoor holder to find a properly distributed opening randomness for the commitment.</p>
-<p>decryptable commitment  scheme,
-supporting a trapdoor decryption algorithm that enables the authority with some trapdoor to recover a message from a given commitment.</p>
-<p>verifiable decryptable commitment
-allows protocol parties to verify that a commitment is decryptable by the authority,<br />
-while still hiding its contents from all other parties.</p>
+<div class="math notranslate nohighlight">
+\[
+\operatorname{Pr}_{C^{\prime} \leftarrow i \mathcal{O}(\lambda, C)}\left[\forall x, C^{\prime}(x)=C(x)\right] \geq 1-\operatorname{negl}(\lambda) .
+\]</div>
 <ul class="simple">
-<li><p>blind signature</p></li>
-<li><p>group signature</p></li>
+<li><p>For any non-uniform <span class="math notranslate nohighlight">\(P P T\)</span> distinguisher <span class="math notranslate nohighlight">\(D\)</span>, there exists a negligible function <span class="math notranslate nohighlight">\(\alpha\)</span> such that the following holds: for all <span class="math notranslate nohighlight">\(\lambda \in \mathbb{N}^{+}\)</span>, for all pairs of circuits <span class="math notranslate nohighlight">\(C_{0}, C_{1} \in\)</span> <span class="math notranslate nohighlight">\(\mathcal{C}_{\lambda}\)</span>, we have that if <span class="math notranslate nohighlight">\(C_{0}(x)=C_{1}(x)\)</span> for all input <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\left|C_{0}\right|=\left|C_{1}\right|\)</span> (where <span class="math notranslate nohighlight">\(|C|\)</span> denotes the size of a circuit), then</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+<div class="math notranslate nohighlight">
+\[
+\left|\operatorname{Pr}\left[D\left(i \mathcal{O}\left(\lambda, C_{0}\right)\right)=1\right]-\operatorname{Pr}\left[D\left(i \mathcal{O}\left(\lambda, C_{1}\right)\right)=1\right]\right| \leq \alpha(\lambda)
+\]</div>
+</div>
+</div><div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">BGI+12</a></span></dt>
+<dd><p>Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. <em>J. ACM</em>, 59:6:1–6:48, 2012.</p>
+</dd>
+</dl>
 </div>
 </div>
 
@@ -532,17 +544,17 @@ while still hiding its contents from all other parties.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="groth10.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Cryptography Glossary and Dictionary</p>
+            <p class="prev-next-title">Groth10</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="boolean.html" title="next page">
+    <a class='right-next' id="next-link" href="../Cryptographic%20Protocols/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Boolean formulae and CNF form</p>
+        <p class="prev-next-title">Cryptographic Protocols</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
