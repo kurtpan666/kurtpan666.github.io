@@ -489,16 +489,31 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="indistinguishability-obfuscation-mathcal-io">
 <h1>Indistinguishability Obfuscation (<span class="math notranslate nohighlight">\(\mathcal{iO}\)</span>)<a class="headerlink" href="#indistinguishability-obfuscation-mathcal-io" title="Permalink to this headline">#</a></h1>
-<div class="highlight-{prf:definition}[iO] notranslate"><div class="highlight"><pre><span></span>A uniform $P P T$ machine $i \mathcal{O}$ is an indistinguishability obfuscator for a circuit class $\left\{\mathcal{C}_{\lambda}\right\}$ if the following conditions are satisfied:
-(Strong Functionality Preservation) For all security parameters $\lambda \in \mathbb{N}^{+}$, for all $C \in \mathcal{C}_{\lambda}$
-$$
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>A uniform <span class="math notranslate nohighlight">\(P P T\)</span> machine <span class="math notranslate nohighlight">\(i \mathcal{O}\)</span> is an indistinguishability obfuscator <span id="id1">[<a class="reference internal" href="#id3" title="Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. J. ACM, 59:6:1-6:48, 2012.">BGI+12</a>]</span> for a circuit class <span class="math notranslate nohighlight">\(\left\{\mathcal{C}_{\lambda}\right\}\)</span> if the following conditions are satisfied:</p>
+<ul class="simple">
+<li><p>(Strong Functionality Preservation) For all security parameters <span class="math notranslate nohighlight">\(\lambda \in \mathbb{N}^{+}\)</span>, for all <span class="math notranslate nohighlight">\(C \in \mathcal{C}_{\lambda}\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
 \operatorname{Pr}_{C^{\prime} \leftarrow i \mathcal{O}(\lambda, C)}\left[\forall x, C^{\prime}(x)=C(x)\right] \geq 1-\operatorname{negl}(\lambda) .
-$$
-For any non-uniform $P P T$ distinguisher $D$, there exists a negligible function $\alpha$ such that the following holds: for all $\lambda \in \mathbb{N}^{+}$, for all pairs of circuits $C_{0}, C_{1} \in$ $\mathcal{C}_{\lambda}$, we have that if $C_{0}(x)=C_{1}(x)$ for all input $x$ and $\left|C_{0}\right|=\left|C_{1}\right|$ (where $|C|$ denotes the size of a circuit), then
-$$
+\]</div>
+<ul class="simple">
+<li><p>For any non-uniform <span class="math notranslate nohighlight">\(P P T\)</span> distinguisher <span class="math notranslate nohighlight">\(D\)</span>, there exists a negligible function <span class="math notranslate nohighlight">\(\alpha\)</span> such that the following holds: for all <span class="math notranslate nohighlight">\(\lambda \in \mathbb{N}^{+}\)</span>, for all pairs of circuits <span class="math notranslate nohighlight">\(C_{0}, C_{1} \in\)</span> <span class="math notranslate nohighlight">\(\mathcal{C}_{\lambda}\)</span>, we have that if <span class="math notranslate nohighlight">\(C_{0}(x)=C_{1}(x)\)</span> for all input <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(\left|C_{0}\right|=\left|C_{1}\right|\)</span> (where <span class="math notranslate nohighlight">\(|C|\)</span> denotes the size of a circuit), then</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
 \left|\operatorname{Pr}\left[D\left(i \mathcal{O}\left(\lambda, C_{0}\right)\right)=1\right]-\operatorname{Pr}\left[D\left(i \mathcal{O}\left(\lambda, C_{1}\right)\right)=1\right]\right| \leq \alpha(\lambda)
-$$
-</pre></div>
+\]</div>
+</div>
+</div><div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">BGI+12</a></span></dt>
+<dd><p>Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. <em>J. ACM</em>, 59:6:1–6:48, 2012.</p>
+</dd>
+</dl>
 </div>
 </div>
 
