@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Indistinguishability Obfuscation (\(\mathcal{iO}\)) &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -209,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../notes/RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -487,12 +493,12 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="indistinguishability-obfuscation-mathcal-io">
+  <section class="tex2jax_ignore mathjax_ignore" id="indistinguishability-obfuscation-mathcal-io">
 <h1>Indistinguishability Obfuscation (<span class="math notranslate nohighlight">\(\mathcal{iO}\)</span>)<a class="headerlink" href="#indistinguishability-obfuscation-mathcal-io" title="Permalink to this headline">#</a></h1>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span></p>
-<div class="definition-content section" id="proof-content">
-<p>A uniform <span class="math notranslate nohighlight">\(P P T\)</span> machine <span class="math notranslate nohighlight">\(i \mathcal{O}\)</span> is an indistinguishability obfuscator <span id="id1">[<a class="reference internal" href="#id3" title="Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. J. ACM, 59:6:1-6:48, 2012.">BGI+12</a>]</span> for a circuit class <span class="math notranslate nohighlight">\(\left\{\mathcal{C}_{\lambda}\right\}\)</span> if the following conditions are satisfied:</p>
+<section class="definition-content" id="proof-content">
+<p>A uniform <span class="math notranslate nohighlight">\(P P T\)</span> machine <span class="math notranslate nohighlight">\(i \mathcal{O}\)</span> is an indistinguishability obfuscator <span id="id1">[<a class="reference internal" href="../../references.html#id6" title="Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. J. ACM, 59:6:1-6:48, 2012.">BGI+12</a>]</span> for a circuit class <span class="math notranslate nohighlight">\(\left\{\mathcal{C}_{\lambda}\right\}\)</span> if the following conditions are satisfied:</p>
 <ul class="simple">
 <li><p>(Strong Functionality Preservation) For all security parameters <span class="math notranslate nohighlight">\(\lambda \in \mathbb{N}^{+}\)</span>, for all <span class="math notranslate nohighlight">\(C \in \mathcal{C}_{\lambda}\)</span></p></li>
 </ul>
@@ -507,15 +513,15 @@ title="Print to PDF"
 \[
 \left|\operatorname{Pr}\left[D\left(i \mathcal{O}\left(\lambda, C_{0}\right)\right)=1\right]-\operatorname{Pr}\left[D\left(i \mathcal{O}\left(\lambda, C_{1}\right)\right)=1\right]\right| \leq \alpha(\lambda)
 \]</div>
-</div>
+</section>
 </div><div class="docutils container" id="id2">
 <dl class="citation">
-<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">BGI+12</a></span></dt>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">BGI+12</a></span></dt>
 <dd><p>Boaz Barak, Oded Goldreich, Russell Impagliazzo, Steven Rudich, Amit Sahai, Salil P. Vadhan, and Ke Yang. On the (im)possibility of obfuscating programs. <em>J. ACM</em>, 59:6:1–6:48, 2012.</p>
 </dd>
 </dl>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

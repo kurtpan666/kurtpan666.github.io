@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Algebraic Intermediate Representation (AIR) &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -525,7 +540,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="algebraic-intermediate-representation-air">
+  <section class="tex2jax_ignore mathjax_ignore" id="algebraic-intermediate-representation-air">
 <h1>Algebraic Intermediate Representation (AIR)<a class="headerlink" href="#algebraic-intermediate-representation-air" title="Permalink to this headline">#</a></h1>
 <p><strong><a class="reference external" href="https://nmohnblatt.github.io/zk-jargon-decoder/definitions/arithmetization.html">Arithmetization</a></strong> is the reduction of computational statements to a set of algebraic statements involving a set of bounded-degree polynomials.</p>
 <p>In the <strong>STARK</strong> protocol, the output of arithmetization is an <strong>Algebraic Intermediate Representation</strong> of a computation.</p>
@@ -535,7 +550,7 @@ title="Print to PDF"
 <li><p><strong>transition constraints</strong> which define <strong>algebraic relationships</strong> between two (or more) rows of the execution trace.</p></li>
 <li><p><strong>boundary constraints</strong> which enforce equality between certain cells of the execution trace and a set of constant values. Boundary constraints can be thought of as defining a set of <strong>input and output values</strong> for the computation.</p></li>
 </ol>
-<div class="section" id="execution-trace">
+<section id="execution-trace">
 <h2>Execution Trace<a class="headerlink" href="#execution-trace" title="Permalink to this headline">#</a></h2>
 <p>Denote <span class="math notranslate nohighlight">\(m\)</span> as the width of the execution trace and <span class="math notranslate nohighlight">\(n\)</span> as the number of steps in the execution trace, i.e. <span class="math notranslate nohighlight">\(T\)</span> is an <span class="math notranslate nohighlight">\(m \times n\)</span> matrix.</p>
 <p>We define the <strong>register trace</strong> of a register <span class="math notranslate nohighlight">\(k\)</span> as the polynomial interpolation <span class="math notranslate nohighlight">\(f_{k}\)</span> of the set <span class="math notranslate nohighlight">\(\left\{\left(\omega^{i}, T[i][k]\right) \mid i \in[0, n)\right\}\)</span>, where <span class="math notranslate nohighlight">\(\omega\)</span> is a generator of a multiplicative subgroup of size <span class="math notranslate nohighlight">\(n\)</span> in the base field specified for an instantiation of a STARK protocol.</p>
@@ -549,8 +564,8 @@ title="Print to PDF"
 </div>
 <p>In addition to registers of the execution trace, we also use <strong>periodic registers</strong> (also called <strong>periodic columns</strong>), which are not included in the execution trace but can be referenced in transition constraints.</p>
 <p>Periodic columns are typically used in STARKs to encode a small set of values which can be represented by succinct polynomials of size much smaller than <span class="math notranslate nohighlight">\(n\)</span>. One example is a register where values repeats in a cycle and the length of the cycle is a power of two.</p>
-</div>
-<div class="section" id="constraints">
+</section>
+<section id="constraints">
 <h2>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">#</a></h2>
 <p>Both boundary and transition constraints are defined by rational functions of the form:</p>
 <div class="math notranslate nohighlight">
@@ -566,22 +581,22 @@ p(x)=c\left(f_{k}(x)\right)
 <p>where, <span class="math notranslate nohighlight">\(f_{k}(x)\)</span> is the trace polynomial for register <span class="math notranslate nohighlight">\(k\)</span> against which the constraint is enforced.</p>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 1 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>For example, to specify that the value in the first column of the first row in the execution trace must be 1 , we could use the following constraint:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{f_{0}(x)-1}{x-1}
 \]</div>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 2 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Similarly, to specify that the value in the 7 th row of the second column must be 987 , we could use the following constraint:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{f_{1}(x)-987}{x-\omega^{7}}
 \]</div>
-</div>
+</section>
 </div><p>For <strong>transition constraints</strong> , <span class="math notranslate nohighlight">\(p(x)\)</span> has the following form:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -590,13 +605,13 @@ p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \om
 <p>that is, <span class="math notranslate nohighlight">\(p(x)\)</span> is a function of all register values in two consecutive steps of a computation.</p>
 <div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 3 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>For example, the following constraint enforces that a value in the first register of the execution trace must be incremented by 1 at every step:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{f_{0}(x \cdot \omega)-\left(f_{0}(x)+1\right)}{\prod_{i=0}^{n-1}\left(x-\omega^{i}\right)}
 \]</div>
-</div>
+</section>
 </div><p>Additionally, since trace polynomials are evaluated over a multiplicative subgroup of a field, the denominator of the constraint above can be expressed succinctly, and the constraint can be rewritten as:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -604,12 +619,12 @@ p(x)=c\left(\left\{f_{0}(x), \ldots, f_{m-1}(x)\right\},\left\{f_{0}(x \cdot \om
 \]</div>
 <blockquote>
 <div><ul class="simple">
-<li><p><span id="id1">[<a class="reference internal" href="../references.html#id8" title="Irakliy Khaburzaniya, Konstantinos Chalkias, Kevin Lewi, and Harjasleen Malvai. Aggregating hash-based signatures using starks. IACR Cryptol. ePrint Arch., 2021:1048, 2021.">KCLM21</a>]</span> Section 2.2</p></li>
+<li><p><span id="id1">[<a class="reference internal" href="../references.html#id13" title="Irakliy Khaburzaniya, Konstantinos Chalkias, Kevin Lewi, and Harjasleen Malvai. Aggregating hash-based signatures using starks. IACR Cryptol. ePrint Arch., 2021:1048, 2021.">KCLM21</a>]</span> Section 2.2</p></li>
 <li><p><a class="reference external" href="https://aszepieniec.github.io/stark-anatomy/stark#arithmetic-intermediate-representation-air">Anatomy of a STARK, Part 4</a></p></li>
 </ul>
 </div></blockquote>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>\(\# \mathrm{SAT} \in \mathrm{IP}\) &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -525,28 +540,28 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="mathrm-sat-in-mathrm-ip">
+  <section class="tex2jax_ignore mathjax_ignore" id="mathrm-sat-in-mathrm-ip">
 <h1><span class="math notranslate nohighlight">\(\# \mathrm{SAT} \in \mathrm{IP}\)</span><a class="headerlink" href="#mathrm-sat-in-mathrm-ip" title="Permalink to this headline">#</a></h1>
-<div class="section" id="sat-problem">
+<section id="sat-problem">
 <h2>#SAT problem<a class="headerlink" href="#sat-problem" title="Permalink to this headline">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span>Definition </span> (#SAT)</p>
-<div class="definition-content section" id="proof-content">
+<p class="admonition-title"><span class="caption-number">Definition 4 </span> (#SAT)</p>
+<section class="definition-content" id="proof-content">
 <p>Let <span class="math notranslate nohighlight">\(\phi\)</span> be any <strong>Boolean formula</strong> on <span class="math notranslate nohighlight">\(n\)</span> variables of size <span class="math notranslate nohighlight">\(S=\operatorname{poly}(n)\)</span>
 The goal of #SAT is to compute the <em>number of satisfying assignments</em> of <span class="math notranslate nohighlight">\(\phi\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
 \sum_{x \in\{0,1\}^{n}} \phi(x)
 \]</div>
-</div>
-</div></div>
-<div class="section" id="the-interactive-proof-for-sat">
+</section>
+</div></section>
+<section id="the-interactive-proof-for-sat">
 <h2>The interactive proof for #SAT<a class="headerlink" href="#the-interactive-proof-for-sat" title="Permalink to this headline">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span>Definition </span> (arithmetization)</p>
-<div class="definition-content section" id="proof-content">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span> (arithmetization)</p>
+<section class="definition-content" id="proof-content">
 <p>The process of replacing the <strong>Boolean formula</strong> <span class="math notranslate nohighlight">\(\phi\)</span> with an <strong>arithmetic circuit</strong> <span class="math notranslate nohighlight">\(\psi\)</span> computing an <strong>extension polynomial</strong>  <span class="math notranslate nohighlight">\(g\)</span> of <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
-</div>
+</section>
 </div><p>We can turn <span class="math notranslate nohighlight">\(\phi\)</span> into an <strong>arithmetic circuit</strong> <span class="math notranslate nohighlight">\(\psi\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}\)</span> that computes the desired <strong>extension</strong> <span class="math notranslate nohighlight">\(g\)</span> of <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 <ul class="simple">
 <li><p>For any gate in <span class="math notranslate nohighlight">\(\phi\)</span> computing the AND of two inputs <span class="math notranslate nohighlight">\(y, z, \psi\)</span> replaces <span class="math notranslate nohighlight">\(\operatorname{AND}(y, z)\)</span> with multiplication of <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> over <span class="math notranslate nohighlight">\(\mathbb{F}\)</span>.  It is easy to check that the bivariate polynomial <span class="math notranslate nohighlight">\(y \cdot z\)</span> extends the Boolean function <span class="math notranslate nohighlight">\(\operatorname{AND}(y, z)\)</span>, i.e., <span class="math notranslate nohighlight">\(\operatorname{AND}(y, z)=y \cdot z\)</span> for all <span class="math notranslate nohighlight">\(y, z \in\{0,1\}\)</span>.</p></li>
@@ -555,8 +570,8 @@ The goal of #SAT is to compute the <em>number of satisfying assignments</em> of 
 </ul>
 <p>It is easy to check that <span class="math notranslate nohighlight">\(\psi(x)=\phi(x)\)</span> for all <span class="math notranslate nohighlight">\(x \in\{0,1\}^{n}\)</span>, and that the number of gates in the arithmetic circuit <span class="math notranslate nohighlight">\(\psi\)</span> is at most <span class="math notranslate nohighlight">\(3 S\)</span>.</p>
 <p>Then apply the sum-check protocol to compute <span class="math notranslate nohighlight">\(\sum_{x \in\{0,1\}^{n}} g(x)\)</span></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Groth10 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -209,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../notes/RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -554,40 +560,40 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="groth10">
+  <section class="tex2jax_ignore mathjax_ignore" id="groth10">
 <h1>Groth10<a class="headerlink" href="#groth10" title="Permalink to this headline">#</a></h1>
-<p><span id="id1">[<a class="reference internal" href="../../references.html#id4" title="Jens Groth. Short pairing-based non-interactive zero-knowledge arguments. In ASIACRYPT. 2010. URL: https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf.">Gro10</a>]</span></p>
-<div class="section" id="product-argument">
+<p><span id="id1">[<a class="reference internal" href="../../references.html#id8" title="Jens Groth. Short pairing-based non-interactive zero-knowledge arguments. In ASIACRYPT. 2010. URL: https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf.">Gro10</a>]</span></p>
+<section id="product-argument">
 <h2>Product Argument<a class="headerlink" href="#product-argument" title="Permalink to this headline">#</a></h2>
 <p>Consider three commitments</p>
 <div class="math notranslate nohighlight">
 \[
 c=g^{r} \prod_{i \in[n]} g_{i}^{a_{i}} \quad d=g^{s} \prod_{j \in[n]} g_{j(n+1)}^{b_{j}} \quad v=g^{t} \prod_{i \in[n]} g_{i}^{u_{i}} \quad \forall i \in[n]: u_{i}=a_{i} b_{i}
 \]</div>
-</div>
-<div class="section" id="permutation-argument">
+</section>
+<section id="permutation-argument">
 <h2>Permutation Argument<a class="headerlink" href="#permutation-argument" title="Permalink to this headline">#</a></h2>
-</div>
-<div class="section" id="constant-size-nizk-argument-for-circuit-satisfiability">
+</section>
+<section id="constant-size-nizk-argument-for-circuit-satisfiability">
 <h2>Constant Size NIZK Argument for Circuit Satisfiability<a class="headerlink" href="#constant-size-nizk-argument-for-circuit-satisfiability" title="Permalink to this headline">#</a></h2>
 <p>CNARG</p>
 <p>NAND-gate circuit <span class="math notranslate nohighlight">\(C\)</span></p>
-</div>
-<div class="section" id="gm17">
+</section>
+<section id="gm17">
 <h2>GM17<a class="headerlink" href="#gm17" title="Permalink to this headline">#</a></h2>
-<p><span id="id2">[<a class="reference internal" href="../../references.html#id3" title="Jens Groth and Mary Maller. Snarky signatures: minimal signatures of knowledge from simulation-extractable snarks. In Jonathan Katz and Hovav Shacham, editors, Advances in Cryptology – CRYPTO 2017, 581–612. Cham, 2017. Springer International Publishing. URL: https://eprint.iacr.org/2017/540.pdf.">GM17</a>]</span></p>
+<p><span id="id2">[<a class="reference internal" href="../../references.html#id7" title="Jens Groth and Mary Maller. Snarky signatures: minimal signatures of knowledge from simulation-extractable snarks. In Jonathan Katz and Hovav Shacham, editors, Advances in Cryptology – CRYPTO 2017, 581–612. Cham, 2017. Springer International Publishing. URL: https://eprint.iacr.org/2017/540.pdf.">GM17</a>]</span></p>
 <div class="docutils container" id="id3">
 <dl class="citation">
-<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">Gro10</a></span></dt>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id1">Gro10</a></span></dt>
 <dd><p>Jens Groth. Short pairing-based non-interactive zero-knowledge arguments. In <em>ASIACRYPT</em>. 2010. URL: <a class="reference external" href="https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf">https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf</a>.</p>
 </dd>
-<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id2">GM17</a></span></dt>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">GM17</a></span></dt>
 <dd><p>Jens Groth and Mary Maller. Snarky signatures: minimal signatures of knowledge from simulation-extractable snarks. In Jonathan Katz and Hovav Shacham, editors, <em>Advances in Cryptology – CRYPTO 2017</em>, 581–612. Cham, 2017. Springer International Publishing. URL: <a class="reference external" href="https://eprint.iacr.org/2017/540.pdf">https://eprint.iacr.org/2017/540.pdf</a>.</p>
 </dd>
 </dl>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

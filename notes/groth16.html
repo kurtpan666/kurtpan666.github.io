@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Groth16 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -55,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Quadratic Residues Modulo a Prime" href="Quadratic%20Residues%20Modulo%20a%20Prime.html" />
-    <link rel="prev" title="Rescue-Prime Hash Function" href="RescuePrimeHash.html" />
+    <link rel="prev" title="Pinocchio" href="pinocchio.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -486,6 +501,11 @@ title="Print to PDF"
    Proofs for Groth16
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#previous-work">
+   Previous Work
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -515,6 +535,11 @@ title="Print to PDF"
    Proofs for Groth16
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#previous-work">
+   Previous Work
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -525,65 +550,53 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="groth16">
+  <section class="tex2jax_ignore mathjax_ignore" id="groth16">
 <h1>Groth16<a class="headerlink" href="#groth16" title="Permalink to this headline">#</a></h1>
-<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id9" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
-<p>At a high level, given a description of an arithmetic circuit (over the scalar field of a pairing-friendly elliptic curve), a Groth16 proof proves that a circuit is satisfied by a set of public wires (values known to the verifier) and private wires (values which are not known to the verifier, also called <em>witness elements</em>).</p>
-<div class="section" id="groth16-scheme">
+<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id14" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
+<section id="groth16-scheme">
 <h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">#</a></h2>
-<p>The Groth16 scheme defines four procedures:</p>
-<ul class="simple">
-<li><p>Setup(desc) <span class="math notranslate nohighlight">\(\rightarrow\)</span> crs</p>
-<ul>
-<li><p>Generates a common reference string for the given arithmetic circuit description. crs contains the group elements necessary to compute the expressions in <span class="math notranslate nohighlight">\(\mathrm{Groth16.Prove}\)</span> below.</p></li>
-</ul>
-</li>
-<li><p>Prove <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i}\right\}_{i=0}^{\ell},\left\{a_{i}\right\}_{i=\ell+1}^{m}\right) \rightarrow \pi\)</span></p>
-<ul>
-<li><p>Proves the circuit described by crs is satisfied, where <span class="math notranslate nohighlight">\(a_{0}, \ldots, a_{\ell} \in \mathbb{F}\)</span> represent the circuit’s public input wires and <span class="math notranslate nohighlight">\(a_{\ell+1}, \ldots, a_{m} \in \mathbb{F}\)</span> represent the private wires. <span class="math notranslate nohighlight">\(\pi\)</span> is of the form <span class="math notranslate nohighlight">\(\left([\eta]_{1},[\theta]_{2},[\iota]_{1}\right)\)</span>, where</p></li>
-</ul>
-</li>
-</ul>
+<div class="proof algorithm admonition" id="g16-setup">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (<span class="math notranslate nohighlight">\((\sigma, \tau) \leftarrow \operatorname{Setup}(R)\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{gathered}
-\boldsymbol{\eta}=\alpha+\sum_{i=0}^{m} a_{i} u_{i}(X)+r\boldsymbol{\delta} \quad \boldsymbol{\theta}=\beta+\sum_{i=0}^{m} a_{i} v_{i}(X)+s \boldsymbol{\delta} \\
-\iota=\sum_{i=\ell+1}^{m} \frac{a_{i}\left(\beta u_{i}(X)+\alpha v_{i}(X)+w_{i}(X)\right)+h(X) t(X)}{\boldsymbol{\delta}}+\eta s+\theta r-r s \boldsymbol{\delta}
+\alpha, \beta, \gamma, \delta, x \leftarrow \mathbb{Z}_{p}^{*}\\
+\tau=(\alpha, \beta, \gamma, \delta, x)\\
+\boldsymbol{\sigma}_{1}=\left(\begin{array}{l}
+\alpha, \beta, \delta,\left\{x^{i}\right\}_{i=0}^{n-1},\left\{\frac{\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)}{\gamma}\right\}_{i=0}^{\ell} \\
+\left\{\frac{\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)}{\delta}\right\}_{i=\ell+1}^{m},\left\{\frac{x^{i} t(x)}{\delta}\right\}_{i=0}^{n-2}
+\end{array}\right) \\
+\boldsymbol{\sigma}_{2}=\left(\beta, \gamma, \delta,\left\{x^{i}\right\}_{i=0}^{n-1}\right) \\
+\boldsymbol{\sigma}=\left(\left[\boldsymbol{\sigma}_{1}\right]_{1},\left[\boldsymbol{\sigma}_{2}\right]_{2}\right)
 \end{gathered}
 \end{split}\]</div>
-<p>and all otherwise unspecified constants and polynomials come from crs.</p>
-<ul class="simple">
-<li><p>Prepare <span class="math notranslate nohighlight">\(\left(\mathrm{crs},\left\{a_{i_{j}}\right\}_{j=1}^{t}\right) \rightarrow \hat{S}\)</span></p>
-<ul>
-<li><p>Aggregates any subset of public inputs into a single group element called a <em>prepared input</em>: <span class="math notranslate nohighlight">\(\hat{S}=\sum_{j=1}^{t} a_{i_{j}} W_{i_{j}}\)</span>, where <span class="math notranslate nohighlight">\(W_{i}\)</span> are the CRS values whose coefficient represents the value of the <span class="math notranslate nohighlight">\(i\)</span>-th wire of the circuit.</p></li>
-</ul>
-</li>
-<li><p><span class="math notranslate nohighlight">\(\mathrm{Vfy} \left(\mathrm{crs}, \pi,\left\{a_{0}\right\}_{i=0}^{\ell}\right) \rightarrow\{0,1\}\)</span></p>
-<ul>
-<li><p>Verifies the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by checking the relation,</p></li>
-</ul>
-</li>
-</ul>
+</section>
+</div><div class="proof algorithm admonition" id="g16-proof">
+<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (<span class="math notranslate nohighlight">\(\pi \leftarrow \operatorname{Prove}\left(R, \sigma, a_{1}, \ldots, a_{m}\right)\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{gathered}
+A=\alpha+\sum_{i=0}^{m} a_{i} u_{i}(x)+r \delta \\ B=\beta+\sum_{i=0}^{m} a_{i} v_{i}(x)+s \delta \\
+C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\right)+h(x) t(x)}{\delta}+A s+B r-r s \delta \\
+\pi=\left([A]_{1},[C]_{1},[B]_{2}\right)
+\end{gathered}
+\end{split}\]</div>
+</section>
+</div><div class="proof algorithm admonition" id="g16-verify">
+<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (<span class="math notranslate nohighlight">\(0 / 1 \leftarrow \operatorname{Vfy}\left(R, \sigma, a_{1}, \ldots, a_{\ell}, \pi\right)\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
 <div class="math notranslate nohighlight">
 \[
-e(A, B) \stackrel{?}{=} e\left([\alpha]_{1},[\beta]_{2}\right) \cdot e\left(C,[\delta]_{2}\right) \cdot \prod_{i=0}^{\ell} e\left(a_{i} W_{i},[\gamma]_{2}\right)
+[A]_{1} \cdot[B]_{2}=[\alpha]_{1} \cdot[\beta]_{2}+\sum_{i=0}^{\ell} a_{i}\left[\frac{\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)}{\gamma}\right]_{1} \cdot[\gamma]_{2}+[C]_{1} \cdot[\delta]_{2}
 \]</div>
-<p>where <span class="math notranslate nohighlight">\([\alpha]_{1},[\beta]_{2},[\gamma]_{2}\)</span>, and <span class="math notranslate nohighlight">\([\delta]_{2}\)</span> come from crs.</p>
-<p>Vfy permits any subset of the public inputs to be prepared as above. The common case will be where all but the first input is prepared, i.e., calls of the form <span class="math notranslate nohighlight">\(\mathrm{Vfy}\left(\mathrm{crs}, \pi,\left(a_{0}, \hat{S}\right)\right)\)</span>.</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\operatorname{Rerand}(\pi) \rightarrow \pi^{\prime}\)</span></p>
-<ul>
-<li><p>Rerandomizes the proof <span class="math notranslate nohighlight">\(\pi=(A, B, C)\)</span> by sampling <span class="math notranslate nohighlight">\(\zeta, \omega \leftarrow \mathbb{F}\)</span> and computing</p></li>
-</ul>
-</li>
-</ul>
-<div class="math notranslate nohighlight">
-\[
-\pi^{\prime}:=\left(\zeta^{-1} A, \zeta B+\zeta \omega[\delta]_{2}, C+\omega A\right) .
-\]</div>
-<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id10" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
-</div>
-<div class="section" id="proofs-for-groth16">
+</section>
+</div><p><a class="reference internal" href="#g16-proof">Algorithm 2</a></p>
+<hr class="docutils" />
+<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id15" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
+</section>
+<section id="proofs-for-groth16">
 <h2>Proofs for Groth16<a class="headerlink" href="#proofs-for-groth16" title="Permalink to this headline">#</a></h2>
 <p>We now have four different proofs for Groth16.</p>
 <ul class="simple">
@@ -593,8 +606,38 @@ e(A, B) \stackrel{?}{=} e\left([\alpha]_{1},[\beta]_{2}\right) \cdot e\left(C,[\
 <li><p><a class="reference external" href="https://eprint.iacr.org/2021/219.pdf">https://eprint.iacr.org/2021/219.pdf</a></p></li>
 </ul>
 <p>(According to Mary Maller’s talk at zkSummit )</p>
+</section>
+<section id="previous-work">
+<h2>Previous Work<a class="headerlink" href="#previous-work" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><span id="id3">[<a class="reference internal" href="../references.html#id3" title="Joe Kilian. A note on efficient zero-knowledge proofs and arguments (extended abstract). In STOC '92. 1992.">Kil92</a>]</span> gave the first <strong>sublinear communication zero-knowledge argument</strong> that sends fewer bits than the size of the statement to be proved.</p></li>
+<li><p><span id="id4">[<a class="reference internal" href="../references.html#id5" title="Silvio Micali. Computationally sound proofs. SIAM J. Comput., 30:1253-1298, 2000.">Mic00</a>]</span> proposed <strong>sublinear size arguments</strong> by letting the prover in a communication efficient argument compute the verifier’s challenges using a cryptographic function,</p>
+<ul>
+<li><p>(as re-marked in <span id="id5">[<a class="reference internal" href="../references.html#id4" title="Joe Kilian. Improved efficient arguments (preliminary version). In CRYPTO. 1995.">Kil95</a>]</span>) this leads to <strong>sublinear size NIZK proofs</strong> when the interactive argument is public coin and zero-knowledge.</p></li>
+</ul>
+</li>
+</ul>
+<div class="docutils container" id="id6">
+<dl class="citation">
+<dt class="label" id="id20"><span class="brackets"><a class="fn-backref" href="#id2">BKSV21</a></span></dt>
+<dd><p>Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In <em>Financial Cryptography</em>. 2021.</p>
+</dd>
+<dt class="label" id="id19"><span class="brackets"><a class="fn-backref" href="#id1">Gro16</a></span></dt>
+<dd><p>Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, <em>Advances in Cryptology – EUROCRYPT 2016</em>, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id3">Kil92</a></span></dt>
+<dd><p>Joe Kilian. A note on efficient zero-knowledge proofs and arguments (extended abstract). In <em>STOC '92</em>. 1992.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id5">Kil95</a></span></dt>
+<dd><p>Joe Kilian. Improved efficient arguments (preliminary version). In <em>CRYPTO</em>. 1995.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id4">Mic00</a></span></dt>
+<dd><p>Silvio Micali. Computationally sound proofs. <em>SIAM J. Comput.</em>, 30:1253–1298, 2000.</p>
+</dd>
+</dl>
 </div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -623,11 +666,11 @@ e(A, B) \stackrel{?}{=} e\left([\alpha]_{1},[\beta]_{2}\right) \cdot e\left(C,[\
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="RescuePrimeHash.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="pinocchio.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Rescue-Prime Hash Function</p>
+            <p class="prev-next-title">Pinocchio</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="Quadratic%20Residues%20Modulo%20a%20Prime.html" title="next page">

@@ -3,7 +3,6 @@
 ## \#SAT problem
 
 ````{prf:definition} #SAT
-:nonumber: true
 
 Let $\phi$ be any **Boolean formula** on $n$ variables of size $S=\operatorname{poly}(n)$
 The goal of \#SAT is to compute the *number of satisfying assignments* of $\phi$ : 
@@ -16,7 +15,7 @@ $$
 ## The interactive proof for \#SAT
 
 ````{prf:definition} arithmetization
-:nonumber: true
+
 
 The process of replacing the **Boolean formula** $\phi$ with an **arithmetic circuit** $\psi$ computing an **extension polynomial**  $g$ of $\phi$.
 

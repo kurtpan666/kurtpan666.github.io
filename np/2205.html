@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2206 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../notes/RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notes/pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -539,7 +554,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>2206<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-031-06944-4_10">Universally Composable Subversion-Resilient Cryptography</a></p></li>
@@ -555,7 +570,7 @@ and theorems in this paper are modeled in the UC framework. We define the
 ideal functionalities for our real world protocols that also interacts with a sim-
 ulator (mimicking an adversary in real world) such that no PPT (Probabilistic
 Polynomial Time) environment can distinguish between ideal and real worlds.</p>
-<div class="section" id="existing-private-smart-contract-protocols">
+<section id="existing-private-smart-contract-protocols">
 <h2>Existing Private Smart Contract Protocols<a class="headerlink" href="#existing-private-smart-contract-protocols" title="Permalink to this headline">#</a></h2>
 <p>PSC</p>
 <ul class="simple">
@@ -567,9 +582,9 @@ Polynomial Time) environment can distinguish between ideal and real worlds.</p>
 <li><p>Shielded Computations in Smart Contracts</p></li>
 <li><p>ShadowEth</p></li>
 </ul>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="id2">
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id2">
 <h1>2205<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-031-07085-3_21">On the Multi-User Security of Short Schnorr Signatures with Preprocessing</a> BL22</p></li>
@@ -587,7 +602,7 @@ multiple parties and multiple protocols must be thoroughly modeled to realize
 the security. Informally, UC says that if there is an ideal function with the
 desired security properties, and a real protocol that acts the same as the ideal
 function, then the real protocol also has the ideal function’s security properties.</p>
-<p>The Universal Composability (UC) model <span id="id3">[<a class="reference internal" href="../references.html#id7" title="Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. Proceedings 2001 IEEE International Conference on Cluster Computing, pages 136-145, 2001.">Can01</a>, <a class="reference internal" href="../references.html#id6" title="Ran Canetti. Universally composable signature, certification, and authentication. Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004., pages 219-233, 2004.">Can04</a>, <a class="reference internal" href="../references.html#id5" title="Ran Canetti and Marc Fischlin. Universally composable commitments. IACR Cryptol. ePrint Arch., 2001:55, 2001.">CF01</a>, <a class="reference internal" href="../references.html#id4" title="Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, Advances in Cryptology — CRYPTO 2002, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.">DN02</a>]</span> is a framework used to analyze the security of composed protocols that combine multiple protocols together.</p>
+<p>The Universal Composability (UC) model <span id="id3">[<a class="reference internal" href="../references.html#id12" title="Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. Proceedings 2001 IEEE International Conference on Cluster Computing, pages 136-145, 2001.">Can01</a>, <a class="reference internal" href="../references.html#id11" title="Ran Canetti. Universally composable signature, certification, and authentication. Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004., pages 219-233, 2004.">Can04</a>, <a class="reference internal" href="../references.html#id10" title="Ran Canetti and Marc Fischlin. Universally composable commitments. IACR Cryptol. ePrint Arch., 2001:55, 2001.">CF01</a>, <a class="reference internal" href="../references.html#id9" title="Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, Advances in Cryptology — CRYPTO 2002, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.">DN02</a>]</span> is a framework used to analyze the security of composed protocols that combine multiple protocols together.</p>
 <p>In the UC model, there are an ideal system, a real system, and an environment <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> (challengee). <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> ‘s task is to identify which system it is interacting with: ideal or real.</p>
 <p>We say the real system realizes the ideal system if <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> can not identify the correct system with more than <span class="math notranslate nohighlight">\(1 / 2+\epsilon(\lambda)\)</span> probability.</p>
 <p>In that case, informally, Universal Composability says that the real system provides the security properties of the ideal system.</p>
@@ -595,8 +610,8 @@ function, then the real protocol also has the ideal function’s security proper
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/680.pdf">Practical Delegatable Anonymous Credentials From Equivalence Class Signatures</a></p></li>
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/661.pdf">Protego: A Credential Scheme for Permissioned Blockchains</a></p></li>
 </ul>
-<p><span id="id4">[<a class="reference internal" href="../references.html#id12" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
-<p>Gemini: <span id="id5">[<a class="reference internal" href="../references.html#id15" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing. URL: https://link.springer.com/chapter/10.1007/978-3-031-07085-3_15.">BCHO22</a>]</span></p>
+<p><span id="id4">[<a class="reference internal" href="../references.html#id17" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
+<p>Gemini: <span id="id5">[<a class="reference internal" href="../references.html#id20" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing. URL: https://link.springer.com/chapter/10.1007/978-3-031-07085-3_15.">BCHO22</a>]</span></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/arkworks-rs/gemini">ark-gemini</a></p></li>
 </ul>
@@ -604,9 +619,9 @@ function, then the real protocol also has the ideal function’s security proper
 <div><p>The code structure follows the modular design of the protocol, which involves combining an elastic polynomial commitment scheme and an elastic (holographic) PIOP.
 We deem each of the single components of the protocol (the streaming infrastructure, the commitment scheme,and the sub-protocols for sumcheck, tensor check, entry product, lookup protocol, etc.) to be independent interest for future space-efficient projects.</p>
 </div></blockquote>
-<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id6">[<a class="reference internal" href="../references.html#id16" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
+<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id6">[<a class="reference internal" href="../references.html#id21" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
 <p>However, these optimizations typically come at the expense of <strong>space complexity</strong>, which is typically <em>linear</em> in the computation size either due to the use of <em>FFTs</em> or <em>dynamic programming algorithms</em>.</p>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
