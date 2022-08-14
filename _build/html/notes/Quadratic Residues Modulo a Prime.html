@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Quadratic Residues Modulo a Prime &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -478,7 +493,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="quadratic-residues-modulo-a-prime">
+  <section class="tex2jax_ignore mathjax_ignore" id="quadratic-residues-modulo-a-prime">
 <h1>Quadratic Residues Modulo a Prime<a class="headerlink" href="#quadratic-residues-modulo-a-prime" title="Permalink to this headline">#</a></h1>
 <blockquote>
 <div><p>Katz-Lindell 15.4.1</p>
@@ -533,15 +548,15 @@ title="Print to PDF"
 <p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be a prime. Then <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)=x ^ {\frac{p-1}{2}} \bmod p\)</span>.</p>
 </div>
 <div class="proof algorithm admonition" id="qrmodprime">
-<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Deciding quadratic residuosity modulo a prime)</p>
-<div class="algorithm-content section" id="proof-content">
+<p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Deciding quadratic residuosity modulo a prime)</p>
+<section class="algorithm-content" id="proof-content">
 <p><strong>Input</strong>: A prime <span class="math notranslate nohighlight">\(p\)</span>; an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span></p>
 <p><strong>Output</strong>: <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span> (or, equivalently, whether <span class="math notranslate nohighlight">\(x\)</span> is a quadratic residue or quadratic non-residue)</p>
 <p><span class="math notranslate nohighlight">\(b:=\left[x^{\frac{p-1}{2}} \bmod p\right]\)</span></p>
 <p><strong>if</strong> <span class="math notranslate nohighlight">\(b=1\)</span> <strong>return</strong> “quadratic residue”</p>
 <p><strong>else return</strong> “quadratic non-residue”</p>
-</div>
-</div></div>
+</section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {

@@ -26,6 +26,7 @@ parts:
     chapters:
     - file: notes/air
     - file: notes/RescuePrimeHash
+    - file: notes/pinocchio
     - file: notes/groth16
     - file: notes/Quadratic Residues Modulo a Prime
     - file: notes/Schwartz-Zippel-lemma

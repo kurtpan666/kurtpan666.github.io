@@ -35,6 +35,7 @@ Round $i$ of the Rescue-XLIX permutation, with $m=3$.
 ```
 
 ````{prf:algorithm} The Rescue-XLIX permutation
+:nonumber: true
 
 ```python
 def rescue_XLIX_permutation ( parameters , state ) :

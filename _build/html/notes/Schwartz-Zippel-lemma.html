@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Schwartz-Zippel 引理 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -587,7 +602,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="schwartz-zippel">
+  <section class="tex2jax_ignore mathjax_ignore" id="schwartz-zippel">
 <h1>Schwartz-Zippel 引理<a class="headerlink" href="#schwartz-zippel" title="Permalink to this headline">#</a></h1>
 <p>Schwartz-Zippel 引理是关于有限域中的多变量多项式零点个数的紧致上界，具体表述如下：</p>
 <div class="admonition-schwartz-zippel admonition">
@@ -609,20 +624,20 @@ title="Print to PDF"
 Then <span class="math notranslate nohighlight">\(\operatorname{Pr}\left[f\left(x_{1}, \ldots, x_{n}\right)=0\right] \leq d /|S|\)</span>, where the probability is taken over the choice of <span class="math notranslate nohighlight">\(x_{1}, \ldots, x_{n}\)</span> according to <span class="math notranslate nohighlight">\(x_{i} \stackrel{\$}{\leftarrow} d /(p-1)\)</span>.</p>
 <p>For a univariate polynomial <span class="math notranslate nohighlight">\(f \in \mathbb{Z}_{p}[X]\)</span> of degree <span class="math notranslate nohighlight">\(d\)</span>, where <span class="math notranslate nohighlight">\(p\)</span> is prime, let <span class="math notranslate nohighlight">\(x \leftarrow \mathbb{Z}_{p}^{*}\)</span>, then <span class="math notranslate nohighlight">\(\operatorname{Pr}[f(x)=0] \leq\)</span> <span class="math notranslate nohighlight">\(d /(p-1)\)</span>.</p>
 </div>
-<div class="section" id="id1">
+<section id="id1">
 <h2>归纳证明<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<div class="section" id="id2">
+<section id="id2">
 <h3>起始步骤<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <blockquote>
 <div><p><strong>代数基本定理</strong>：n = 1时，上述多项式<span class="math notranslate nohighlight">\(f\)</span> 最多可以有<span class="math notranslate nohighlight">\(d\)</span>个根。</p>
 </div></blockquote>
-<div class="section" id="id3">
+<section id="id3">
 <h4>代数基本定理的归纳证明<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
-<div class="section" id="id4">
+<section id="id4">
 <h5>子起始步骤<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h5>
 <p><span class="math notranslate nohighlight">\(d=0\)</span>, 则 <span class="math notranslate nohighlight">\(f(x)=c_{0}\)</span> ，<span class="math notranslate nohighlight">\(c_{0}\)</span>为非零常数。 <span class="math notranslate nohighlight">\(f(x)\)</span>永远非零，自然有0个根。根的个数不超过<span class="math notranslate nohighlight">\(d\)</span>。</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h5>子递推步骤<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h5>
 <blockquote>
 <div><p>子归纳假设：对整数<span class="math notranslate nohighlight">\(k \geq 0\)</span>，任意<span class="math notranslate nohighlight">\(k\)</span>阶多项式至多有<span class="math notranslate nohighlight">\(k\)</span>个根。</p>
@@ -633,10 +648,10 @@ Then <span class="math notranslate nohighlight">\(\operatorname{Pr}\left[f\left(
 <p>由子归纳假设，<span class="math notranslate nohighlight">\(h(x)\)</span>至多有<span class="math notranslate nohighlight">\(k\)</span>个根。</p>
 <p>再加上<span class="math notranslate nohighlight">\(x-a\)</span>有一个根，则<span class="math notranslate nohighlight">\(f(x)=(x-a) h(x)\)</span>有至多<span class="math notranslate nohighlight">\(k+1\)</span>个根。</p>
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
-</div>
-</div>
-</div>
-<div class="section" id="id6">
+</section>
+</section>
+</section>
+<section id="id6">
 <h3>递推步骤<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <div class="proof admonition" id="proof">
 <p>Proof. 重写<span class="math notranslate nohighlight">\(f\)</span>如下：</p>
@@ -673,9 +688,9 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
 \end{split}\]</div>
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
 </div>
-</div>
-</div>
-<div class="section" id="id7">
+</section>
+</section>
+<section id="id7">
 <h2>直接证明<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <div class="proof admonition" id="proof">
 <p>Proof. 将<span class="math notranslate nohighlight">\(f\)</span>写为<span class="math notranslate nohighlight">\(f=g+h\)</span>，<span class="math notranslate nohighlight">\(g \not \equiv 0\)</span>是<span class="math notranslate nohighlight">\(d\)</span>阶齐次多项式，<span class="math notranslate nohighlight">\(h\)</span>包含所有阶严格小于<span class="math notranslate nohighlight">\(d\)</span>的项。</p>
@@ -693,8 +708,8 @@ f\left(x_{1}, \ldots, x_{n}\right)=\sum_{i=0}^{d} x_{1}^{i} P_{i}\left(x_{2}, \l
 <p>因此，由代数基本定理，每条线的零点最多<span class="math notranslate nohighlight">\(d\)</span>个，则<span class="math notranslate nohighlight">\(f\)</span>在<span class="math notranslate nohighlight">\(S^{n}\)</span>中的总零点至多<span class="math notranslate nohighlight">\(d|S|^{n-1}\)</span>个。</p>
 <p><span class="math notranslate nohighlight">\(\square\)</span></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

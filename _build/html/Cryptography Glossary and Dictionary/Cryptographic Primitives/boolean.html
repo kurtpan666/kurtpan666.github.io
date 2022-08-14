@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Boolean formulae and CNF form &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="../../notes/RescuePrimeHash.html">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../notes/pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -478,18 +493,18 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="boolean-formulae-and-cnf-form">
+  <section class="tex2jax_ignore mathjax_ignore" id="boolean-formulae-and-cnf-form">
 <h1>Boolean formulae and CNF form<a class="headerlink" href="#boolean-formulae-and-cnf-form" title="Permalink to this headline">#</a></h1>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>A <strong>Boolean formula</strong> over the variables <span class="math notranslate nohighlight">\(u_{1}, \ldots, u_{n}\)</span> consists of the variables and the logical operators AND <span class="math notranslate nohighlight">\((\wedge)\)</span>, NOT <span class="math notranslate nohighlight">\((\neg)\)</span> and OR <span class="math notranslate nohighlight">\((\vee)\)</span></p>
 <p><strong>Assignment</strong>: If <span class="math notranslate nohighlight">\(\varphi\)</span> is a Boolean formula over variables <span class="math notranslate nohighlight">\(u_{1}, \ldots, u_{n}\)</span>, and <span class="math notranslate nohighlight">\(z \in\{0,1\}^{n}\)</span>, then <span class="math notranslate nohighlight">\(\varphi(z)\)</span> denotes the value of <span class="math notranslate nohighlight">\(\varphi\)</span> when the variables of <span class="math notranslate nohighlight">\(\varphi\)</span> are assigned the values <span class="math notranslate nohighlight">\(z\)</span> (where we identify 1 with TRUE and 0 with FALSE).</p>
 <p>A formula <span class="math notranslate nohighlight">\(\varphi\)</span> is <em>satisfiable</em> if there there exists some assignment <span class="math notranslate nohighlight">\(z\)</span> such that <span class="math notranslate nohighlight">\(\varphi(z)\)</span> is TRUE. Otherwise, we say that <span class="math notranslate nohighlight">\(\varphi\)</span> is <em>unsatisfiable</em>.</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>A Boolean formula over variables <span class="math notranslate nohighlight">\(u_{1}, \ldots, u_{n}\)</span> is in <strong>CNF form</strong> (Conjunctive Normal Form) if it is an AND of OR’s of variables or their negations.</p>
 <p>A CNF formula has the form</p>
 <div class="math notranslate nohighlight">
@@ -500,8 +515,8 @@ title="Print to PDF"
 <p>The terms <span class="math notranslate nohighlight">\(v_{i_{j}}\)</span> are called the <strong>literals</strong> of the formula and the terms <span class="math notranslate nohighlight">\(\left(\vee_{j} v_{i_{j}}\right)\)</span> are called its <strong>clauses</strong>.</p>
 <p>A <span class="math notranslate nohighlight">\(k \mathrm{CNF}\)</span> is a CNF formula in which all clauses contain at most <span class="math notranslate nohighlight">\(k\)</span> literals.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathrm{SAT}\)</span> be the language of all satisfiable CNF formulae and <span class="math notranslate nohighlight">\(\mathrm{3SAT}\)</span> be the language of all satisfiable 3CNF formulae.</p>
-</div>
-</div></div>
+</section>
+</div></section>
 
     <script type="text/x-thebe-config">
     {

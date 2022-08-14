@@ -4,7 +4,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Rescue-Prime Hash Function &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -37,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -54,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Groth16" href="groth16.html" />
+    <link rel="next" title="Pinocchio" href="pinocchio.html" />
     <link rel="prev" title="Algebraic Intermediate Representation (AIR)" href="air.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -176,6 +177,15 @@ const thebe_selector_output = ".output, .cell_output"
        Groth10
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../Cryptography%20Glossary%20and%20Dictionary/Cryptographic%20Primitives/io.html">
+       Indistinguishability Obfuscation (
+       <span class="math notranslate nohighlight">
+        \(\mathcal{iO}\)
+       </span>
+       )
+      </a>
+     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -200,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Rescue-Prime Hash Function
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pinocchio.html">
+   Pinocchio
   </a>
  </li>
  <li class="toctree-l1">
@@ -525,19 +540,21 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="rescue-prime-hash-function">
+  <section class="tex2jax_ignore mathjax_ignore" id="rescue-prime-hash-function">
 <h1>Rescue-Prime Hash Function<a class="headerlink" href="#rescue-prime-hash-function" title="Permalink to this headline">#</a></h1>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Rescue-Prime is an arithmetization-oriented hash function, meaning that it has a compact description in terms of AIR.</p>
 </div>
-<div class="figure align-default" id="rescue-prime-hash">
+<figure class="align-default" id="rescue-prime-hash">
 <img alt="../_images/rescue-prime-hash.png" src="../_images/rescue-prime-hash.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">The Rescue-Prime hash function with two absorbing iterations.</span><a class="headerlink" href="#rescue-prime-hash" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The Rescue-Prime hash function with two absorbing iterations.</span><a class="headerlink" href="#rescue-prime-hash" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In the <em>absorbing</em> phase, the following iteration is repeated: the next <span class="math notranslate nohighlight">\(r_{p}\)</span> elements from the input sequence are added to the <span class="math notranslate nohighlight">\(r_{p}\)</span> top elements of the state, after which the permutation <span class="math notranslate nohighlight">\(f_{\mathrm{R}^{\text {XLIX }}}\)</span> is applied to the state. This loop runs until all the input elements have been absorbed.</p>
 <p>In the <em>squeezing</em> phase, the top <span class="math notranslate nohighlight">\(r_{p}\)</span> elements of the state are output. In theory, the permutation <span class="math notranslate nohighlight">\(f_{\mathrm{R}^{\text {XLIX }}}\)</span> can be applied to the state iteratively to produce an arbitrarily long sequence of output elements. However, this specification restricts the number of output elements to at most <span class="math notranslate nohighlight">\(r_{p}\)</span>.</p>
-<div class="section" id="the-rescue-xlix-permutation">
+<section id="the-rescue-xlix-permutation">
 <h2>The Rescue-XLIX Permutation<a class="headerlink" href="#the-rescue-xlix-permutation" title="Permalink to this headline">#</a></h2>
 <p>The <strong>Rescue-XLIX permutation</strong> <span class="math notranslate nohighlight">\(f_{R^{\text{XLIX}}}\)</span> consists of <span class="math notranslate nohighlight">\(N\)</span> iterations of the Rescue-XLIX round function.</p>
 <p>A single <strong>round</strong> consists of the following components:</p>
@@ -549,13 +566,15 @@ title="Print to PDF"
 <li><p><em>Linear layer</em>: apply the MDS matrix to the state, through matrix-vector multiplication.</p></li>
 <li><p><em>Round Constants injection</em>: add the next  pre-defined <span class="math notranslate nohighlight">\(m\)</span> constants from the list of round constants <span class="math notranslate nohighlight">\(\left\{C_{i}\right\}_{i=0}^{2 m N-1}\)</span> into the state.</p></li>
 </ol>
-<div class="figure align-default" id="rescuexlixpermutation">
+<figure class="align-default" id="rescuexlixpermutation">
 <img alt="../_images/rescuexlixpermutation.png" src="../_images/rescuexlixpermutation.png" />
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Round <span class="math notranslate nohighlight">\(i\)</span> of the Rescue-XLIX permutation, with <span class="math notranslate nohighlight">\(m=3\)</span>.</span><a class="headerlink" href="#rescuexlixpermutation" title="Permalink to this image">#</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Round <span class="math notranslate nohighlight">\(i\)</span> of the Rescue-XLIX permutation, with <span class="math notranslate nohighlight">\(m=3\)</span>.</span><a class="headerlink" href="#rescuexlixpermutation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="proof algorithm admonition" id="algorithm-0">
-<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (The Rescue-XLIX permutation)</p>
-<div class="algorithm-content section" id="proof-content">
+<p class="admonition-title"><span>Algorithm </span> (The Rescue-XLIX permutation)</p>
+<section class="algorithm-content" id="proof-content">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rescue_XLIX_permutation</span> <span class="p">(</span> <span class="n">parameters</span> <span class="p">,</span> <span class="n">state</span> <span class="p">)</span> <span class="p">:</span>
 	<span class="n">p</span> <span class="p">,</span> <span class="n">m</span> <span class="p">,</span> <span class="n">capacity</span> <span class="p">,</span> <span class="n">security_level</span> <span class="p">,</span> <span class="n">alpha</span> <span class="p">,</span> <span class="n">alphainv</span> <span class="p">,</span> <span class="n">N</span> <span class="p">,</span> <span class="n">MDS</span> <span class="p">,</span> <span class="n">round_constants</span> <span class="o">=</span> <span class="n">parameters</span>
 	<span class="n">Fp</span> <span class="o">=</span> <span class="n">state</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span> <span class="p">()</span>
@@ -585,7 +604,7 @@ title="Print to PDF"
 	<span class="k">return</span> <span class="n">state</span>
 </pre></div>
 </div>
-</div>
+</section>
 </div><p>a Python implementation</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">N</span><span class="p">):</span>
         
@@ -614,19 +633,19 @@ title="Print to PDF"
         <span class="n">state</span> <span class="o">=</span> <span class="p">[</span><span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">round_constants</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="o">+</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">m</span><span class="p">)]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="references">
+</section>
+<section id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://aszepieniec.github.io/stark-anatomy/rescue-prime">Anatomy of a STARK, Part 5: A Rescue-Prime STARK</a></p></li>
-<li><p><span id="id1">[<a class="reference internal" href="../references.html#id11" title="Alan Szepieniec, Tomer Ashur, and Siemen Dhooghe. Rescue-prime: a standard specification (sok). Cryptology ePrint Archive, Paper 2020/1143, 2020. \url https://eprint.iacr.org/2020/1143. URL: https://eprint.iacr.org/2020/1143.">SAD20</a>]</span></p></li>
-<li><p>Rescue <span id="id2">[<a class="reference internal" href="../references.html#id13" title="Abdelrahaman Aly, Tomer Ashur, Eli Ben-Sasson, Siemen Dhooghe, and Alan Szepieniec. Design of symmetric-key primitives for advanced cryptographic protocols. Cryptology ePrint Archive, Paper 2019/426, 2019. \url https://eprint.iacr.org/2019/426. URL: https://eprint.iacr.org/2019/426, doi:10.13154/tosc.v2020.i3.1-45.">AABS+19</a>]</span></p></li>
-<li><p>STARK Friendly Hash: <span id="id3">[<a class="reference internal" href="../references.html#id14" title="Eli Ben-Sasson, Lior Goldberg, and David Levit. Stark friendly hash – survey and recommendation. Cryptology ePrint Archive, Paper 2020/948, 2020. \url https://eprint.iacr.org/2020/948. URL: https://eprint.iacr.org/2020/948.">BSGL20</a>]</span></p></li>
+<li><p><span id="id1">[<a class="reference internal" href="../references.html#id16" title="Alan Szepieniec, Tomer Ashur, and Siemen Dhooghe. Rescue-prime: a standard specification (sok). Cryptology ePrint Archive, Paper 2020/1143, 2020. \url https://eprint.iacr.org/2020/1143. URL: https://eprint.iacr.org/2020/1143.">SAD20</a>]</span></p></li>
+<li><p>Rescue <span id="id2">[<a class="reference internal" href="../references.html#id18" title="Abdelrahaman Aly, Tomer Ashur, Eli Ben-Sasson, Siemen Dhooghe, and Alan Szepieniec. Design of symmetric-key primitives for advanced cryptographic protocols. Cryptology ePrint Archive, Paper 2019/426, 2019. \url https://eprint.iacr.org/2019/426. URL: https://eprint.iacr.org/2019/426, doi:10.13154/tosc.v2020.i3.1-45.">AABS+19</a>]</span></p></li>
+<li><p>STARK Friendly Hash: <span id="id3">[<a class="reference internal" href="../references.html#id19" title="Eli Ben-Sasson, Lior Goldberg, and David Levit. Stark friendly hash – survey and recommendation. Cryptology ePrint Archive, Paper 2020/948, 2020. \url https://eprint.iacr.org/2020/948. URL: https://eprint.iacr.org/2020/948.">BSGL20</a>]</span></p></li>
 <li><p><a class="reference external" href="https://www.youtube.com/watch?v=kyjNH3QorGA&amp;list=PLj80z0cJm8QFnY6VLVa84nr-21DNvjWH7&amp;index=26">zkSummit6: Rescue-Prime: a Standard Specification Alan Szepieniec – AS Discrete Mathematics &amp; Nervos</a></p></li>
 <li><p><a class="reference external" href="https://github.com/maticnetwork/miden/blob/c70995f92c223a0e29f4e891edb0b9a7ac68e31d/core/src/hasher/mod.rs">Implementations of Rescue hash function used by the Miden VM</a></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -662,10 +681,10 @@ title="Print to PDF"
             <p class="prev-next-title">Algebraic Intermediate Representation (AIR)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="groth16.html" title="next page">
+    <a class='right-next' id="next-link" href="pinocchio.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Groth16</p>
+        <p class="prev-next-title">Pinocchio</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
