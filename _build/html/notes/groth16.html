@@ -552,9 +552,9 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="groth16">
 <h1>Groth16<a class="headerlink" href="#groth16" title="Permalink to this headline">#</a></h1>
-<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id14" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
+<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="#id19" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
 <section id="groth16-scheme">
-<h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">#</a></h2>
+<span id="g16"></span><h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">#</a></h2>
 <div class="proof algorithm admonition" id="g16-setup">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (<span class="math notranslate nohighlight">\((\sigma, \tau) \leftarrow \operatorname{Setup}(R)\)</span>)</p>
 <section class="algorithm-content" id="proof-content">
@@ -594,7 +594,7 @@ C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\r
 </section>
 </div><p><a class="reference internal" href="#g16-proof">Algorithm 2</a></p>
 <hr class="docutils" />
-<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id15" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
+<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="#id20" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
 </section>
 <section id="proofs-for-groth16">
 <h2>Proofs for Groth16<a class="headerlink" href="#proofs-for-groth16" title="Permalink to this headline">#</a></h2>
@@ -610,10 +610,10 @@ C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\r
 <section id="previous-work">
 <h2>Previous Work<a class="headerlink" href="#previous-work" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><span id="id3">[<a class="reference internal" href="../references.html#id3" title="Joe Kilian. A note on efficient zero-knowledge proofs and arguments (extended abstract). In STOC '92. 1992.">Kil92</a>]</span> gave the first <strong>sublinear communication zero-knowledge argument</strong> that sends fewer bits than the size of the statement to be proved.</p></li>
-<li><p><span id="id4">[<a class="reference internal" href="../references.html#id5" title="Silvio Micali. Computationally sound proofs. SIAM J. Comput., 30:1253-1298, 2000.">Mic00</a>]</span> proposed <strong>sublinear size arguments</strong> by letting the prover in a communication efficient argument compute the verifier’s challenges using a cryptographic function,</p>
+<li><p><span id="id3">[<a class="reference internal" href="#id8" title="Joe Kilian. A note on efficient zero-knowledge proofs and arguments (extended abstract). In STOC '92. 1992.">Kil92</a>]</span> gave the first <strong>sublinear communication zero-knowledge argument</strong> that sends fewer bits than the size of the statement to be proved.</p></li>
+<li><p><span id="id4">[<a class="reference internal" href="#id10" title="Silvio Micali. Computationally sound proofs. SIAM J. Comput., 30:1253-1298, 2000.">Mic00</a>]</span> proposed <strong>sublinear size arguments</strong> by letting the prover in a communication efficient argument compute the verifier’s challenges using a cryptographic function,</p>
 <ul>
-<li><p>(as re-marked in <span id="id5">[<a class="reference internal" href="../references.html#id4" title="Joe Kilian. Improved efficient arguments (preliminary version). In CRYPTO. 1995.">Kil95</a>]</span>) this leads to <strong>sublinear size NIZK proofs</strong> when the interactive argument is public coin and zero-knowledge.</p></li>
+<li><p>(as re-marked in <span id="id5">[<a class="reference internal" href="#id9" title="Joe Kilian. Improved efficient arguments (preliminary version). In CRYPTO. 1995.">Kil95</a>]</span>) this leads to <strong>sublinear size NIZK proofs</strong> when the interactive argument is public coin and zero-knowledge.</p></li>
 </ul>
 </li>
 </ul>
@@ -636,6 +636,17 @@ C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\r
 </dd>
 </dl>
 </div>
+<div class="proof algorithm admonition" id="algorithm-3">
+<p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (PROVE-EQUAL-NAIVE <span class="math notranslate nohighlight">\(\left(x_{i}, x_{j}\right)\)</span> )</p>
+<section class="algorithm-content" id="proof-content">
+<p>Prove that <span class="math notranslate nohighlight">\(x_{i}=x_{j}\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(P\)</span> sends <span class="math notranslate nohighlight">\(V\)</span> the value of <span class="math notranslate nohighlight">\(x_{i}^{0} \oplus x_{j}^{0}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(V\)</span> uniformly chooses <span class="math notranslate nohighlight">\(b \in\{0,1\}\)</span>, and sends <span class="math notranslate nohighlight">\(b\)</span> to <span class="math notranslate nohighlight">\(P\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(P\)</span> reveals <span class="math notranslate nohighlight">\(x_{i}^{b}\)</span> and <span class="math notranslate nohighlight">\(x_{j}^{b}\)</span>, who accepts iff <span class="math notranslate nohighlight">\(x_{i}^{b} \oplus x_{j}^{b}\)</span> is equal to the value sent in Step 1.</p></li>
+</ol>
+</section>
+</div><p>when you refers to <a class="reference internal" href="#g16"><span class="std std-ref">Groth16</span></a> scheme.</p>
 </section>
 </section>
 
