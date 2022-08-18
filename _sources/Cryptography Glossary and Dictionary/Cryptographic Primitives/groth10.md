@@ -23,3 +23,11 @@ NAND-gate circuit $C$
 ```{bibliography}
 :filter: docname in docnames
 ```
+
+
+## SNARGs in the Random Oracle Model 
+ROM-SNARGs
+
+- {cite}`CY21` have constructed a ROM-SNARG of proof length of $O(\log (t / \varepsilon) \cdot \log t \cdot \log n)$, and hence slightly overcome the "quadratic" barrier.
+
+## SNARGs in Other Models
