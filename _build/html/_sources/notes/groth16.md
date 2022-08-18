@@ -82,11 +82,13 @@ We now have four different proofs for Groth16.
 ```{prf:algorithm} PROVE-EQUAL-NAIVE $\left(x_{i}, x_{j}\right)$ 
 
  Prove that $x_{i}=x_{j}$
-1. $P$ sends $V$ the value of $x_{i}^{0} \oplus x_{j}^{0}$.
+1. $P$ sends $V$ the value $v = x_{i}^{0} \oplus x_{j}^{0}$.
 2. $V$ uniformly chooses $b \in\{0,1\}$, and sends $b$ to $P$.
-3. $P$ reveals $x_{i}^{b}$ and $x_{j}^{b}$, who accepts iff $x_{i}^{b} \oplus x_{j}^{b}$ is equal to the value sent in Step 1.
+3. $P$ reveals $x_{i}^{b}$ and $x_{j}^{b}$, who accepts iff $x_{i}^{b} \oplus x_{j}^{b}=v$.
 
 ```
 
 
 when you refers to [Groth16](g16) scheme.
+
+
