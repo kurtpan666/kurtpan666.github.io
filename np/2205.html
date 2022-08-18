@@ -278,6 +278,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="testipynb.html">
+   Unpacking
+  </a>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="newpapers.html">
    New Papers
@@ -602,7 +607,7 @@ multiple parties and multiple protocols must be thoroughly modeled to realize
 the security. Informally, UC says that if there is an ideal function with the
 desired security properties, and a real protocol that acts the same as the ideal
 function, then the real protocol also has the ideal function’s security properties.</p>
-<p>The Universal Composability (UC) model <span id="id3">[<a class="reference internal" href="../references.html#id12" title="Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. Proceedings 2001 IEEE International Conference on Cluster Computing, pages 136-145, 2001.">Can01</a>, <a class="reference internal" href="../references.html#id11" title="Ran Canetti. Universally composable signature, certification, and authentication. Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004., pages 219-233, 2004.">Can04</a>, <a class="reference internal" href="../references.html#id10" title="Ran Canetti and Marc Fischlin. Universally composable commitments. IACR Cryptol. ePrint Arch., 2001:55, 2001.">CF01</a>, <a class="reference internal" href="../references.html#id9" title="Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, Advances in Cryptology — CRYPTO 2002, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.">DN02</a>]</span> is a framework used to analyze the security of composed protocols that combine multiple protocols together.</p>
+<p>The Universal Composability (UC) model <span id="id3">[<a class="reference internal" href="../references.html#id13" title="Ran Canetti. Universally composable security: a new paradigm for cryptographic protocols. Proceedings 2001 IEEE International Conference on Cluster Computing, pages 136-145, 2001.">Can01</a>, <a class="reference internal" href="../references.html#id12" title="Ran Canetti. Universally composable signature, certification, and authentication. Proceedings. 17th IEEE Computer Security Foundations Workshop, 2004., pages 219-233, 2004.">Can04</a>, <a class="reference internal" href="../references.html#id11" title="Ran Canetti and Marc Fischlin. Universally composable commitments. IACR Cryptol. ePrint Arch., 2001:55, 2001.">CF01</a>, <a class="reference internal" href="../references.html#id10" title="Damgard and Nielsen. Perfect hiding and perfect binding universally composable commitment schemes with constant expansion factor. In Moti Yung, editor, Advances in Cryptology — CRYPTO 2002, 581–596. Berlin, Heidelberg, 2002. Springer Berlin Heidelberg.">DN02</a>]</span> is a framework used to analyze the security of composed protocols that combine multiple protocols together.</p>
 <p>In the UC model, there are an ideal system, a real system, and an environment <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> (challengee). <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> ‘s task is to identify which system it is interacting with: ideal or real.</p>
 <p>We say the real system realizes the ideal system if <span class="math notranslate nohighlight">\(\mathcal{E}\)</span> can not identify the correct system with more than <span class="math notranslate nohighlight">\(1 / 2+\epsilon(\lambda)\)</span> probability.</p>
 <p>In that case, informally, Universal Composability says that the real system provides the security properties of the ideal system.</p>
@@ -610,8 +615,8 @@ function, then the real protocol also has the ideal function’s security proper
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/680.pdf">Practical Delegatable Anonymous Credentials From Equivalence Class Signatures</a></p></li>
 <li><p><a class="reference external" href="https://eprint.iacr.org/2022/661.pdf">Protego: A Credential Scheme for Permissioned Blockchains</a></p></li>
 </ul>
-<p><span id="id4">[<a class="reference internal" href="../references.html#id17" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
-<p>Gemini: <span id="id5">[<a class="reference internal" href="../references.html#id20" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing. URL: https://link.springer.com/chapter/10.1007/978-3-031-07085-3_15.">BCHO22</a>]</span></p>
+<p><span id="id4">[<a class="reference internal" href="../references.html#id18" title="Damiano Abram, Ariel Nof, Claudio Orlandi, Peter Scholl, and Omer Shlomovits. Low-bandwidth threshold ecdsa via pseudorandom correlation generators. Cryptology ePrint Archive, Paper 2021/1587, 2021. \url https://eprint.iacr.org/2021/1587. URL: https://eprint.iacr.org/2021/1587.">ANO+21</a>]</span></p>
+<p>Gemini: <span id="id5">[<a class="reference internal" href="../references.html#id21" title="Jonathan Bootle, Alessandro Chiesa, Yuncong Hu, and Michele Orru. Gemini: elastic snarks for diverse environments. In Orr Dunkelman and Stefan Dziembowski, editors, Advances in Cryptology – EUROCRYPT 2022, 427–457. Cham, 2022. Springer International Publishing. URL: https://link.springer.com/chapter/10.1007/978-3-031-07085-3_15.">BCHO22</a>]</span></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/arkworks-rs/gemini">ark-gemini</a></p></li>
 </ul>
@@ -619,8 +624,26 @@ function, then the real protocol also has the ideal function’s security proper
 <div><p>The code structure follows the modular design of the protocol, which involves combining an elastic polynomial commitment scheme and an elastic (holographic) PIOP.
 We deem each of the single components of the protocol (the streaming infrastructure, the commitment scheme,and the sub-protocols for sumcheck, tensor check, entry product, lookup protocol, etc.) to be independent interest for future space-efficient projects.</p>
 </div></blockquote>
-<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id6">[<a class="reference internal" href="../references.html#id21" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
+<p>There is a long line of work on improving the <strong>time complexity of SNARK provers</strong>, both asymptotically and concretely; this has culminated in SNARKs with <em>linear-time provers</em>. See <span id="id6">[<a class="reference internal" href="../references.html#id22" title="Alexander Golovnev, Jonathan Lee, Srinath Setty, Justin Thaler, and Riad S. Wahby. Brakedown: linear-time and post-quantum snarks for r1cs. Cryptology ePrint Archive, Paper 2021/1043, 2021. \url https://eprint.iacr.org/2021/1043. URL: https://eprint.iacr.org/2021/1043.">GLS+21</a>]</span> and references therein.</p>
 <p>However, these optimizations typically come at the expense of <strong>space complexity</strong>, which is typically <em>linear</em> in the computation size either due to the use of <em>FFTs</em> or <em>dynamic programming algorithms</em>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Document</p></th>
+<th class="head"><p>Modified</p></th>
+<th class="head"><p>Method</p></th>
+<th class="head"><p>Run Time (s)</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>np/testipynb</p></td>
+<td><p>2022-08-18 18:32</p></td>
+<td><p>cache</p></td>
+<td><p>1.4</p></td>
+<td><p>✅</p></td>
+</tr>
+</tbody>
+</table>
 </section>
 
     <script type="text/x-thebe-config">
