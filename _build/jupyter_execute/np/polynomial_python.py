@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Python多项式处理基础
+# # Python多项式处理基础命令
 # [NumPy](https://numpy.org/) 在[Python](https://www.python.org/) 生态中的地位无需再多言，完全可以说「没有NumPy就没有Python在大数据和机器学习领域的流行」。
 # 在NumPy 1.4前，对多项式的操作使用的包是 [numpy.poly1d](https://numpy.org/doc/stable/reference/generated/numpy.poly1d.html#numpy.poly1d) ； NumPy 1.4 后（当下版本1.23），推荐使用更方便易用的包[numpy.polynomial](https://numpy.org/doc/stable/reference/routines.polynomials.package.html#module-numpy.polynomial)。
 # 
