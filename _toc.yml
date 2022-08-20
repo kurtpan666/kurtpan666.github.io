@@ -42,7 +42,7 @@ parts:
   - caption: Others
     chapters:
     - file: references
-    - file: np/testipynb
+    - file: np/polynomial_python
     - file: np/newpapers
       sections:
       - file: np/2205
