@@ -92,3 +92,27 @@ We now have four different proofs for Groth16.
 when you refers to [Groth16](g16) scheme.
 
 
+## Non-interactive Linear Proofs (NILP)
+
+```{prf:algorithm} $(\boldsymbol{\sigma}, \boldsymbol{\tau}) \leftarrow \operatorname{Setup}(R)$
+:label: NILP-setup
+$\boldsymbol{\sigma} \in \mathbb{F}^{m}$ and $\boldsymbol{\tau} \in \mathbb{F}^{n}$
+```
+
+```{prf:algorithm} $\boldsymbol{\pi} \leftarrow \operatorname{Prove}(R, \boldsymbol{\sigma}, \phi, w)$
+:label: NILP-proof
+
+1. $\Pi \leftarrow \operatorname{ProofMatrix}(R, \phi, w)$,  $\Pi \in \mathbb{F}^{k \times m}$.
+2. $\boldsymbol{\pi}=\Pi \boldsymbol{\sigma}$
+```
+
+
+```{prf:algorithm} $0 / 1 \leftarrow \operatorname{Vfy}(R, \boldsymbol{\sigma}, \phi, \pi)$
+:label: NILP-verify
+1.  $t \leftarrow \operatorname{Test}(R, \phi)$ , where $\boldsymbol{t}: \mathbb{F}^{m+k} \rightarrow \mathbb{F}^{\eta}$
+2.  accepts the proof iff $\boldsymbol{t}(\boldsymbol{\sigma}, \boldsymbol{\pi})=\mathbf{0}$.
+```
+
+
+
+
