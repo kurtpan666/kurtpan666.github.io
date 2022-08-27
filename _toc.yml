@@ -50,6 +50,8 @@ parts:
       title: How To Simulate It
     - url: http://nbviewer.org/github/kurtpan666/kurtpan666.github.io/blob/main/pdf/%E6%A0%BC%E5%9F%BA%E7%8E%AF%E7%AD%BE%E5%90%8D%E7%AE%80%E4%BB%8B.pdf
       title: 格基环签名简介
+    - url: http://nbviewer.org/github/kurtpan666/kurtpan666.github.io/blob/main/pdf/YehudaLindell_Crypto22Invited%20talk_MPC.pdf
+      title: The MPC Journey by Yehuda Lindell
 
   - caption: Links
     chapters:
