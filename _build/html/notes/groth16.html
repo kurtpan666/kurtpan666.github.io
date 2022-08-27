@@ -280,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../np/polynomial_python.html">
-   Python多项式处理基础
+   Python多项式处理基础命令
   </a>
  </li>
  <li class="toctree-l1 has-children">
@@ -511,6 +511,11 @@ title="Print to PDF"
    Previous Work
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-interactive-linear-proofs-nilp">
+   Non-interactive Linear Proofs (NILP)
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -545,6 +550,11 @@ title="Print to PDF"
    Previous Work
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-interactive-linear-proofs-nilp">
+   Non-interactive Linear Proofs (NILP)
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -557,7 +567,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="groth16">
 <h1>Groth16<a class="headerlink" href="#groth16" title="Permalink to this headline">#</a></h1>
-<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="../references.html#id15" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
+<p>We briefly describe the trusted-setup zkSNARK scheme defined in <span id="id1">[<a class="reference internal" href="#id20" title="Jens Groth. On the size of pairing-based non-interactive arguments. In Marc Fischlin and Jean-Sébastien Coron, editors, Advances in Cryptology – EUROCRYPT 2016, 305–326. Berlin, Heidelberg, 2016. Springer Berlin Heidelberg.">Gro16</a>]</span></p>
 <section id="groth16-scheme">
 <span id="g16"></span><h2>Groth16 Scheme<a class="headerlink" href="#groth16-scheme" title="Permalink to this headline">#</a></h2>
 <div class="proof algorithm admonition" id="g16-setup">
@@ -599,7 +609,7 @@ C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\r
 </section>
 </div><p><a class="reference internal" href="#g16-proof">Algorithm 2</a></p>
 <hr class="docutils" />
-<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="../references.html#id16" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
+<p>By Theorem 3 in <span id="id2">[<a class="reference internal" href="#id21" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.</p>
 </section>
 <section id="proofs-for-groth16">
 <h2>Proofs for Groth16<a class="headerlink" href="#proofs-for-groth16" title="Permalink to this headline">#</a></h2>
@@ -615,10 +625,10 @@ C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\r
 <section id="previous-work">
 <h2>Previous Work<a class="headerlink" href="#previous-work" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p><span id="id3">[<a class="reference internal" href="../references.html#id4" title="Joe Kilian. A note on efficient zero-knowledge proofs and arguments (extended abstract). In STOC '92. 1992.">Kil92</a>]</span> gave the first <strong>sublinear communication zero-knowledge argument</strong> that sends fewer bits than the size of the statement to be proved.</p></li>
-<li><p><span id="id4">[<a class="reference internal" href="../references.html#id6" title="Silvio Micali. Computationally sound proofs. SIAM J. Comput., 30:1253-1298, 2000.">Mic00</a>]</span> proposed <strong>sublinear size arguments</strong> by letting the prover in a communication efficient argument compute the verifier’s challenges using a cryptographic function,</p>
+<li><p><span id="id3">[<a class="reference internal" href="#id9" title="Joe Kilian. A note on efficient zero-knowledge proofs and arguments (extended abstract). In STOC '92. 1992.">Kil92</a>]</span> gave the first <strong>sublinear communication zero-knowledge argument</strong> that sends fewer bits than the size of the statement to be proved.</p></li>
+<li><p><span id="id4">[<a class="reference internal" href="#id11" title="Silvio Micali. Computationally sound proofs. SIAM J. Comput., 30:1253-1298, 2000.">Mic00</a>]</span> proposed <strong>sublinear size arguments</strong> by letting the prover in a communication efficient argument compute the verifier’s challenges using a cryptographic function,</p>
 <ul>
-<li><p>(as re-marked in <span id="id5">[<a class="reference internal" href="../references.html#id5" title="Joe Kilian. Improved efficient arguments (preliminary version). In CRYPTO. 1995.">Kil95</a>]</span>) this leads to <strong>sublinear size NIZK proofs</strong> when the interactive argument is public coin and zero-knowledge.</p></li>
+<li><p>(as re-marked in <span id="id5">[<a class="reference internal" href="#id10" title="Joe Kilian. Improved efficient arguments (preliminary version). In CRYPTO. 1995.">Kil95</a>]</span>) this leads to <strong>sublinear size NIZK proofs</strong> when the interactive argument is public coin and zero-knowledge.</p></li>
 </ul>
 </li>
 </ul>
@@ -653,6 +663,30 @@ C=\frac{\sum_{i=\ell+1}^{m} a_{i}\left(\beta u_{i}(x)+\alpha v_{i}(x)+w_{i}(x)\r
 </section>
 </div><p>when you refers to <a class="reference internal" href="#g16"><span class="std std-ref">Groth16</span></a> scheme.</p>
 </section>
+<section id="non-interactive-linear-proofs-nilp">
+<h2>Non-interactive Linear Proofs (NILP)<a class="headerlink" href="#non-interactive-linear-proofs-nilp" title="Permalink to this headline">#</a></h2>
+<div class="proof algorithm admonition" id="NILP-setup">
+<p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (<span class="math notranslate nohighlight">\((\boldsymbol{\sigma}, \boldsymbol{\tau}) \leftarrow \operatorname{Setup}(R)\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\boldsymbol{\sigma} \in \mathbb{F}^{m}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\tau} \in \mathbb{F}^{n}\)</span></p>
+</section>
+</div><div class="proof algorithm admonition" id="NILP-proof">
+<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (<span class="math notranslate nohighlight">\(\boldsymbol{\pi} \leftarrow \operatorname{Prove}(R, \boldsymbol{\sigma}, \phi, w)\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Pi \leftarrow \operatorname{ProofMatrix}(R, \phi, w)\)</span>,  <span class="math notranslate nohighlight">\(\Pi \in \mathbb{F}^{k \times m}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\boldsymbol{\pi}=\Pi \boldsymbol{\sigma}\)</span></p></li>
+</ol>
+</section>
+</div><div class="proof algorithm admonition" id="NILP-verify">
+<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (<span class="math notranslate nohighlight">\(0 / 1 \leftarrow \operatorname{Vfy}(R, \boldsymbol{\sigma}, \phi, \pi)\)</span>)</p>
+<section class="algorithm-content" id="proof-content">
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(t \leftarrow \operatorname{Test}(R, \phi)\)</span> , where <span class="math notranslate nohighlight">\(\boldsymbol{t}: \mathbb{F}^{m+k} \rightarrow \mathbb{F}^{\eta}\)</span></p></li>
+<li><p>accepts the proof iff <span class="math notranslate nohighlight">\(\boldsymbol{t}(\boldsymbol{\sigma}, \boldsymbol{\pi})=\mathbf{0}\)</span>.</p></li>
+</ol>
+</section>
+</div></section>
 </section>
 
     <script type="text/x-thebe-config">
