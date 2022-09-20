@@ -1,6 +1,7 @@
 # My Translation List
 
 ## 2022
+- [使用 SNARKs 批处理 ECDSA 签名](https://hackmd.io/@Kurt-Pan/rJnYJ3pli)
 - [zkREPL：一个zkSNARKs 在线开发环境](https://mirror.xyz/kurtpan.eth/p89deHnegBVlTojNxoICr2x4_FfWGWst4IbCEhuQ-RE)
 - [泡菜证明初步之PLONK](https://hackmd.io/@Kurt-Pan/HJwx3TFPq)
 - [零知识前沿：关于SNARKs，STARKs和未来的应用](https://mirror.xyz/kurtpan.eth/3LGWyYvebFzuCtjL392VyXxJCdqWyaCv7iAdSeOY3fw)
