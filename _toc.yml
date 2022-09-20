@@ -61,7 +61,7 @@ parts:
       title: The MPC Journey by Yehuda Lindell
     - file: confs
       sections:
-      - url: https://crypto.iacr.org/2022/acceptedpapers.php
+      - url: https://crypto.iacr.org/2022/program.php
         title: Crypto 2022
       - url: https://asiaccs2022.conferenceservice.jp/
         title: ASIACCS 2022

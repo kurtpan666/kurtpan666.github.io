@@ -1,6 +1,9 @@
 # My Posts
 
 ## 2022
+- [再谈王垠《再谈“P vs NP”问题》](https://mirror.xyz/kurtpan.eth/hOy9dRQe3eFHl464tf0DIX9MJb3CRliM1Zn0HhBRTXw)
+- [花好月圆是极好的，可我偏偏不喜欢](https://ktp.prose.sh/moomfest)
+- [简洁性随感](https://ktp.prose.sh/succinct)
 - [A minimalist proof of 1+2+3+...=-1/12](https://hackmd.io/@Kurt-Pan/rJmlBD00q)
 - [prose.sh：给黑客的极简博客发布平台](https://ktp.prose.sh/prose)
 - [关于Groth16延展攻击](https://hackmd.io/@Kurt-Pan/ryRK70v05)
