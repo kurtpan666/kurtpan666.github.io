@@ -1,4 +1,4 @@
-> v220706
+> v220921
 # Kurt Pan's Awesome Zero-Knowledge Proofs (2022) 
 
 ## Textbooks & Courses
@@ -21,6 +21,18 @@
 - [A survey of elliptic curves for proof systems](https://eprint.iacr.org/2022/586) AHG22
 - [简洁非交互零知识证明综述](http://www.jcr.cacrnet.org.cn/CN/Y2022/V9/I3/379) 李威翰,张宗洋,周子博,邓燚22
 
+## Other Aggregators
+- [Zero Knowledge Canon](https://a16zcrypto.com/zero-knowledge-canon/)
+- [ZKP Knowledge Base](https://kb.delendum.xyz/zk-knowledge)
+- [Awesome Zero Knowledge](https://github.com/ventali/awesome-zk)
+- [ZK Research](https://0xst.notion.site/ZK-Research-94ba836c3b2a4e2491a871364ee5b13b)
+- [zkp.science](https://zkp.science/)
+- [matter-labs: Awesome zero knowledge proofs (zkp)](https://github.com/matter-labs/awesome-zero-knowledge-proofs)
+- [awesome-zkevm](https://github.com/LuozhuZhang/awesome-zkevm)
+- [Awesome PLONK](https://github.com/fluidex/awesome-plonk)
+- [Awesome HALO2](https://github.com/adria0/awesome-halo2)
+- [Zero-Knowledge Proofs Starter Pack](https://ethresear.ch/t/zero-knowledge-proofs-starter-pack/4519)
+
 ## Papers
 
 ### 2022
@@ -38,10 +50,13 @@
 
 
 ### 2020 and before
-- [GGPR13](https://eprint.iacr.org/2012/215.pdf) (2013)
+
 - [Pinocchio](https://eprint.iacr.org/2013/279.pdf) (2013)
 - [C∅C∅](https://eprint.iacr.org/2015/1093.pdf) (2015)
+
+- [GGPR13](https://eprint.iacr.org/2012/215.pdf) (2013)
 - [Groth16](https://eprint.iacr.org/2016/260.pdf) (2016)
+
 - [Aurora](https://eprint.iacr.org/2018/828.pdf) (2018)
 - [STARK](https://eprint.iacr.org/2018/046.pdf) (2018)
 - [Sonic](https://eprint.iacr.org/2019/099.pdf) (2019)
@@ -54,7 +69,28 @@
 - [Quarks](https://eprint.iacr.org/2020/1275.pdf) (2020)
 - [ZEXE](https://eprint.iacr.org/2018/962.pdf) (S&P 2020)
 
+```{list-table}
+:header-rows: 1
 
+* - Index
+  - Title
+  - Author
+* - IKO07
+  - [Efficient Arguments without Short PCPs](https://web.cs.ucla.edu/~rafail/PUBLIC/79.pdf)
+  - Yuval Ishai, Eyal Kushilevitz, and Rafail Ostrovsky
+* - GGPR13
+  - [Quadratic Span Programs and Succinct NIZKs without PCPs](https://eprint.iacr.org/2012/215.pdf)
+  - Rosario Gennaro, Craig Gentry, Bryan Parno, and Mariana Raykova
+* - Groth16
+  - [On the Size of Pairing-based Non-interactive Arguments](https://eprint.iacr.org/2016/260.pdf)
+  - Jens Groth
+* - Marlin/CHM+19
+  - [Marlin: Preprocessing zkSNARKs with Universal and Updatable SRS](https://eprint.iacr.org/2019/1047.pdf)
+  - Alessandro Chiesa, Yuncong Hu, Mary Maller, Pratyush Mishra, Psi Vesely, and Nicholas Ward
+* - PlonK/GWC19
+  - [PlonK: Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge](https://eprint.iacr.org/2019/953.pdf)
+  - Ariel Gabizon, Zachary Williamson, and Oana Ciobotaru
+```
 
 ## Posts
 - [Interactive zero knowledge 3-colorability demonstration](http://web.mit.edu/~ezyang/Public/graph/svg.html)
@@ -157,12 +193,3 @@
 - [0xPARC](https://0xparc.org/blog/)
 - [ZPrize](https://www.zprize.io/)
 
-## Other Aggregators
-- [Awesome Zero Knowledge](https://github.com/ventali/awesome-zk)
-- [ZK Research](https://0xst.notion.site/ZK-Research-94ba836c3b2a4e2491a871364ee5b13b)
-- [zkp.science](https://zkp.science/)
-- [matter-labs: Awesome zero knowledge proofs (zkp)](https://github.com/matter-labs/awesome-zero-knowledge-proofs)
-- [awesome-zkevm](https://github.com/LuozhuZhang/awesome-zkevm)
-- [Awesome PLONK](https://github.com/fluidex/awesome-plonk)
-- [Awesome HALO2](https://github.com/adria0/awesome-halo2)
-- [Zero-Knowledge Proofs Starter Pack](https://ethresear.ch/t/zero-knowledge-proofs-starter-pack/4519)
