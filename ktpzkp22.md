@@ -148,6 +148,7 @@
 - [The Noir Programming Language](https://noir-lang.github.io/book/index.html)
 
 ## Libraries 
+- https://github.com/orgs/zkcrypto/repositories
 - [zkp libraries in Rust](https://cryptography.rs/#zero-knowledge-proofs)
 - [arkworks](http://arkworks.rs) Rust
 - [bellman](https://github.com/zkcrypto/bellman) Rust

@@ -1,6 +1,7 @@
 # My Translation List
 
 ## 2022
+- [为什么从业者应当关心通用可组合性](https://ktp.prose.sh/uc)
 - [使用 SNARKs 批处理 ECDSA 签名](https://hackmd.io/@Kurt-Pan/rJnYJ3pli)
 - [zkREPL：一个zkSNARKs 在线开发环境](https://mirror.xyz/kurtpan.eth/p89deHnegBVlTojNxoICr2x4_FfWGWst4IbCEhuQ-RE)
 - [泡菜证明初步之PLONK](https://hackmd.io/@Kurt-Pan/HJwx3TFPq)
