@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Quadratic Residues Modulo a Prime &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>White-Box Weak SE of Groth16 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Schwartz-Zippel 引理" href="Schwartz-Zippel-lemma.html" />
-    <link rel="prev" title="White-Box Weak SE of Groth16" href="groth16_WBWSE.html" />
+    <link rel="next" title="Quadratic Residues Modulo a Prime" href="Quadratic%20Residues%20Modulo%20a%20Prime.html" />
+    <link rel="prev" title="Groth16" href="groth16.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -222,13 +222,13 @@ const thebe_selector_output = ".output, .cell_output"
    Groth16
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="groth16_WBWSE.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    White-Box Weak SE of Groth16
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Quadratic%20Residues%20Modulo%20a%20Prime.html">
    Quadratic Residues Modulo a Prime
   </a>
  </li>
@@ -447,7 +447,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/notes/Quadratic Residues Modulo a Prime.md"
+        <a href="../_sources/notes/groth16_WBWSE.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -496,7 +496,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Quadratic Residues Modulo a Prime</h1>
+                <h1>White-Box Weak SE of Groth16</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -508,70 +508,102 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="quadratic-residues-modulo-a-prime">
-<h1>Quadratic Residues Modulo a Prime<a class="headerlink" href="#quadratic-residues-modulo-a-prime" title="Permalink to this headline">#</a></h1>
-<blockquote>
-<div><p>Katz-Lindell 15.4.1</p>
-</div></blockquote>
-<p>In a group <span class="math notranslate nohighlight">\(\mathbb{G}\)</span>, an element <span class="math notranslate nohighlight">\(y \in \mathbb{G}\)</span> is a <strong>quadratic residue</strong> if there exists an <span class="math notranslate nohighlight">\(x \in \mathbb{G}\)</span> with <span class="math notranslate nohighlight">\(x^{2}=y\)</span>.</p>
-<p>In this case, we call <span class="math notranslate nohighlight">\(x\)</span> a <strong>square root</strong> of <span class="math notranslate nohighlight">\(y\)</span>.</p>
-<p>An element that is not a quadratic residue is called a <strong>quadratic non-residue</strong>.</p>
-<p>In an abelian group, the set of quadratic residues forms a subgroup.</p>
-<p>In the specific case of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span>, we have that <span class="math notranslate nohighlight">\(y\)</span> is a quadratic residue if there exists an <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(x^{2}=y \bmod p\)</span>.</p>
-<div class="admonition-proposition admonition">
-<p class="admonition-title">Proposition</p>
-<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be prime. Every quadratic residue in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> has exactly two square roots.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="white-box-weak-se-of-groth16">
+<h1>White-Box Weak SE of Groth16<a class="headerlink" href="#white-box-weak-se-of-groth16" title="Permalink to this headline">#</a></h1>
+<p>This section shows that <a class="reference internal" href="groth16.html#g16"><span class="std std-ref">Groth16</span></a> is <em>white-box weakly simulation extractable</em>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The content here is excerpted almost verbatim from the paper <span id="id1">[<a class="reference internal" href="../references.html#id16" title="Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In Financial Cryptography. 2021.">BKSV21</a>]</span> for learning purposes. All copyrights belong to the original author.</p>
+<p>We also omit the definitions involved, which will be supplemented successively in the future.</p>
 </div>
-<p>Let <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}: \mathbb{Z}_{p}^{*} \rightarrow \mathbb{Z}_{p}^{*}\)</span> be the function  <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}(x) \stackrel{\text { def }}{=}\left[x^{2} \bmod p\right]\)</span>.</p>
-<p>The above shows that <span class="math notranslate nohighlight">\(\mathrm{sq}_{p}\)</span> is a two-to-one function when <span class="math notranslate nohighlight">\(p&gt;2\)</span> is prime.</p>
-<p>This immediately implies that <em>exactly half the elements of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> are quadratic residues</em>.</p>
-<p>We denote the set of quadratic residues modulo <span class="math notranslate nohighlight">\(p\)</span> by <span class="math notranslate nohighlight">\(\mathcal{Q} \mathcal{R}_{p}\)</span>, and the set of quadratic non-residues by <span class="math notranslate nohighlight">\(\mathcal{Q} \mathcal{N} \mathcal{R}_{p}\)</span>.</p>
-<p>We have just seen that for <span class="math notranslate nohighlight">\(p&gt;2\)</span> prime</p>
-<div class="math notranslate nohighlight">
-\[
-\left|\mathcal{Q} \mathcal{R}_{p}\right|=\left|\mathcal{Q N} \mathcal{R}_{p}\right|=\frac{\left|\mathbb{Z}_{p}^{*}\right|}{2}=\frac{p-1}{2} .
-\]</div>
-<p>Define <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span>, the <strong>Jacobi symbol</strong> of <span class="math notranslate nohighlight">\(x\)</span> modulo <span class="math notranslate nohighlight">\(p\)</span>, as follows.</p>
-<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be prime, and <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span>. Then</p>
+</aside>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span>Theorem </span> (Groth16 is WB-W-SE)</p>
+<section class="theorem-content" id="proof-content">
+<p>Assume that <span class="math notranslate nohighlight">\(\left\{u_i(x)\right\}_{i=0}^l\)</span> are linearly independent and <span class="math notranslate nohighlight">\(\operatorname{Span}\left\{u_i(x)\right\}_{i=0}^l \cap \operatorname{Span}\left\{u_i(x)\right\}_{i=l+1}^m=\emptyset\)</span>.</p>
+<p>Then <a class="reference internal" href="groth16.html#g16"><span class="std std-ref">Groth16</span></a> achieves <strong>weak white-box SE</strong> against algebraic adversaries under the <span class="math notranslate nohighlight">\((2 n-1, n-1)\)</span>-dlog assumption.</p>
+</section>
+</div><div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The proof splits in two branches:</p>
+<p>We show that either <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> uses simulated elements, and in this case it can only use them for a single simulation query <span class="math notranslate nohighlight">\(k\)</span>, or it does not use them at all. In particular, this implies that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> cannot combine several elements from different queries algebraically for the <span class="math notranslate nohighlight">\(\pi\)</span> it submits.</p>
+<p>We then argue that the non-simulation case reduces to knowledge soundness, and in the simulation case we show that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> supplies <span class="math notranslate nohighlight">\(\phi\)</span> that is equal to one of the simulated instances, which proves that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> reuses a simulated proof, potentially randomized.</p>
+</div>
+<div class="proof admonition" id="proof">
+<p>Proof. Let <span class="math notranslate nohighlight">\(q\)</span> denote the number of simulation queries of <span class="math notranslate nohighlight">\(\mathcal{A}\)</span>, and <span class="math notranslate nohighlight">\(\left\{a_{i, j}\right\}_{j=0}^l\)</span> denote the instance for the <span class="math notranslate nohighlight">\(i\)</span> th query. We now add the three proof elements <span class="math notranslate nohighlight">\(\left[\tilde{a}_i\right]_1,\left[\tilde{b}_i\right]_2,\left[\tilde{c}_i\right]_1\)</span> revealed in each simulation to the list of elements that <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> can use as an algebraic extraction basis: <span class="math notranslate nohighlight">\(\tilde{a}_i=\mu_i, \tilde{b}_i=\nu_i\)</span>, and <span class="math notranslate nohighlight">\(\tilde{c}_i=\left(\mu_i \nu_i-\alpha \beta-\sum_{j=0}^l a_{i, j}\left(\beta u_j(x)+\alpha v_j(x)+\right.\right.\)</span> <span class="math notranslate nohighlight">\(\left.\left.w_j(x)\right)\right) / \delta\)</span>. We write out the representation of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B(C\)</span> follows the same pattern as <span class="math notranslate nohighlight">\(A)\)</span> from the verification equation as the linear combination of the public CRS and new simulated proof elements:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\mathcal{J}_{p}(x) \stackrel{\text { def }}{=}\left\{\begin{array}{l}
-+1 \text { if } x \text { is a quadratic residue modulo } p \\
--1 \text { if } x \text { is not a quadratic residue modulo } p .
-\end{array}\right.
+\begin{aligned}
+&amp;A=\cdots+\sum_{i=1}^q A_{8, i} \mu_i+\sum_{i=1}^q A_{9, i} \frac{\mu_i \nu_i-\alpha \beta-\sum_{j=0}^l a_{i, j}\left(\beta u_j(x)+\alpha v_j(x)+w_j(x)\right)}{\delta} \\
+&amp;B=\cdots+\sum_{i=1}^q B_{5, i} \nu_i
+\end{aligned}
 \end{split}\]</div>
-<p>The notation can be extended in the natural way for any <span class="math notranslate nohighlight">\(x\)</span> relatively prime to <span class="math notranslate nohighlight">\(p\)</span> by setting <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x) \stackrel{\text { def }}{=} \mathcal{J}_{p}([x \bmod p])\)</span>.</p>
-<hr class="docutils" />
-<p>Can we characterize the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> ?</p>
-<p>We begin with the fact that <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> is a cyclic group of order <span class="math notranslate nohighlight">\(p-1\)</span> .</p>
-<p>Let <span class="math notranslate nohighlight">\(g\)</span> be a generator of <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span>.</p>
-<p>This means that</p>
+<p>Our goal is to reduce the theorem to the knowledge-soundness case by restricting the coefficients related to the new simulated proofs variables, namely <span class="math notranslate nohighlight">\(A_{8, i}, A_{9, i}, B_{5, i}, C_{8, i}, C_{9, i}\)</span>.</p>
+<p>We will show that a successful <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> must either reuse one of the simulated proofs (potentially randomizing it), or it must not have used any simulation-related variables, thus allowing for the reuse of the extraction argument from knowledge soundness.</p>
+<p>We start by inspecting coefficients of the following monomials (affected by simulated proofs):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{cc}
+\alpha \beta \text { in } A B-C \delta: A_1 B_1-\sum_{i=1}^q A_{9, i} B_3+\sum_{i=1}^q C_{9, i}=1 &amp; \mu_i \beta \text { in } A B: A_{8, i} B_1=0 \\
+\mu_i \nu_j(i \neq j) \text { in } A B: A_{8, i} B_{5, j}=0 &amp; \mu_i \gamma \text { in } A B: A_{8, i} B_2=0 \\
+\mu_i \nu_i \text { in } A B-C \delta: A_{9, i} B_3+A_{8, i} B_{5, i}-C_{9, i}=0 &amp; \mu_i \delta \text { in } A B-C \delta: A_{8, i} B_3-C_{8, i}=0 \\
+\mu_i \nu_i \nu_j / \delta \text { in } A B: A_{9, i} B_{5, j}=0 &amp; \nu_i \alpha \text { in } A B: B_{5, i} A_1=0 \\
+\mu_i \nu_i \beta / \delta \text { in } A B: A_{9, i} B_1=0 &amp; \nu_i \beta \text { in } A B: B_{5, i} A_2=0 \\
+&amp; \nu_i \delta \text { in } A B: B_{5, i} A_3=0
+\end{array}
+\end{split}\]</div>
+<p>First, we show that all <span class="math notranslate nohighlight">\(A_{9, i}=0\)</span>. Assume the contrary: <span class="math notranslate nohighlight">\(A_{9, k} \neq 0\)</span> for some <span class="math notranslate nohighlight">\(k\)</span>. Then from Equation <span class="math notranslate nohighlight">\(\left(\mu_k \nu_k \nu_j / \delta\right)\)</span> for all <span class="math notranslate nohighlight">\(j: B_{5, j}=0\)</span>. From Equation <span class="math notranslate nohighlight">\(\left(\mu_i \nu_i\right)\)</span> for all <span class="math notranslate nohighlight">\(i\)</span> we have that <span class="math notranslate nohighlight">\(C_{9, i}=\)</span> <span class="math notranslate nohighlight">\(A_{9, i} B_3\)</span>, which, substituted into Equation <span class="math notranslate nohighlight">\((\alpha \beta)\)</span> give us <span class="math notranslate nohighlight">\(A_1 B_1=1\)</span>. Hence <span class="math notranslate nohighlight">\(B_1 \neq 0\)</span>, but from Equation <span class="math notranslate nohighlight">\(\left(\mu_k \nu_k \beta / \delta\right)\)</span> we see that <span class="math notranslate nohighlight">\(A_{9, k} B_1=0\)</span>, but neither <span class="math notranslate nohighlight">\(A_{9, k}\)</span> nor <span class="math notranslate nohighlight">\(B_1\)</span> is zero, a contradiction.</p>
+<p>Thus, all <span class="math notranslate nohighlight">\(A_{9, i}=0\)</span>, and furthermore Equation <span class="math notranslate nohighlight">\((\alpha \beta)\)</span> simplifies to <span class="math notranslate nohighlight">\(A_1 B_1+\sum_{i=1}^q C_{9, i}=1\)</span> and Equation <span class="math notranslate nohighlight">\(\left(\mu_i \nu_i\right)\)</span> simplifies to <span class="math notranslate nohighlight">\(A_{8, i} B_{5, i}=C_{9, i}\)</span>.</p>
+<p>We now show, that if at least one <span class="math notranslate nohighlight">\(A_{8, k} \neq 0\)</span>, then <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> reuses the <span class="math notranslate nohighlight">\(k\)</span> th simulated proof, and otherwise if all <span class="math notranslate nohighlight">\(A_{8, i}=0\)</span> it does not use any simulation-related elements.</p>
+<ul class="simple">
+<li><p>Assume, first, that all <span class="math notranslate nohighlight">\(A_{8, i}=0\)</span> : From Equation <span class="math notranslate nohighlight">\(\left(\mu_i \nu_i\right)\)</span> all <span class="math notranslate nohighlight">\(C_{9, i}=0\)</span>. Then, <span class="math notranslate nohighlight">\(A_1 B_1=1\)</span> by Equation <span class="math notranslate nohighlight">\((\alpha \beta)\)</span>, so from Equation <span class="math notranslate nohighlight">\(\left(\nu_i \alpha\right)\)</span> all <span class="math notranslate nohighlight">\(B_{5, i}=0\)</span> (since <span class="math notranslate nohighlight">\(A_1 \neq 0\)</span> ), and from Equation <span class="math notranslate nohighlight">\(\left(\mu_i \delta\right)\)</span> all <span class="math notranslate nohighlight">\(C_{8, i}=0\)</span> because all <span class="math notranslate nohighlight">\(A_{8, i}=0\)</span>. We now have cancelled all the simulation-related variables, and thus <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> does not use simulation queries when constructing its proof, and we can reduce the proof to the knowledge soundness case.</p></li>
+<li><p>Assume, otherwise, that at least one <span class="math notranslate nohighlight">\(A_{8, k} \neq 0\)</span> : Then <span class="math notranslate nohighlight">\(B_1=B_2=0\)</span> from Equation <span class="math notranslate nohighlight">\(\left(\mu_k \beta\right)\)</span> and Equation <span class="math notranslate nohighlight">\(\left(\mu_k \gamma\right.\)</span> ). For all <span class="math notranslate nohighlight">\(j \neq k\)</span> from Equation <span class="math notranslate nohighlight">\(\left(\mu_k \nu_j\right)\)</span> we have <span class="math notranslate nohighlight">\(B_{5, j}=0\)</span>, and since <span class="math notranslate nohighlight">\(C_{9, j}=B_{5, j} A_{8, j}\)</span>, all <span class="math notranslate nohighlight">\(C_{9, j}=0\)</span> for <span class="math notranslate nohighlight">\(j \neq k\)</span> too. From Equation <span class="math notranslate nohighlight">\((\alpha \beta)\)</span> we obtain <span class="math notranslate nohighlight">\(C_{9, k}=1\)</span>, thus <span class="math notranslate nohighlight">\(B_{5, k}=1 / A_{8, k}\)</span> by Equation <span class="math notranslate nohighlight">\(\left(\mu_i \nu_i\right)\)</span>. Since now <span class="math notranslate nohighlight">\(B_{5, k} \neq 0\)</span>, from the Equations <span class="math notranslate nohighlight">\(\left(\nu_k \alpha\right),\left(\nu_k \beta\right)\)</span>, <span class="math notranslate nohighlight">\(\left(\nu_k \delta\right)\)</span> we have <span class="math notranslate nohighlight">\(A_1=A_2=A_3=0\)</span>. Thus, we are only left with exactly one nonzero triple <span class="math notranslate nohighlight">\(\left(A_{8, k}, B_{5, k}, C_{9, k}\right)\)</span>, which means <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> has used at most one simulated proof number <span class="math notranslate nohighlight">\(k\)</span>, not being able to combine several simulated proofs into one.
+We next look at additional coefficients related to monomials that include <span class="math notranslate nohighlight">\(\nu_k\)</span> and <span class="math notranslate nohighlight">\(\mu_k\)</span>. From Equations <span class="math notranslate nohighlight">\(\left(\nu_i \beta / \delta\right),\left(\nu_i \alpha / \delta\right),\left(\nu_i / \delta\right)\)</span> we have <span class="math notranslate nohighlight">\(\sum_{i=l+1}^m A_{6, i}\left(\beta u_i(x)+\alpha v_i(x)+w_i(x)\right) / \delta+\sum_{i=0}^{n-2} A_{7, i} x^i t(x) / \delta=\)</span> 0 (related terms of <span class="math notranslate nohighlight">\(A\)</span> are the only terms matching this <span class="math notranslate nohighlight">\(\nu_i\)</span> in <span class="math notranslate nohighlight">\(B\)</span> ):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+\nu_k \beta / \delta \text { in } A B: &amp;\left(\sum_{j=l+1}^m A_{6, j} u_j(x)-\sum_{i=1}^q \underline{A_{9, i}} \sum_{j=0}^l u_j(x)\right) B_{5, k}=0 \Longrightarrow \sum_{j=l+1}^m A_{6, j} u_j(x)=0 \\
+\nu_k \alpha / \delta \text { in } A B: &amp;\left(\sum_{j=l+1}^m A_{6, j} v_j(x)-\sum_{i=1}^q \underline{A_{9, i}} \sum_{j=0}^l v_j(x)\right) B_{5, k}=0 \Longrightarrow \sum_{j=l+1}^m A_{6, j} v_j(x)=0 \\
+\nu_k / \delta \text { in } A B &amp;\left(\sum_{j=l+1}^m A_{6, j} w_j(x)+\sum_{i=0}^{n-2} A_{7, i} x^i t(x)-\sum_{i=1}^q \underline{A_{9, i}} \sum_{j=0}^l w_j(x)\right) B_{5, k}=0 \\
+&amp;\left.\Longrightarrow \sum_{j=l+1}^m A_{6, j} w_j(x)=0 \wedge \sum_{i=0}^{n-2} A_{7, i} x^i t(x)=0 \text { (different powers of } x\right)
+\end{aligned}
+\end{split}\]</div>
+<p>Similarly, from Equations <span class="math notranslate nohighlight">\(\left(\nu_i \beta / \gamma\right),\left(\nu_i \alpha / \gamma\right),\left(\nu_i / \gamma\right)\)</span> we have <span class="math notranslate nohighlight">\(\sum_{i=0}^l A_{5, i}\left(\beta u_i(x) / \gamma\right)=\sum_{i=0}^l A_{5, i}\left(\alpha v_i(x) / \gamma\right)=\)</span> <span class="math notranslate nohighlight">\(\sum_{i=0}^l A_{5, i}\left(w_i(x) / \gamma\right)=0(\)</span> the coefficients are also extracted from <span class="math notranslate nohighlight">\(A B)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp;\nu_k \beta / \gamma \text { in } A B:\left(\sum_{j=0}^l A_{5, j} u_j(x)\right) B_{5, k}=0 \Longrightarrow \sum_{j=0}^l A_{5, j} u_j(x)=0 \\
+&amp;\nu_k \alpha / \gamma \text { in } A B:\left(\sum_{j=0}^l A_{5, j} v_j(x)\right) B_{5, k}=0 \Longrightarrow \sum_{j=0}^l A_{5, j} v_j(x)=0 \\
+&amp;\nu_k / \gamma \text { in } A B:\left(\sum_{j=0}^m A_{5, j} w_j(x)\right) B_{5, k}=0 \Longrightarrow \sum_{j=l+1}^m A_{5, j} w_j(x)=0
+\end{aligned}
+\end{split}\]</div>
+<p>Because of Equation <span class="math notranslate nohighlight">\(\left(\nu_k\right)\)</span> and Equation <span class="math notranslate nohighlight">\(\left(\mu_k\right)\)</span> we have <span class="math notranslate nohighlight">\(\sum_{i=0}^{n-1} A_{4, i} x^i=0\)</span> and <span class="math notranslate nohighlight">\(\sum_{i=0}^{n-1} B_{4, i} x^i=0\)</span> related terms cancelled as well:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{Z}_{p}^{*}=\left\{g^{0}, g^{1}, g^{2}, \ldots, g^{\frac{p-1}{2}-1}, g^{\frac{p-1}{2}}, g^{\frac{p-1}{2}+1}, \ldots, g^{p-2}\right\}
+\nu_k \text { in } A B:\left(\sum_{i=0}^n A_{4, i} x^i\right) B_{5, k}=0 \Longrightarrow \sum_{i=0}^n A_{4, i} x^i=0
 \]</div>
-<p>(recall that <span class="math notranslate nohighlight">\(p\)</span> is odd, so <span class="math notranslate nohighlight">\(p-1\)</span> is even).</p>
-<p>Squaring each element in this list and reducing modulo <span class="math notranslate nohighlight">\(p-1\)</span> in the exponent  yields a list of all the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> :</p>
 <div class="math notranslate nohighlight">
 \[
-\mathcal{Q} \mathcal{R}_{p}=\left\{g^{0}, g^{2}, g^{4}, \ldots, g^{p-3}, g^{0}, g^{2}, \ldots, g^{p-3}\right\}
+\mu_k \text { in } A B:\left(\sum_{i=0}^{n-1} B_{4, i} x^i\right) A_{8, k}=0 \Longrightarrow \sum_{i=0}^{n-1} B_{4, i} x^i=0
 \]</div>
-<p>Each quadratic residue appears twice in this list. Therefore, the quadratic residues in <span class="math notranslate nohighlight">\(\mathbb{Z}_{p}^{*}\)</span> are exactly those elements that can be written as <span class="math notranslate nohighlight">\(g^{i}\)</span> with <span class="math notranslate nohighlight">\(i \in\{0, \ldots, p-2\}\)</span> an even integer.</p>
-<p>The above characterization leads to a simple way to compute the Jacobi symbol and thus tell whether an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span> is a quadratic residue or not.</p>
-<div class="admonition-proposition admonition">
-<p class="admonition-title">Proposition</p>
-<p>Let <span class="math notranslate nohighlight">\(p&gt;2\)</span> be a prime. Then <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)=x ^ {\frac{p-1}{2}} \bmod p\)</span>.</p>
+<p>Which also implies <span class="math notranslate nohighlight">\(A_{4, i}=B_{4, i}=0\)</span> for all <span class="math notranslate nohighlight">\(i\)</span>. We now focus on the first critical equation, <span class="math notranslate nohighlight">\(\beta\)</span>, which has the same elements as in the KS case, except for the additional <span class="math notranslate nohighlight">\(C_{9, i}\)</span>. Its left side vanishes completely, and on the right we have exactly one additional simulated instance wires set corresponding to <span class="math notranslate nohighlight">\(C_{9, k}=1\)</span> :</p>
+<div class="math notranslate nohighlight">
+\[
+0=\sum_{i=0}^l a_i u_i(x)+\sum_{i=l+1}^m C_{6, i} u_i(x)-\sum_{i=0}^l a_{k, i} u_i(x)
+\]</div>
+<p>Because of disjointness <span class="math notranslate nohighlight">\({ }^{11}\)</span> between <span class="math notranslate nohighlight">\(u_i(x)\)</span> for witness and instance sets of indices we have both <span class="math notranslate nohighlight">\(\sum_{i=0}^l\left(a_i-a_{k, i}\right) u_i(x)=0\)</span> and <span class="math notranslate nohighlight">\(\sum_{i=l+1}^m C_{6, i} u_i(x)=0\)</span>, thus also <span class="math notranslate nohighlight">\(a_i=a_{k, i}\)</span> because of the linear independence of the first set. Then <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> has reused the simulated instance <span class="math notranslate nohighlight">\(\phi_k=\left\{a_{k, i}\right\}_{i=0}^l\)</span>, which concludes the proof.</p>
 </div>
-<div class="proof algorithm admonition" id="qrmodprime">
-<p class="admonition-title"><span class="caption-number">Algorithm 8 </span> (Deciding quadratic residuosity modulo a prime)</p>
-<section class="algorithm-content" id="proof-content">
-<p><strong>Input</strong>: A prime <span class="math notranslate nohighlight">\(p\)</span>; an element <span class="math notranslate nohighlight">\(x \in \mathbb{Z}_{p}^{*}\)</span></p>
-<p><strong>Output</strong>: <span class="math notranslate nohighlight">\(\mathcal{J}_{p}(x)\)</span> (or, equivalently, whether <span class="math notranslate nohighlight">\(x\)</span> is a quadratic residue or quadratic non-residue)</p>
-<p><span class="math notranslate nohighlight">\(b:=\left[x^{\frac{p-1}{2}} \bmod p\right]\)</span></p>
-<p><strong>if</strong> <span class="math notranslate nohighlight">\(b=1\)</span> <strong>return</strong> “quadratic residue”</p>
-<p><strong>else return</strong> “quadratic non-residue”</p>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id17"><span class="brackets"><a class="fn-backref" href="#id1">BKSV21</a></span></dt>
+<dd><p>Karim Baghery, Markulf Kohlweiss, Janno Siim, and Mikhail Volkhov. Another look at extraction and randomization of groth's zk-snark. In <em>Financial Cryptography</em>. 2021.</p>
+</dd>
+</dl>
+</div>
 </section>
-</div></section>
 
     <script type="text/x-thebe-config">
     {
@@ -600,17 +632,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="groth16_WBWSE.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="groth16.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">White-Box Weak SE of Groth16</p>
+            <p class="prev-next-title">Groth16</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="Schwartz-Zippel-lemma.html" title="next page">
+    <a class='right-next' id="next-link" href="Quadratic%20Residues%20Modulo%20a%20Prime.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Schwartz-Zippel 引理</p>
+        <p class="prev-next-title">Quadratic Residues Modulo a Prime</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

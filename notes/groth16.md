@@ -55,6 +55,11 @@ $$
 
 
 By Theorem 3 in {cite}`BKS21` , the output of Rerand is statistically indistinguishable from a fresh proof of the same underlying statement.
+::::{margin}
+:::{note}
+space here is too *narrow* to jot down for $x^n+y^n=z^n$
+:::
+::::
 
 
 ## Proofs for Groth16
