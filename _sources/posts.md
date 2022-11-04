@@ -1,6 +1,8 @@
 # My Posts
 
 ## 2022
+- [BLS签名形式化安全证明（十四行诗版）](https://hackmd.io/@Kurt-Pan/BkC5qHMBj)
+- [一个对SDH问题解的ZKPoK协议](https://hackmd.io/@Kurt-Pan/HJG2eayQi)
 - [密码学答疑系列（1）：困难假设和安全模型的强弱以及安全归约的方向](https://hackmd.io/@Kurt-Pan/B1ZhpjAWj)
 - [再谈王垠《再谈“P vs NP”问题》](https://mirror.xyz/kurtpan.eth/hOy9dRQe3eFHl464tf0DIX9MJb3CRliM1Zn0HhBRTXw)
 - [花好月圆是极好的，可我偏偏不喜欢](https://ktp.prose.sh/moomfest)
@@ -15,3 +17,4 @@
 
 ## 2021
 - [Schnorr签名再思考](https://mp.weixin.qq.com/s/DxWhqRjqCt9H491UVQF8Jw)
+- [如何模拟：模拟证明技术教程（视频）](https://www.youtube.com/watch?v=Jz0c3T0Kbes)

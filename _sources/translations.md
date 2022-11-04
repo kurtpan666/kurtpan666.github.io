@@ -1,6 +1,7 @@
 # My Translation List
 
 ## 2022
+- [哈希到secp256k1椭圆曲线](https://hackmd.io/@Kurt-Pan/SJ8Sd7U4o)
 - [使用零知识证明对抗虚假信息](https://hackmd.io/@Kurt-Pan/H1w687BMj)
 - [为什么从业者应当关心通用可组合性](https://ktp.prose.sh/uc)
 - [使用 SNARKs 批处理 ECDSA 签名](https://hackmd.io/@Kurt-Pan/rJnYJ3pli)
