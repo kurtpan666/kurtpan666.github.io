@@ -19,6 +19,7 @@ parts:
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/fstransform
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/groth10
           - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/io
+          - file: Cryptography Glossary and Dictionary/Cryptographic Primitives/pairing
       - file: Cryptography Glossary and Dictionary/Cryptographic Protocols/index
 
     
