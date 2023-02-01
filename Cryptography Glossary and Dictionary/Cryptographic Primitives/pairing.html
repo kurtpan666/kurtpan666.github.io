@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Groth10 &#8212; Kurt Pan&#39;s Crypto Notes</title>
+    <title>配对或双线性映射 &#8212; Kurt Pan&#39;s Crypto Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,12 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Indistinguishability Obfuscation (\(\mathcal{iO}\))" href="io.html" />
-    <link rel="prev" title="The Fiat-Shamir Transformation" href="fstransform.html" />
+    <link rel="next" title="Cryptographic Protocols" href="../Cryptographic%20Protocols/index.html" />
+    <link rel="prev" title="Indistinguishability Obfuscation (\(\mathcal{iO}\))" href="io.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -172,8 +170,8 @@ const thebe_selector_output = ".output, .cell_output"
        The Fiat-Shamir Transformation
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="groth10.html">
        Groth10
       </a>
      </li>
@@ -186,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
        )
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="pairing.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        配对或双线性映射
       </a>
      </li>
@@ -452,7 +450,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Primitives/groth10.md"
+        <a href="../../_sources/Cryptography Glossary and Dictionary/Cryptographic Primitives/pairing.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -489,110 +487,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product-argument">
-   Product Argument
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#permutation-argument">
-   Permutation Argument
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constant-size-nizk-argument-for-circuit-satisfiability">
-   Constant Size NIZK Argument for Circuit Satisfiability
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gm17">
-   GM17
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#snargs-in-the-random-oracle-model">
-   SNARGs in the Random Oracle Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#snargs-in-other-models">
-   SNARGs in Other Models
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Groth10</h1>
+                <h1>配对或双线性映射</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#product-argument">
-   Product Argument
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#permutation-argument">
-   Permutation Argument
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#constant-size-nizk-argument-for-circuit-satisfiability">
-   Constant Size NIZK Argument for Circuit Satisfiability
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gm17">
-   GM17
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#snargs-in-the-random-oracle-model">
-   SNARGs in the Random Oracle Model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#snargs-in-other-models">
-   SNARGs in Other Models
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -600,52 +511,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="groth10">
-<h1>Groth10<a class="headerlink" href="#groth10" title="Permalink to this headline">#</a></h1>
-<p><span id="id1">[<a class="reference internal" href="../../references.html#id9" title="Jens Groth. Short pairing-based non-interactive zero-knowledge arguments. In ASIACRYPT. 2010. URL: https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf.">Gro10</a>]</span></p>
-<section id="product-argument">
-<h2>Product Argument<a class="headerlink" href="#product-argument" title="Permalink to this headline">#</a></h2>
-<p>Consider three commitments</p>
-<div class="math notranslate nohighlight">
-\[
-c=g^{r} \prod_{i \in[n]} g_{i}^{a_{i}} \quad d=g^{s} \prod_{j \in[n]} g_{j(n+1)}^{b_{j}} \quad v=g^{t} \prod_{i \in[n]} g_{i}^{u_{i}} \quad \forall i \in[n]: u_{i}=a_{i} b_{i}
-\]</div>
-</section>
-<section id="permutation-argument">
-<h2>Permutation Argument<a class="headerlink" href="#permutation-argument" title="Permalink to this headline">#</a></h2>
-</section>
-<section id="constant-size-nizk-argument-for-circuit-satisfiability">
-<h2>Constant Size NIZK Argument for Circuit Satisfiability<a class="headerlink" href="#constant-size-nizk-argument-for-circuit-satisfiability" title="Permalink to this headline">#</a></h2>
-<p>CNARG</p>
-<p>NAND-gate circuit <span class="math notranslate nohighlight">\(C\)</span></p>
-</section>
-<section id="gm17">
-<h2>GM17<a class="headerlink" href="#gm17" title="Permalink to this headline">#</a></h2>
-<p><span id="id2">[<a class="reference internal" href="../../references.html#id8" title="Jens Groth and Mary Maller. Snarky signatures: minimal signatures of knowledge from simulation-extractable snarks. In Jonathan Katz and Hovav Shacham, editors, Advances in Cryptology – CRYPTO 2017, 581–612. Cham, 2017. Springer International Publishing. URL: https://eprint.iacr.org/2017/540.pdf.">GM17</a>]</span></p>
-<div class="docutils container" id="id3">
-<dl class="citation">
-<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id25">CY21</a></span></dt>
-<dd><p>Alessandro Chiesa and Eylon Yogev. Subquadratic snargs in the random oracle model. In Tal Malkin and Chris Peikert, editors, <em>Advances in Cryptology – CRYPTO 2021</em>, 711–741. Cham, 2021. Springer International Publishing. URL: <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-3-030-84242-0_25">https://link.springer.com/chapter/10.1007/978-3-030-84242-0_25</a>.</p>
-</dd>
-<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id1">Gro10</a></span></dt>
-<dd><p>Jens Groth. Short pairing-based non-interactive zero-knowledge arguments. In <em>ASIACRYPT</em>. 2010. URL: <a class="reference external" href="https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf">https://www.iacr.org/archive/asiacrypt2010/6477323/6477323.pdf</a>.</p>
-</dd>
-<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">GM17</a></span></dt>
-<dd><p>Jens Groth and Mary Maller. Snarky signatures: minimal signatures of knowledge from simulation-extractable snarks. In Jonathan Katz and Hovav Shacham, editors, <em>Advances in Cryptology – CRYPTO 2017</em>, 581–612. Cham, 2017. Springer International Publishing. URL: <a class="reference external" href="https://eprint.iacr.org/2017/540.pdf">https://eprint.iacr.org/2017/540.pdf</a>.</p>
-</dd>
-</dl>
-</div>
-</section>
-<section id="snargs-in-the-random-oracle-model">
-<h2>SNARGs in the Random Oracle Model<a class="headerlink" href="#snargs-in-the-random-oracle-model" title="Permalink to this headline">#</a></h2>
-<p>ROM-SNARGs</p>
-<ul class="simple">
-<li><p><span id="id25">[<a class="reference internal" href="../../references.html#id2" title="Alessandro Chiesa and Eylon Yogev. Subquadratic snargs in the random oracle model. In Tal Malkin and Chris Peikert, editors, Advances in Cryptology – CRYPTO 2021, 711–741. Cham, 2021. Springer International Publishing. URL: https://link.springer.com/chapter/10.1007/978-3-030-84242-0_25.">CY21</a>]</span> have constructed a ROM-SNARG of proof length of <span class="math notranslate nohighlight">\(O(\log (t / \varepsilon) \cdot \log t \cdot \log n)\)</span>, and hence slightly overcome the “quadratic” barrier.</p></li>
-</ul>
-</section>
-<section id="snargs-in-other-models">
-<h2>SNARGs in Other Models<a class="headerlink" href="#snargs-in-other-models" title="Permalink to this headline">#</a></h2>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>配对或双线性映射<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p><a class="reference external" href="https://alinush.github.io/2022/12/31/pairings-or-bilinear-maps.html">https://alinush.github.io/2022/12/31/pairings-or-bilinear-maps.html</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -675,17 +543,17 @@ c=g^{r} \prod_{i \in[n]} g_{i}^{a_{i}} \quad d=g^{s} \prod_{j \in[n]} g_{j(n+1)}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="fstransform.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="io.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Fiat-Shamir Transformation</p>
+            <p class="prev-next-title">Indistinguishability Obfuscation (<span class="math notranslate nohighlight">\(\mathcal{iO}\)</span>)</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="io.html" title="next page">
+    <a class='right-next' id="next-link" href="../Cryptographic%20Protocols/index.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Indistinguishability Obfuscation (<span class="math notranslate nohighlight">\(\mathcal{iO}\)</span>)</p>
+        <p class="prev-next-title">Cryptographic Protocols</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
